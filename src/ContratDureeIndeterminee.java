@@ -1,4 +1,6 @@
 package src;
+import src.Employe;
+
 import java.time.LocalDate;
 public class ContratDureeIndeterminee {
     private Integer idContrat;
@@ -6,3 +8,4 @@ public class ContratDureeIndeterminee {
     private Integer numeroContrat;
     private Employe employe;
 }
+

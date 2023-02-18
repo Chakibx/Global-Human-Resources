@@ -7,7 +7,6 @@ public class Employe {
     private Integer telephone;
     private String adresse;
     private LocalDate dateDeNaissance;
-    private LocalDate dateEmbauche;
     private String Diplome;
     private Departement departement;
     private Poste poste;

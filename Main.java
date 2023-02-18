@@ -1,7 +1,5 @@
-package sourceFiles;
-
 public class Main {
     public void main(String[] args){
-        System.out.println("Bonjour");
+        System.out.println("bonjour");
     }
 }

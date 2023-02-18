@@ -1,0 +1,21 @@
+INSERT INTO Employe VALUES(203982939,'Hall','Greta','5-761-357-3780','Caslon   Way','2/15/1971','Technical college',2,16);
+INSERT INTO Employe VALUES(1952165108,'Shepherd','Rocco','2-802-325-4476','Ellerslie Boulevard','5/23/1994','Graduate school',2,7);
+INSERT INTO Employe VALUES(270355181,'Turner','Tiffany','3-740-486-6488','Boadicea   Hill','1/19/1989','Technical college',1,16);
+INSERT INTO Employe VALUES(538384402,'Lane','Chadwick','2-717-408-1247','Caroline  Walk','2/5/1990','Public university',2,9);
+INSERT INTO Employe VALUES(1752187008,'Harrington','Robyn','3-703-772-1116','Beatty  Crossroad','1/18/1998','Corporate university',1,3);
+INSERT INTO Employe VALUES(901557075,'Riley','Marla','4-662-524-4604','Clissold  Drive','8/25/1985','University college',2,13);
+INSERT INTO Employe VALUES(747827661,'Garcia','Tony','8-140-582-8038','Arctic   Alley','11/2/1972','Middle school',3,15);
+INSERT INTO Employe VALUES(885191085,'Zaoui','Aiden','4-601-816-1853','South Walk','1/21/1986','Technical college',3,12);
+INSERT INTO Employe VALUES(358380370,'Stewart','William','0-406-386-4684','Ben   Drive','10/8/1972','High school',1,9);
+INSERT INTO Employe VALUES(125938245,'Reynolds','Roger','3-187-678-3380','Queen Caroline   Alley','12/30/1999','Corporate university',3,16);
+INSERT INTO Employe VALUES(1989964980,'Neville','Joseph','5-687-082-0383','Balfe   Alley','4/27/1998','Middle school',2,19);
+INSERT INTO Employe VALUES(1085027115,'Broomfield','Johnathan','0-148-230-3311','Rosewood Lane','6/17/1973','Public university',1,3);
+INSERT INTO Employe VALUES(996650350,'Morris','Ramon','0-867-376-1726','Blackall   Route','3/24/1982','Gymnasium',3,18);
+INSERT INTO Employe VALUES(1596018652,'Ward','Tom','7-028-361-5157','Belgrave  Hill','8/14/1977','Public university',1,14);
+INSERT INTO Employe VALUES(931809994,'Farrow','Joyce','2-025-502-3078','Bletchley   Avenue','5/26/1994','Middle school',3,16);
+INSERT INTO Employe VALUES(840703775,'Parsons','Mary','8-245-525-3885','Adelaide  Grove','2/24/1987','University-preparatory school',2,15);
+INSERT INTO Employe VALUES(1530574299,'Glass','Danielle','3-852-626-8555','Cleaver Avenue','2/8/1990','Technical college',2,10);
+INSERT INTO Employe VALUES(677199164,'Baldwin','Scarlett','1-441-063-2282','Sundown Rue','11/20/1980','High school',3,16);
+INSERT INTO Employe VALUES(1563451107,'Vallory','Selena','6-546-354-0100','Belmore  Walk','3/6/1986','University-preparatory school',1,12);
+INSERT INTO Employe VALUES(90372759,'Wright','Irene','8-613-485-3774','Thurloe   Street','11/29/1991','Middle school',2,13);
+

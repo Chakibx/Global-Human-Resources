@@ -1,21 +1,24 @@
-INSERT INTO Employe VALUES(203982939,'Hall','Greta','5-761-357-3780','Caslon   Way','2/15/1971','Technical college',2,16);
-INSERT INTO Employe VALUES(1952165108,'Shepherd','Rocco','2-802-325-4476','Ellerslie Boulevard','5/23/1994','Graduate school',2,7);
-INSERT INTO Employe VALUES(270355181,'Turner','Tiffany','3-740-486-6488','Boadicea   Hill','1/19/1989','Technical college',1,16);
-INSERT INTO Employe VALUES(538384402,'Lane','Chadwick','2-717-408-1247','Caroline  Walk','2/5/1990','Public university',2,9);
-INSERT INTO Employe VALUES(1752187008,'Harrington','Robyn','3-703-772-1116','Beatty  Crossroad','1/18/1998','Corporate university',1,3);
-INSERT INTO Employe VALUES(901557075,'Riley','Marla','4-662-524-4604','Clissold  Drive','8/25/1985','University college',2,13);
-INSERT INTO Employe VALUES(747827661,'Garcia','Tony','8-140-582-8038','Arctic   Alley','11/2/1972','Middle school',3,15);
-INSERT INTO Employe VALUES(885191085,'Zaoui','Aiden','4-601-816-1853','South Walk','1/21/1986','Technical college',3,12);
-INSERT INTO Employe VALUES(358380370,'Stewart','William','0-406-386-4684','Ben   Drive','10/8/1972','High school',1,9);
-INSERT INTO Employe VALUES(125938245,'Reynolds','Roger','3-187-678-3380','Queen Caroline   Alley','12/30/1999','Corporate university',3,16);
-INSERT INTO Employe VALUES(1989964980,'Neville','Joseph','5-687-082-0383','Balfe   Alley','4/27/1998','Middle school',2,19);
-INSERT INTO Employe VALUES(1085027115,'Broomfield','Johnathan','0-148-230-3311','Rosewood Lane','6/17/1973','Public university',1,3);
-INSERT INTO Employe VALUES(996650350,'Morris','Ramon','0-867-376-1726','Blackall   Route','3/24/1982','Gymnasium',3,18);
-INSERT INTO Employe VALUES(1596018652,'Ward','Tom','7-028-361-5157','Belgrave  Hill','8/14/1977','Public university',1,14);
-INSERT INTO Employe VALUES(931809994,'Farrow','Joyce','2-025-502-3078','Bletchley   Avenue','5/26/1994','Middle school',3,16);
-INSERT INTO Employe VALUES(840703775,'Parsons','Mary','8-245-525-3885','Adelaide  Grove','2/24/1987','University-preparatory school',2,15);
-INSERT INTO Employe VALUES(1530574299,'Glass','Danielle','3-852-626-8555','Cleaver Avenue','2/8/1990','Technical college',2,10);
-INSERT INTO Employe VALUES(677199164,'Baldwin','Scarlett','1-441-063-2282','Sundown Rue','11/20/1980','High school',3,16);
-INSERT INTO Employe VALUES(1563451107,'Vallory','Selena','6-546-354-0100','Belmore  Walk','3/6/1986','University-preparatory school',1,12);
-INSERT INTO Employe VALUES(90372759,'Wright','Irene','8-613-485-3774','Thurloe   Street','11/29/1991','Middle school',2,13);
+INSERT INTO employe (idEmploye, nom, prenom, telephone, adresse, dateDeNaissance, diplome, idDepartement, idPoste)
+VALUES
+    (1, 'Smith', 'John', '555-1234', '123 Main St, Anytown USA', '1990-01-01', 'master', 1, 1),
+    (2, 'Johnson', 'Emily', '555-5678', '456 Elm St, Anytown USA', '1985-02-01', 'licence', 2, 2),
+    (3, 'Williams', 'Michael', '555-9012', '789 Oak St, Anytown USA', '1987-03-01', 'bts', 3, 3),
+    (4, 'Brown', 'Jennifer', '555-3456', '321 Maple St, Anytown USA', '1992-04-01', 'bts', 4, 4),
+    (5, 'Jones', 'Robert', '555-7890', '654 Pine St, Anytown USA', '1988-05-01', 'bts', 1, 5),
+    (6, 'Miller', 'Amanda', '555-2345', '987 Cedar St, Anytown USA', '1995-06-01', 'licence', 2, 6),
+    (7, 'Davis', 'Matthew', '555-6789', '654 Birch St, Anytown USA', '1984-07-01', 'bts', 3, 7),
+    (8, 'Garcia', 'Isabella', '555-0123', '321 Willow St, Anytown USA', '1991-08-01', 'licence', 4, 8),
+    (9, 'Martinez', 'Daniel', '555-4567', '987 Oak St, Anytown USA', '1986-09-01', 'master', 1, 9),
+    (10, 'Smith', 'Olivia', '555-8901', '654 Elm St, Anytown USA', '1989-10-01', 'master', 2, 10),
+    (11, 'Johnson', 'Noah', '555-2345', '987 Maple St, Anytown USA', '1993-11-01', 'master', 3, 11),
+    (12, 'Williams', 'Sophia', '555-6789', '654 Oak St, Anytown USA', '1987-12-01', 'master', 4, 12),
+    (13, 'Brown', 'Liam', '555-0123', '321 Pine St, Anytown USA', '1986-01-01', 'master', 1, 13),
+    (14, 'Jones', 'Emma', '555-4567', '987 Cedar St, Anytown USA', '1994-02-01', 'licence', 2, 14),
+    (15, 'Miller', 'William', '555-8901', '654 Birch St, Anytown USA', '1990-03-01', 'master', 3, 15),
+    (16, 'Davis', 'Madison', '555-2345', '987 Willow St, Anytown USA', '1991-04-01', 'master', 4, 16),
+    (17, 'Smith', 'Jennifer', '123-456-7890', '456 Oak Ave, Los Angeles, CA', '1985-02-01', 'Licence', 6, 17),
+    (18, 'Williams', 'David', '123-456-7890', '789 Pine St, San Francisco, CA', '1987-03-01', 'BTS', 7, 18),
+    (19, 'Brown', 'Jessica', '123-456-7890', '321 Maple Ave, Chicago, IL', '1992-04-01', 'BTS', 8, 19),
+    (20, 'Jones', 'Michael', '123-456-7890', '654 Cedar St, Houston, TX', '1988-05-01', 'BTS', 5, 20);
+
 

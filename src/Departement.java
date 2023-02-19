@@ -1,7 +1,7 @@
 package src;
 
 public class Departement {
-    private Integer codeDepartement;
+    private Integer idDepartement;
     private String nomDepartement;
     private SiteDeTravail siteDeTravail;
 }

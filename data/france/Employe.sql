@@ -1,21 +1,22 @@
-INSERT INTO Employe VALUES(203982939,'Hall','Greta','5-761-357-3780','Caslon   Way','2/15/1971','Technical college',2,16);
-INSERT INTO Employe VALUES(1952165108,'Shepherd','Rocco','2-802-325-4476','Ellerslie Boulevard','5/23/1994','Graduate school',2,7);
-INSERT INTO Employe VALUES(270355181,'Turner','Tiffany','3-740-486-6488','Boadicea   Hill','1/19/1989','Technical college',1,16);
-INSERT INTO Employe VALUES(538384402,'Lane','Chadwick','2-717-408-1247','Caroline  Walk','2/5/1990','Public university',2,9);
-INSERT INTO Employe VALUES(1752187008,'Harrington','Robyn','3-703-772-1116','Beatty  Crossroad','1/18/1998','Corporate university',1,3);
-INSERT INTO Employe VALUES(901557075,'Riley','Marla','4-662-524-4604','Clissold  Drive','8/25/1985','University college',2,13);
-INSERT INTO Employe VALUES(747827661,'Garcia','Tony','8-140-582-8038','Arctic   Alley','11/2/1972','Middle school',3,15);
-INSERT INTO Employe VALUES(885191085,'Zaoui','Aiden','4-601-816-1853','South Walk','1/21/1986','Technical college',3,12);
-INSERT INTO Employe VALUES(358380370,'Stewart','William','0-406-386-4684','Ben   Drive','10/8/1972','High school',1,9);
-INSERT INTO Employe VALUES(125938245,'Reynolds','Roger','3-187-678-3380','Queen Caroline   Alley','12/30/1999','Corporate university',3,16);
-INSERT INTO Employe VALUES(1989964980,'Neville','Joseph','5-687-082-0383','Balfe   Alley','4/27/1998','Middle school',2,19);
-INSERT INTO Employe VALUES(1085027115,'Broomfield','Johnathan','0-148-230-3311','Rosewood Lane','6/17/1973','Public university',1,3);
-INSERT INTO Employe VALUES(996650350,'Morris','Ramon','0-867-376-1726','Blackall   Route','3/24/1982','Gymnasium',3,18);
-INSERT INTO Employe VALUES(1596018652,'Ward','Tom','7-028-361-5157','Belgrave  Hill','8/14/1977','Public university',1,14);
-INSERT INTO Employe VALUES(931809994,'Farrow','Joyce','2-025-502-3078','Bletchley   Avenue','5/26/1994','Middle school',3,16);
-INSERT INTO Employe VALUES(840703775,'Parsons','Mary','8-245-525-3885','Adelaide  Grove','2/24/1987','University-preparatory school',2,15);
-INSERT INTO Employe VALUES(1530574299,'Glass','Danielle','3-852-626-8555','Cleaver Avenue','2/8/1990','Technical college',2,10);
-INSERT INTO Employe VALUES(677199164,'Baldwin','Scarlett','1-441-063-2282','Sundown Rue','11/20/1980','High school',3,16);
-INSERT INTO Employe VALUES(1563451107,'Vallory','Selena','6-546-354-0100','Belmore  Walk','3/6/1986','University-preparatory school',1,12);
-INSERT INTO Employe VALUES(90372759,'Wright','Irene','8-613-485-3774','Thurloe   Street','11/29/1991','Middle school',2,13);
-
+INSERT INTO employe (identifiant, nom, prenom, telephone, adresse, date_naissance, diplome, num_departement, num_poste)
+VALUES
+(1, 'Martin', 'Jean', '06 01 02 03 04', '10 Rue de la Paix, Paris', '1990-01-01', 'ventes et marketing', 1, 1),
+(2, 'Dupont', 'Pierre', '06 05 06 07 08', '20 Rue des Lilas, Lyon', '1985-02-01', 'ressources humaines', 2, 2),
+(3, 'Durand', 'Lucie', '06 09 10 11 12', '30 Rue du Pont, Marseille', '1987-03-01', 'IT', 3, 3),
+(4, 'Leblanc', 'Marie', '06 13 14 15 16', '40 Rue des Roses, Toulouse', '1992-04-01', 'finance', 4, 4),
+(5, 'Bernard', 'Paul', '06 17 18 19 20', '50 Rue de la Liberté, Nantes', '1988-05-01', 'ventes et marketing', 1, 5),
+(6, 'Petit', 'Sophie', '06 21 22 23 24', '60 Rue du Moulin, Lille', '1995-06-01', 'ressources humaines', 2, 6),
+(7, 'Roux', 'Emilie', '06 25 26 27 28', '70 Rue des Champs, Bordeaux', '1984-07-01', 'IT', 3, 7),
+(8, 'Moreau', 'Jacques', '06 29 30 31 32', '80 Rue des Vignes, Montpellier', '1991-08-01', 'finance', 4, 8),
+(9, 'Girard', 'Luc', '06 33 34 35 36', '90 Rue du Soleil, Nice', '1986-09-01', 'ventes et marketing', 1, 9),
+(10, 'Lefevre', 'Hélène', '06 37 38 39 40', '100 Rue du Lac, Strasbourg', '1989-10-01', 'ressources humaines', 2, 10);
+(11, 'Lecomte', 'Julie', '06 41 42 43 44', '110 Rue des Fleurs, Rennes', '1993-11-01', 'IT', 3, 11),
+(12, 'Robert', 'David', '06 45 46 47 48', '120 Rue du Roi, Nancy', '1987-12-01', 'finance', 4, 12),
+(13, 'Fournier', 'Caroline', '06 49 50 51 52', '130 Rue du Paradis, Lille', '1986-01-01', 'ventes et marketing', 1, 13),
+(14, 'Dumont', 'Sébastien', '06 53 54 55 56', '140 Rue des Moulins, Lyon', '1994-02-01', 'ressources humaines', 2, 14),
+(15, 'Mercier', 'Jérémy', '06 57 58 59 60', '150 Rue des Orangers, Nice', '1990-03-01', 'IT', 3, 15),
+(16, 'Garcia', 'Anaïs', '06 61 62 63 64', '160 Rue des Chênes, Bordeaux', '1991-04-01', 'finance', 4, 16),
+(17, 'Guillaume', 'Sophie', '06 65 66 67 68', '170 Rue des Boulevards, Toulouse', '1989-05-01', 'ventes et marketing', 1, 17),
+(18, 'Morel', 'Thomas', '06 69 70 71 72', '180 Rue des Vignes, Paris', '1985-06-01', 'ressources humaines', 2, 18),
+(19, 'Marie', 'Nicolas', '06 73 74 75 76', '190 Rue du Pont, Nantes', '1992-07-01', 'IT', 3, 19),
+(20, 'Lemoine', 'Laure', '06 77 78 79 80', '200 Rue des Roses, Marseille', '1988-08-01', 'finance', 4, 20);

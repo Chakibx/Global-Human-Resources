@@ -6,7 +6,6 @@ VALUES
 (4, 'Leblanc', 'Marie', '06 13 14 15 16', '40 Rue des Roses, Toulouse', '1992-04-01', 'bts', 4, 4),
 (5, 'Bernard', 'Paul', '06 17 18 19 20', '50 Rue de la Liberté, Nantes', '1988-05-01', 'bts', 1, 5),
 (6, 'Petit', 'Sophie', '06 21 22 23 24', '60 Rue du Moulin, Lille', '1995-06-01', 'licence', 2, 6),
-(7, 'Roux', 'Emilie', '06 25 26 27 28', '70 Rue des Champs, Bordeaux', '1984-07-01', 'bts', 3, 7),
 (8, 'Moreau', 'Jacques', '06 29 30 31 32', '80 Rue des Vignes, Montpellier', '1991-08-01', 'licence', 4, 8),
 (9, 'Girard', 'Luc', '06 33 34 35 36', '90 Rue du Soleil, Nice', '1986-09-01', 'master', 1, 9),
 (10, 'Lefevre', 'Hélène', '06 37 38 39 40', '100 Rue du Lac, Strasbourg', '1989-10-01', 'master', 2, 10);

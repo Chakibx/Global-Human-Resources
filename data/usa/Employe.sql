@@ -15,10 +15,7 @@ VALUES
     (13, 'Brown', 'Liam', '555-0123', '321 Pine St, Anytown USA', '1986-01-01', 'master', 1, 13),
     (14, 'Jones', 'Emma', '555-4567', '987 Cedar St, Anytown USA', '1994-02-01', 'licence', 2, 14),
     (15, 'Miller', 'William', '555-8901', '654 Birch St, Anytown USA', '1990-03-01', 'master', 3, 15),
-    (16, 'Davis', 'Madison', '555-2345', '987 Willow St, Anytown USA', '1991-04-01', 'master', 4, 16),
-    (17, 'Smith', 'Jennifer', '123-456-7890', '456 Oak Ave, Los Angeles, CA', '1985-02-01', 'Licence', 6, 17),
-    (18, 'Williams', 'David', '123-456-7890', '789 Pine St, San Francisco, CA', '1987-03-01', 'BTS', 7, 18),
-    (19, 'Brown', 'Jessica', '123-456-7890', '321 Maple Ave, Chicago, IL', '1992-04-01', 'BTS', 8, 19),
-    (20, 'Jones', 'Michael', '123-456-7890', '654 Cedar St, Houston, TX', '1988-05-01', 'BTS', 5, 20);
+    (16, 'Davis', 'Madison', '555-2345', '987 Willow St, Anytown USA', '1991-04-01', 'master', 4, 16);
+
 
 

@@ -26,7 +26,7 @@ INSERT INTO Poste (idPoste, libelle, nombreHeuresParSemaines, statut) VALUES
 --RH
 
 (3, 'Ingénieur logiciel', 40,1),
-(7, 'Développeur web', 35,1),
+(7, 'Développeur web', 35,0),
 (11, 'Chef de projet informatique', 35,1),
 (15, 'Responsable de la sécurité informatique', 40,1),
 (19, 'Spécialiste en infrastructure informatique', 35,1),

@@ -1,4 +1,4 @@
-INSERT INTO employe (identifiant, nom, prenom, telephone, adresse, date_naissance, diplome, num_departement, num_poste)
+INSERT INTO employe (identifiant, nom, prenom, telephone, adresse, date_naissance, diplome, idDepartement, idPoste)
 VALUES
 (1, 'Martin', 'Jean', '06 01 02 03 04', '10 Rue de la Paix, Paris', '1990-01-01', 'ventes et marketing', 1, 1),
 (2, 'Dupont', 'Pierre', '06 05 06 07 08', '20 Rue des Lilas, Lyon', '1985-02-01', 'ressources humaines', 2, 2),

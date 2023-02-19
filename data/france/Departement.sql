@@ -1,6 +1,6 @@
-INSERT INTO departements (idDepartement, nomDepartement, idSiteDeTravail)
+INSERT INTO departements (idDepartement, nomDepartement, pays)
 VALUES
-(1, 'Ventes et marketing', 1),
-(2, 'Ressources humaines', 2),
-(3, 'IT', 3),
-(4, 'Finance', 4);
+(1, 'Ventes et marketing', 'France'),
+(2, 'Ressources humaines', 'France'),
+(3, 'IT', 'France'),
+(4, 'Finance', 'France');

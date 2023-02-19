@@ -1,4 +1,4 @@
-INSERT INTO SeForme (idSeForme, DateDebutFormation, idFormation, idEmploye)
+INSERT INTO seForme (idSeForme, DateDebutFormation, idFormation, idEmploye)
 VALUES
 (1, '2022-01-01', 2, 1),
 (2, '2022-01-15', 4, 2),

@@ -1,4 +1,4 @@
-INSERT INTO Absences (idAbsence, motifAbsence, nombreDeJours, dateAbsence, idEmploye)
+INSERT INTO Absence (idAbsence, motifAbsence, nombreDeJours, dateAbsence, idEmploye)
 VALUES
 (1, 'Congé annuel', 5, '2022-01-10', 1),
 (2, 'Maladie', 2, '2022-02-15', 2),

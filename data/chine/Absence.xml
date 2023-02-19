@@ -1,0 +1,136 @@
+<absences>
+    <absence>
+        <idAbsence>1</idAbsence>
+        <motifAbsence>Congé annuel</motifAbsence>
+        <nombreDeJours>5</nombreDeJours>
+        <dateAbsence>2022-01-10</dateAbsence>
+        <idEmploye>1</idEmploye>
+    </absence>
+    <absence>
+        <idAbsence>2</idAbsence>
+        <motifAbsence>Maladie</motifAbsence>
+        <nombreDeJours>2</nombreDeJours>
+        <dateAbsence>2022-02-15</dateAbsence>
+        <idEmploye>2</idEmploye>
+    </absence>
+    <absence>
+        <idAbsence>3</idAbsence>
+        <motifAbsence>Congé maternité</motifAbsence>
+        <nombreDeJours>60</nombreDeJours>
+        <dateAbsence>2022-03-20</dateAbsence>
+        <idEmploye>3</idEmploye>
+    </absence>
+    <absence>
+        <idAbsence>4</idAbsence>
+        <motifAbsence>Formation</motifAbsence>
+        <nombreDeJours>10</nombreDeJours>
+        <dateAbsence>2022-01-05</dateAbsence>
+        <idEmploye>4</idEmploye>
+    </absence>
+    <absence>
+        <idAbsence>5</idAbsence>
+        <motifAbsence>Formation</motifAbsence>
+        <nombreDeJours>3</nombreDeJours>
+        <dateAbsence>2022-01-09</dateAbsence>
+        <idEmploye>5</idEmploye>
+    </absence>
+    <absence>
+        <idAbsence>6</idAbsence>
+        <motifAbsence>Congé sans solde</motifAbsence>
+        <nombreDeJours>15</nombreDeJours>
+        <dateAbsence>2022-07-10</dateAbsence>
+        <idEmploye>6</idEmploye>
+    </absence>
+    <absence>
+        <idAbsence>7</idAbsence>
+        <motifAbsence>Congé maladie enfant</motifAbsence>
+        <nombreDeJours>3</nombreDeJours>
+        <dateAbsence>2022-08-12</dateAbsence>
+        <idEmploye>7</idEmploye>
+    </absence>
+    <absence>
+        <idAbsence>8</idAbsence>
+        <motifAbsence>Congé maternité</motifAbsence>
+        <nombreDeJours>90</nombreDeJours>
+        <dateAbsence>2022-09-05</dateAbsence>
+        <idEmploye>8</idEmploye>
+    </absence>
+    <absence>
+        <idAbsence>9</idAbsence>
+        <motifAbsence>Formation</motifAbsence>
+        <nombreDeJours>2</nombreDeJours>
+        <dateAbsence>2022-10-20</dateAbsence>
+        <idEmploye>3</idEmploye>
+    </absence>
+    <absence>
+        <idAbsence>10</idAbsence>
+        <motifAbsence>Congé annuel</motifAbsence>
+        <nombreDeJours>8</nombreDeJours>
+        <dateAbsence>2022-12-01</dateAbsence>
+        <idEmploye>10</idEmploye>
+    </absence>
+    <absence>
+        <idAbsence>11</idAbsence>
+        <motifAbsence>Maladie</motifAbsence>
+        <nombreDeJours>3</nombreDeJours>
+        <dateAbsence>2022-12-15</dateAbsence>
+        <idEmploye>11</idEmploye>
+    </absence>
+    <absence>
+        <idAbsence>12</idAbsence>
+        <motifAbsence>Congé paternité</motifAbsence>
+        <nombreDeJours>5</nombreDeJours>
+        <dateAbsence>2023-01-02</dateAbsence>
+        <idEmploye>12</idEmploye>
+    </absence>
+    <absence>
+        <idAbsence>13</idAbsence>
+        <motifAbsence>Congé sans solde</motifAbsence>
+        <nombreDeJours>20</nombreDeJours>
+        <dateAbsence>2023-02-08</dateAbsence>
+        <idEmploye>13</idEmploye>
+    </absence>
+    <absence>
+        <idAbsence>14</idAbsence>
+        <motifAbsence>Formation</motifAbsence>
+        <nombreDeJours>4</nombreDeJours>
+        <dateAbsence>2023-01-15</dateAbsence>
+        <idEmploye>2</idEmploye>
+    </absence>
+    <absence>
+        <idAbsence>15</idAbsence>
+        <motifAbsence>Congé maladie enfant</motifAbsence>
+        <nombreDeJours>4</nombreDeJours>
+        <dateAbsence>2023-01-25</dateAbsence>
+        <idEmploye>15</idEmploye>
+    </absence>
+    <absence>
+        <idAbsence>16</idAbsence>
+        <motifAbsence>Congé annuel</motifAbsence>
+        <nombreDeJours>12</nombreDeJours>
+        <dateAbsence>2022-08-01</dateAbsence>
+        <idEmploye>16</idEmploye>
+    </absence>
+    <absence>
+        <idAbsence>17</idAbsence>
+        <motifAbsence>Maladie</motifAbsence>
+        <nombreDeJours>1</nombreDeJours>
+        <dateAbsence>2022-07-10</dateAbsence>
+        <idEmploye>17</idEmploye>
+    </absence>
+    <absence>
+        <idAbsence>18</idAbsence>
+        <motifAbsence>Congé maternité</motifAbsence>
+        <nombreDeJours>120</nombreDeJours>
+        <dateAbsence>2022-08-15</dateAbsence>
+        <idEmploye>18</idEmploye>
+    </absence>
+    <absence>
+        <idAbsence>19</idAbsence>
+        <motifAbsence>Formation</motifAbsence>
+        <nombreDeJours>6</nombreDeJours>
+        <dateAbsence>2022-01-02</dateAbsence>
+        <idEmploye>1</idEmploye>
+    </absence>
+</absences>
+

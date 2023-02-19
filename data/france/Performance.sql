@@ -1,4 +1,4 @@
-INSERT INTO Performance (idPerfromance,notePerformance, datePerformance, idEmploye)
+INSERT INTO performance (idPerfromance,notePerformance, datePerformance, idEmploye)
 VALUES
 (1,12, '2021-12-01', 1),
 (2,10, '2021-12-02', 2),

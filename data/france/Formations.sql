@@ -1,4 +1,4 @@
-INSERT INTO Formation (idFormation, typeFormation, coutFormation) VALUES
+INSERT INTO formation (idFormation, typeFormation, coutFormation) VALUES
 (1, 'Formation en vente et négociation', 1000),
 (2, 'Formation en marketing digital', 1200),
 (3, 'Formation en communication interne', 1300),

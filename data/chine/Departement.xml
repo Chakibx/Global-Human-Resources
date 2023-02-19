@@ -1,0 +1,22 @@
+<departements>
+    <departement>
+        <idDepartement>1</idDepartement>
+        <nomDepartement>Ventes et marketing</nomDepartement>
+        <pays>Chine</pays>
+    </departement>
+    <departement>
+        <idDepartement>2</idDepartement>
+        <nomDepartement>Ressources humaines</nomDepartement>
+        <pays>Chine</pays>
+    </departement>
+    <departement>
+        <idDepartement>3</idDepartement>
+        <nomDepartement>IT</nomDepartement>
+        <pays>Chine</pays>
+    </departement>
+    <departement>
+        <idDepartement>4</idDepartement>
+        <nomDepartement>Finance</nomDepartement>
+        <pays>Chine</pays>
+    </departement>
+</departements>

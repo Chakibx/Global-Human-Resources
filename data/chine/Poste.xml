@@ -1,0 +1,130 @@
+<postes>
+    <poste>
+        <idPoste>1</idPoste>
+        <libelle>Promoteur de vente</libelle>
+        <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
+        <occupation>true</occupation>
+    </poste>
+
+    <poste>
+        <idPoste>5</idPoste>
+        <libelle>Directeur des opérations</libelle>
+        <nombreHeuresParSemaine>40</nombreHeuresParSemaine>
+        <occupation>true</occupation>
+    </poste>
+
+    <poste>
+        <idPoste>9</idPoste>
+        <libelle>Responsable de la chaîne logistique</libelle>
+        <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
+        <occupation>true</occupation>
+    </poste>
+
+    <poste>
+        <idPoste>13</idPoste>
+        <libelle>Responsable de la qualité</libelle>
+        <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
+        <occupation>true</occupation>
+    </poste>
+
+    <poste>
+        <idPoste>17</idPoste>
+        <libelle>Chargé de la planification</libelle>
+        <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
+        <occupation>true</occupation>
+    </poste>
+    <poste>
+        <idPoste>2</idPoste>
+        <libelle>Directeur des ressources humaines</libelle>
+        <nombreHeuresParSemaine>40</nombreHeuresParSemaine>
+        <occupation>true</occupation>
+    </poste>
+
+    <poste>
+        <idPoste>6</idPoste>
+        <libelle>Responsable relations sociales</libelle>
+        <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
+        <occupation>true</occupation>
+    </poste>
+
+    <poste>
+        <idPoste>10</idPoste>
+        <libelle>Chargé de formation</libelle>
+        <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
+        <occupation>true</occupation>
+    </poste>
+
+    <poste>
+        <idPoste>14</idPoste>
+        <libelle>Chargé de recrutement</libelle>
+        <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
+        <occupation>true</occupation>
+    </poste>
+
+    <poste>
+        <idPoste>18</idPoste>
+        <libelle>Responsable des ressources humaines</libelle>
+        <nombreHeuresParSemaine>40</nombreHeuresParSemaine>
+        <occupation>true</occupation>
+    </poste>
+
+    <poste>
+        <idPoste>3</idPoste>
+        <libelle>Ingénieur logiciel</libelle>
+        <nombreHeuresParSemaine>40</nombreHeuresParSemaine>
+        <occupation>true</occupation>
+    </poste>
+
+    <poste>
+        <idPoste>11</idPoste>
+        <libelle>Chef de projet informatique</libelle>
+        <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
+        <occupation>true</occupation>
+    </poste>
+    <poste>
+        <idPoste>15</idPoste>
+        <libelle>Responsable de la sécurité informatique</libelle>
+        <nombreHeuresParSemaine>40</nombreHeuresParSemaine>
+        <occupation>true</occupation>
+    </poste>
+    <poste>
+        <idPoste>19</idPoste>
+        <libelle>Spécialiste en infrastructure informatique</libelle>
+        <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
+        <occupation>true</occupation>
+    </poste>
+    <poste>
+        <idPoste>4</idPoste>
+        <libelle>Gestionnaire de paie</libelle>
+        <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
+        <occupation>true</occupation>
+    </poste>
+    <poste>
+        <idPoste>8</idPoste>
+        <libelle>Directeur financier</libelle>
+        <nombreHeuresParSemaine>40</nombreHeuresParSemaine>
+        <occupation>true</occupation>
+    </poste>
+    <poste>
+        <idPoste>12</idPoste>
+        <libelle>Contrôleur de gestion</libelle>
+        <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
+        <occupation>true</occupation>
+    </poste>
+
+    <poste>
+        <idPoste>16</idPoste>
+        <libelle>Comptable</libelle>
+        <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
+        <occupation>true</occupation>
+    </poste>
+
+    <poste>
+        <idPoste>20</idPoste>
+        <libelle>Controleur financier</libelle>
+        <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
+        <occupation>true</occupation>
+    </poste>
+</postes>
+
+

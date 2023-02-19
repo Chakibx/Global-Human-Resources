@@ -1,0 +1,72 @@
+<employees>
+    <employee id="1">
+        <nom>Wang</nom>
+        <prenom>Li</prenom>
+        <telephone>13800138000</telephone>
+        <adresse>Beijing, China</adresse>
+        <date_naissance>1990-01-01</date_naissance>
+        <diplome>Master</diplome>
+        <departement>1</departement>
+        <poste>1</poste>
+    </employee>
+    <employee id="2">
+        <nom>Li</nom>
+        <prenom>Mei</prenom>
+        <telephone>13900139000</telephone>
+        <adresse>Shanghai, China</adresse>
+        <date_naissance>1992-05-01</date_naissance>
+        <diplome>BTS</diplome>
+        <departement>2</departement>
+        <poste>2</poste>
+    </employee>
+    <employee id="3">
+        <nom>Zhang</nom>
+        <prenom>Wei</prenom>
+        <telephone>13700137000</telephone>
+        <adresse>Chengdu, China</adresse>
+        <date_naissance>1985-07-01</date_naissance>
+        <diplome>Licence</diplome>
+        <departement>3</departement>
+        <poste>3</poste>
+    </employee>
+    <employee id="4">
+        <nom>Chen</nom>
+        <prenom>Xin</prenom>
+        <telephone>13600136000</telephone>
+        <adresse>Guangzhou, China</adresse>
+        <date_naissance>1993-09-01</date_naissance>
+        <diplome>Master</diplome>
+        <departement>4</departement>
+        <poste>4</poste>
+    </employee>
+    <employee id="5">
+        <nom>Liu</nom>
+        <prenom>Yan</prenom>
+        <telephone>13900202000</telephone>
+        <adresse>Hangzhou, China</adresse>
+        <date_naissance>1988-11-01</date_naissance>
+        <diplome>BTS</diplome>
+        <departement>1</departement>
+        <poste>5</poste>
+    </employee>
+    <employee id="6">
+        <nom>Xu</nom>
+        <prenom>Jie</prenom>
+        <telephone>13900203000</telephone>
+        <adresse>Shenzhen, China</adresse>
+        <date_naissance>1991-03-01</date_naissance>
+        <diplome>Licence</diplome>
+        <departement>2</departement>
+        <poste>6</poste>
+    </employee>
+    <employee id="7">
+        <nom>Zhao</nom>
+        <prenom>Tao</prenom>
+        <telephone>13900204000</telephone>
+        <adresse>Tianjin, China</adresse>
+        <date_naissance>1989-02-01</date_naissance>
+        <diplome>Master</diplome>
+        <departement>3</departement>
+        <poste>7</poste>
+    </employee>
+</employees>

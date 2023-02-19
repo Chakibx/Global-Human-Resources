@@ -5,9 +5,9 @@ Yahoo:
 Bases De Données:
     Postgresql :
         Hôte PostgreSQL : postgresql-globalhumanressources.alwaysdata.net
-        User: 300818_admin
+        User: globalhumanressources
         MotDePasse : GHR-2023
 
         Hôte MySQL : mysql-globalhumanressources.alwaysdata.net
-        User: globalhumanressources
+        User: 300818_admin
         MotDePasse: GHR-2023

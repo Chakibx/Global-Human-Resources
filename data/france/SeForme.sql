@@ -1,7 +1,7 @@
-INSERT INTO SeForme (idSeForme, DateDebutFormation, formation, idEmploye)
+INSERT INTO SeForme (idSeForme, DateDebutFormation, idFormation, idEmploye)
 VALUES
-(1, '2022-03-01', 'Marketing Digital', 1),
-(2, '2022-05-15', 'Gestion de projet', 2),
-(3, '2022-04-10', 'Langue anglaise', 3),
-(4, '2022-02-01', 'Développement web', 4),
-(5, '2022-06-10', 'Leadership', 5);
+(1, '2022-01-01', 2, 1),
+(2, '2022-01-15', 4, 2),
+(3, '2022-01-10', 9, 3),
+(4, '2022-01-05',6, 4),
+(5, '2022-01-09', 1, 5);

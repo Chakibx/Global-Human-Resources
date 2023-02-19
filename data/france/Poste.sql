@@ -1,21 +1,40 @@
 INSERT INTO Poste (idPoste, libelle, nombreHeuresParSemaines, statut) VALUES
-(1, 'Directeur des ventes', 40,1),
-(2, 'Responsable de comptes clients', 35,1),
-(3, 'Chargé de clientèle', 35,1),
-(4, 'Chargé de recrutement', 35,1),
-(5, 'Responsable des ressources humaines', 40,1),
-(6, 'Gestionnaire de paie', 35,1),
-(7, 'Directeur financier', 40,1),
-(8, 'Contrôleur de gestion', 35,1),
-(9, 'Comptable', 35,1),
-(10, 'Ingénieur logiciel', 40,1),
-(11, 'Développeur web', 35,1),
-(12, 'Chef de projet informatique', 35,1),
-(13, 'Analyste fonctionnel', 35,1),
-(14, 'Responsable de la sécurité informatique', 40,1),
-(15, 'Spécialiste en infrastructure informatique', 35,1),
-(16, 'Chargé de support informatique', 35,1),
-(17, 'Directeur des opérations', 40,1),
-(18, 'Responsable de la chaîne logistique', 35,1),
-(19, 'Responsable de la qualité', 35,1),
-(20, 'Chargé de la planification', 35,1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+(1, 'Promoteur de vente', 35,1),
+(5, 'Directeur des opérations', 40,1),
+(9, 'Responsable de la chaîne logistique', 35,1),
+(13, 'Responsable de la qualité', 35,1),
+(17, 'Chargé de la planification', 35,1);
+//vente marketing
+(2, 'Directeur des ressources humaines', 40,1),
+(6, 'Responsable relations sociales', 35,1),
+(10, 'Chargé de formation', 35,1),
+(14, 'Chargé de recrutement', 35,1),
+(18, 'Responsable des ressources humaines', 40,1),
+//RH
+
+(3, 'Ingénieur logiciel', 40,1),
+(7, 'Développeur web', 35,1),
+(11, 'Chef de projet informatique', 35,1),
+(15, 'Responsable de la sécurité informatique', 40,1),
+(19, 'Spécialiste en infrastructure informatique', 35,1),
+//IT
+
+(4, 'Gestionnaire de paie', 35,1),
+(8, 'Directeur financier', 40,1),
+(12, 'Contrôleur de gestion', 35,1),
+(16, 'Comptable', 35,1),
+(20, 'Controleur financier', 35,1),
+//finance

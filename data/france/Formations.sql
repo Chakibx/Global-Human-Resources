@@ -9,4 +9,5 @@ INSERT INTO Formations (idFormation, typeFormation, coutFormation) VALUES
 (8, 'Formation en sécurité informatique', 3500),
 (9, 'Formation en développement web', 4000),
 (10, 'Formation en gestion de projet', 3500);
-(10, 'Formation en gestion de projet', 3500);
+(11,'Formation en Langue anglaise', 1000),
+

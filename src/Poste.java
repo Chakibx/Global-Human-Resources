@@ -4,4 +4,5 @@ public class Poste {
     private Integer idPoste;
     private String libelle;
     private Integer nombreHeuresParSemaine;
+    private Boolean statut;
 }

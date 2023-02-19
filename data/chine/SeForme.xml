@@ -1,0 +1,32 @@
+<seFormes>
+    <seForme>
+        <idSeForme>1</idSeForme>
+        <DateDebutFormation>2022-01-01</DateDebutFormation>
+        <idFormation>2</idFormation>
+        <idEmploye>1</idEmploye>
+    </seForme>
+    <seForme>
+        <idSeForme>2</idSeForme>
+        <DateDebutFormation>2022-01-15</DateDebutFormation>
+        <idFormation>4</idFormation>
+        <idEmploye>2</idEmploye>
+    </seForme>
+    <seForme>
+        <idSeForme>3</idSeForme>
+        <DateDebutFormation>2022-01-10</DateDebutFormation>
+        <idFormation>9</idFormation>
+        <idEmploye>3</idEmploye>
+    </seForme>
+    <seForme>
+        <idSeForme>4</idSeForme>
+        <DateDebutFormation>2022-01-05</DateDebutFormation>
+        <idFormation>6</idFormation>
+        <idEmploye>4</idEmploye>
+    </seForme>
+    <seForme>
+        <idSeForme>5</idSeForme>
+        <DateDebutFormation>2022-01-09</DateDebutFormation>
+        <idFormation>1</idFormation>
+        <idEmploye>5</idEmploye>
+    </seForme>
+</seFormes>

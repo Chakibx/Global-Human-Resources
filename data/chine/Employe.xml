@@ -1,72 +1,223 @@
-<employees>
-    <employee id="1">
-        <nom>Wang</nom>
-        <prenom>Li</prenom>
-        <telephone>13800138000</telephone>
-        <adresse>Beijing, China</adresse>
-        <date_naissance>1990-01-01</date_naissance>
-        <diplome>Master</diplome>
-        <departement>1</departement>
-        <poste>1</poste>
-    </employee>
-    <employee id="2">
-        <nom>Li</nom>
-        <prenom>Mei</prenom>
-        <telephone>13900139000</telephone>
-        <adresse>Shanghai, China</adresse>
-        <date_naissance>1992-05-01</date_naissance>
-        <diplome>BTS</diplome>
-        <departement>2</departement>
-        <poste>2</poste>
-    </employee>
-    <employee id="3">
+<employes>
+    <employe>
+        <idEmploye>1</idEmploye>
         <nom>Zhang</nom>
         <prenom>Wei</prenom>
-        <telephone>13700137000</telephone>
-        <adresse>Chengdu, China</adresse>
-        <date_naissance>1985-07-01</date_naissance>
-        <diplome>Licence</diplome>
-        <departement>3</departement>
-        <poste>3</poste>
-    </employee>
-    <employee id="4">
-        <nom>Chen</nom>
-        <prenom>Xin</prenom>
-        <telephone>13600136000</telephone>
-        <adresse>Guangzhou, China</adresse>
-        <date_naissance>1993-09-01</date_naissance>
+        <telephone>1234567890</telephone>
+        <adresse>123 rue du Bonheur, Shanghai</adresse>
+        <dateDeNaissance>1990-01-01</dateDeNaissance>
         <diplome>Master</diplome>
-        <departement>4</departement>
-        <poste>4</poste>
-    </employee>
-    <employee id="5">
+        <idDepartement>1</idDepartement>
+        <idPoste>3</idPoste>
+    </employe>
+    <employe>
+        <idEmploye>2</idEmploye>
+        <nom>Liu</nom>
+        <prenom>Xin</prenom>
+        <telephone>2345678901</telephone>
+        <adresse>456 avenue de la Paix, Pékin</adresse>
+        <dateDeNaissance>1995-05-05</dateDeNaissance>
+        <diplome>Licence</diplome>
+        <idDepartement>2</idDepartement>
+        <idPoste>2</idPoste>
+    </employe>
+    <employe>
+        <idEmploye>3</idEmploye>
+        <nom>Chen</nom>
+        <prenom>Hong</prenom>
+        <telephone>3456789012</telephone>
+        <adresse>789 boulevard des Arts, Canton</adresse>
+        <dateDeNaissance>1988-08-08</dateDeNaissance>
+        <diplome>BTS</diplome>
+        <idDepartement>3</idDepartement>
+        <idPoste>3</idPoste>
+    </employe>
+    <employe>
+        <idEmploye>4</idEmploye>
+        <nom>Wang</nom>
+        <prenom>Jian</prenom>
+        <telephone>4567890123</telephone>
+        <adresse>321 rue des Sciences, Shenzhen</adresse>
+        <dateDeNaissance>1993-03-03</dateDeNaissance>
+        <diplome>Master</diplome>
+        <idDepartement>4</idDepartement>
+        <idPoste>4</idPoste>
+    </employe>
+    <employe>
+        <idEmploye>5</idEmploye>
+        <nom>Zhao</nom>
+        <prenom>Ling</prenom>
+        <telephone>5678901234</telephone>
+        <adresse>654 avenue de la Liberté, Chengdu</adresse>
+        <dateDeNaissance>1992-02-02</dateDeNaissance>
+        <diplome>Licence</diplome>
+        <idDepartement>1</idDepartement>
+        <idPoste>5</idPoste>
+    </employe>
+    <employe>
+        <idEmploye>6</idEmploye>
+        <nom>Xu</nom>
+        <prenom>Min</prenom>
+        <telephone>6789012345</telephone>
+        <adresse>987 boulevard des Sciences, Guangzhou</adresse>
+        <dateDeNaissance>1991-01-01</dateDeNaissance>
+        <diplome>BTS</diplome>
+        <idDepartement>2</idDepartement>
+        <idPoste>6</idPoste>
+    </employe>
+    <employe>
+        <idEmploye>7</idEmploye>
+        <nom>Wang</nom>
+        <prenom>Jing</prenom>
+        <telephone>+86 185 1234 5678</telephone>
+        <adresse>No. 123, Lane 45, Fengxian District, Shanghai, China</adresse>
+        <dateDeNaissance>1990-05-28</dateDeNaissance>
+        <diplome>Master</diplome>
+        <idDepartement>3</idDepartement>
+        <idPoste>7</idPoste>
+    </employe>
+    <employe>
+        <idEmploye>8</idEmploye>
+        <nom>Li</nom>
+        <prenom>Wei</prenom>
+        <telephone>+86 136 5678 1234</telephone>
+        <adresse>No. 678, Lane 18, Hongkou District, Shanghai, China</adresse>
+        <dateDeNaissance>1993-09-05</dateDeNaissance>
+        <diplome>BTS</diplome>
+        <idDepartement>2</idDepartement>
+        <idPoste>8</idPoste>
+    </employe>
+    <employe>
+        <idEmploye>9</idEmploye>
+        <nom>Zhang</nom>
+        <prenom>Yan</prenom>
+        <telephone>+86 135 9876 5432</telephone>
+        <adresse>No. 456, Lane 7, Yangpu District, Shanghai, China</adresse>
+        <dateDeNaissance>1991-12-18</dateDeNaissance>
+        <diplome>Licence</diplome>
+        <idDepartement>4</idDepartement>
+        <idPoste>9</idPoste>
+    </employe>
+    <employe>
+        <idEmploye>10</idEmploye>
+        <nom>Chen</nom>
+        <prenom>Xia</prenom>
+        <telephone>+86 185 8765 4321</telephone>
+        <adresse>No. 789, Lane 12, Jing'an District, Shanghai, China</adresse>
+        <dateDeNaissance>1989-02-27</dateDeNaissance>
+        <diplome>Master</diplome>
+        <idDepartement>1</idDepartement>
+        <idPoste>10</idPoste>
+    </employe>
+    <employe>
+        <idEmploye>11</idEmploye>
+        <nom>Liu</nom>
+        <prenom>Yang</prenom>
+        <telephone>+86 138 7654 3210</telephone>
+        <adresse>No. 234, Lane 9, Putuo District, Shanghai, China</adresse>
+        <dateDeNaissance>1995-06-20</dateDeNaissance>
+        <diplome>BTS</diplome>
+        <idDepartement>3</idDepartement>
+        <idPoste>11</idPoste>
+    </employe>
+    <employe>
+        <idEmploye>12</idEmploye>
+        <nom>Wang</nom>
+        <prenom>Xiao</prenom>
+        <telephone>13761234567</telephone>
+        <adresse>Shanghai, Chine</adresse>
+        <dateDeNaissance>1995-05-12</dateDeNaissance>
+        <diplome>licence</diplome>
+        <idDepartement>3</idDepartement>
+        <idPoste>12</idPoste>
+    </employe>
+    <employe>
+        <idEmploye>13</idEmploye>
+        <nom>Chen</nom>
+        <prenom>Xinyi</prenom>
+        <telephone>13571234567</telephone>
+        <adresse>Shenzhen, Chine</adresse>
+        <dateDeNaissance>1994-02-28</dateDeNaissance>
+        <diplome>master</diplome>
+        <idDepartement>2</idDepartement>
+        <idPoste></idPoste>
+    </employe>
+    <employe>
+        <idEmploye>14</idEmploye>
         <nom>Liu</nom>
         <prenom>Yan</prenom>
-        <telephone>13900202000</telephone>
-        <adresse>Hangzhou, China</adresse>
-        <date_naissance>1988-11-01</date_naissance>
+        <telephone>13681234567</telephone>
+        <adresse>Chongqing, Chine</adresse>
+        <dateDeNaissance>1993-11-15</dateDeNaissance>
+        <diplome>bts</diplome>
+        <idDepartement>4</idDepartement>
+        <idPoste>9</idPoste>
+    </employe>
+    <employe>
+        <idEmploye>15</idEmploye>
+        <nom>Yang</nom>
+        <prenom>Wei</prenom>
+        <telephone>13891234567</telephone>
+        <adresse>Beijing, Chine</adresse>
+        <dateDeNaissance>1992-08-02</dateDeNaissance>
+        <diplome>licence</diplome>
+        <idDepartement>1</idDepartement>
+        <idPoste>11</idPoste>
+    </employe>
+    <employe>
+        <idEmploye>16</idEmploye>
+        <nom>Wu</nom>
+        <prenom>Hui</prenom>
+        <telephone>13991234567</telephone>
+        <adresse>Shanghai, Chine</adresse>
+        <dateDeNaissance>1991-05-18</dateDeNaissance>
+        <diplome>master</diplome>
+        <idDepartement>2</idDepartement>
+        <idPoste>6</idPoste>
+    </employe>
+    <employe>
+        <idEmploye>17</idEmploye>
+        <nom>Tang</nom>
+        <prenom>Yan</prenom>
+        <telephone>+8617812345678</telephone>
+        <adresse>Rue des Lilas, Shenzhen, Chine</adresse>
+        <dateDeNaissance>1992-08-12</dateDeNaissance>
         <diplome>BTS</diplome>
-        <departement>1</departement>
-        <poste>5</poste>
-    </employee>
-    <employee id="6">
-        <nom>Xu</nom>
-        <prenom>Jie</prenom>
-        <telephone>13900203000</telephone>
-        <adresse>Shenzhen, China</adresse>
-        <date_naissance>1991-03-01</date_naissance>
-        <diplome>Licence</diplome>
-        <departement>2</departement>
-        <poste>6</poste>
-    </employee>
-    <employee id="7">
-        <nom>Zhao</nom>
-        <prenom>Tao</prenom>
-        <telephone>13900204000</telephone>
-        <adresse>Tianjin, China</adresse>
-        <date_naissance>1989-02-01</date_naissance>
+        <idDepartement>3</idDepartement>
+        <idPoste>5</idPoste>
+    </employe>
+    <employe>
+        <idEmploye>18</idEmploye>
+        <nom>Wang</nom>
+        <prenom>Lei</prenom>
+        <telephone>+8613578912345</telephone>
+        <adresse>Rue des Pruniers, Wuhan, Chine</adresse>
+        <dateDeNaissance>1989-06-23</dateDeNaissance>
         <diplome>Master</diplome>
-        <departement>3</departement>
-        <poste>7</poste>
-    </employee>
-</employees>
+        <idDepartement>2</idDepartement>
+        <idPoste>17</idPoste>
+    </employe>
+    <employe>
+        <idEmploye>19</idEmploye>
+        <nom>Zhao</nom>
+        <prenom>Wei</prenom>
+        <telephone>+8618912345678</telephone>
+        <adresse>Rue des Roses, Pékin, Chine</adresse>
+        <dateDeNaissance>1995-02-03</dateDeNaissance>
+        <diplome>Licence</diplome>
+        <idDepartement>4</idDepartement>
+        <idPoste>3</idPoste>
+    </employe>
+    <employe>
+        <idEmploye>20</idEmploye>
+        <nom>Li</nom>
+        <prenom>Jie</prenom>
+        <telephone>+8610234567891</telephone>
+        <adresse>Rue des Orchidées, Canton, Chine</adresse>
+        <dateDeNaissance>1991-11-05</dateDeNaissance>
+        <diplome>Master</diplome>
+        <idDepartement>2</idDepartement>
+        <idPoste>9</idPoste>
+    </employe>
+</employes>
+

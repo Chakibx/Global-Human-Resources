@@ -1,17 +1,4 @@
-INSERT INTO Poste (idPoste, libelle, nombreHeuresParSemaines, statut) VALUES
-
-
-
-
-
-
-
-
-
-
-
-
-
+INSERT INTO Poste (idPoste, libelle, nombreHeuresParSemaines, occupation) VALUES
 (1, 'Promoteur de vente', 35,1),
 (5, 'Directeur des opérations', 40,1),
 (9, 'Responsable de la chaîne logistique', 35,1),

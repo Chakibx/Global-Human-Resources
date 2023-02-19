@@ -6,7 +6,6 @@ VALUES
 (4, 'Formation', 10, '2022-01-05', 4),
 (5, 'Formation', 3, '2022-01-09', 5),
 (6, 'Congé sans solde', 15, '2022-07-10', 6),
-(7, 'Congé maladie enfant', 3, '2022-08-12', 7),
 (8, 'Congé maternité', 90, '2022-09-05', 8),
 (9, 'Formation', 2, '2022-10-20', 3),
 (10, 'Congé annuel', 8, '2022-12-01', 10),

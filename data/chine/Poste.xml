@@ -31,7 +31,7 @@
         <idPoste>17</idPoste>
         <libelle>Chargé de la planification</libelle>
         <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
-        <occupation>true</occupation>
+        <occupation>false</occupation>
     </poste>
     <poste>
         <idPoste>2</idPoste>
@@ -58,14 +58,14 @@
         <idPoste>14</idPoste>
         <libelle>Chargé de recrutement</libelle>
         <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
-        <occupation>true</occupation>
+        <occupation>false</occupation>
     </poste>
 
     <poste>
         <idPoste>18</idPoste>
         <libelle>Responsable des ressources humaines</libelle>
         <nombreHeuresParSemaine>40</nombreHeuresParSemaine>
-        <occupation>true</occupation>
+        <occupation>false</occupation>
     </poste>
 
     <poste>
@@ -85,13 +85,13 @@
         <idPoste>15</idPoste>
         <libelle>Responsable de la sécurité informatique</libelle>
         <nombreHeuresParSemaine>40</nombreHeuresParSemaine>
-        <occupation>true</occupation>
+        <occupation>false</occupation>
     </poste>
     <poste>
         <idPoste>19</idPoste>
         <libelle>Spécialiste en infrastructure informatique</libelle>
         <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
-        <occupation>true</occupation>
+        <occupation>false</occupation>
     </poste>
     <poste>
         <idPoste>4</idPoste>
@@ -103,13 +103,13 @@
         <idPoste>8</idPoste>
         <libelle>Directeur financier</libelle>
         <nombreHeuresParSemaine>40</nombreHeuresParSemaine>
-        <occupation>true</occupation>
+        <occupation>false</occupation>
     </poste>
     <poste>
         <idPoste>12</idPoste>
         <libelle>Contrôleur de gestion</libelle>
         <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
-        <occupation>true</occupation>
+        <occupation>false</occupation>
     </poste>
 
     <poste>
@@ -123,7 +123,7 @@
         <idPoste>20</idPoste>
         <libelle>Controleur financier</libelle>
         <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
-        <occupation>true</occupation>
+        <occupation>false</occupation>
     </poste>
 </postes>
 

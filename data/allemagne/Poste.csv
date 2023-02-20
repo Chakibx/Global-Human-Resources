@@ -1,21 +1,21 @@
-idPoste,libelle,nombreHeuresParSemaine,occupation
-1,Promoteur de vente,35,0
-5,Directeur des opérations,40,1
-9,Responsable de la chaîne logistique,35,0
-13,Responsable de la qualité,35,0
-17,Chargé de la planification,35,1
-2,Directeur des ressources humaines,40,1
-6,Responsable relations sociales,35,1
-10,Chargé de formation,35,0
-14,Chargé de recrutement,35,1
-18,Responsable des ressources humaines,40,0
-3,Ingénieur logiciel,40,0
-7,Développeur web,35,1
-11,Chef de projet informatique,35,1
-15,Responsable de la sécurité informatique,40,0
-19,Spécialiste en infrastructure informatique,35,0
-4,Gestionnaire de paie,35,0
-8,Directeur financier,40,1
-12,Contrôleur de gestion,35,1
-16,Comptable,35,0
-20,Controleur financier,35,0
+idPoste,libelle,nombreHeuresParSemaine,occupation,salaireBase
+1,Promoteur de vente,35,0,2700
+5,Directeur des opérations,40,1,2100
+9,Responsable de la chaîne logistique,35,0,3200
+13,Responsable de la qualité,35,0,3100
+17,Chargé de la planification,35,1,2850
+2,Directeur des ressources humaines,40,1,3050
+6,Responsable relations sociales,35,1,2200
+10,Chargé de formation,35,0,2700
+14,Chargé de recrutement,35,1,2600
+18,Responsable des ressources humaines,40,0,2300
+3,Ingénieur logiciel,40,0,2550
+7,Développeur web,35,1,2500
+11,Chef de projet informatique,35,1,3000
+15,Responsable de la sécurité informatique,40,0,3000
+19,Spécialiste en infrastructure informatique,35,0,2900
+4,Gestionnaire de paie,35,0,2750
+8,Directeur financier,40,1,2600
+12,Contrôleur de gestion,35,1,2800
+16,Comptable,35,0,2950
+20,Controleur financier,35,0,2700

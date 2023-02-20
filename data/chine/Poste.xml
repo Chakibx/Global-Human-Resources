@@ -4,13 +4,15 @@
         <libelle>Promoteur de vente</libelle>
         <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
         <occupation>true</occupation>
+        <salaireBase>1950</salaireBase>
     </poste>
-
+2,5,12
     <poste>
         <idPoste>5</idPoste>
         <libelle>Directeur des opérations</libelle>
         <nombreHeuresParSemaine>40</nombreHeuresParSemaine>
         <occupation>true</occupation>
+        <salaireBase>1900</salaireBase>
     </poste>
 
     <poste>
@@ -18,6 +20,7 @@
         <libelle>Responsable de la chaîne logistique</libelle>
         <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
         <occupation>true</occupation>
+        <salaireBase>2300</salaireBase>
     </poste>
 
     <poste>
@@ -25,6 +28,7 @@
         <libelle>Responsable de la qualité</libelle>
         <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
         <occupation>true</occupation>
+        <salaireBase>2250</salaireBase>
     </poste>
 
     <poste>
@@ -32,12 +36,14 @@
         <libelle>Chargé de la planification</libelle>
         <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
         <occupation>false</occupation>
+        v<salaireBase>2550</salaireBase>
     </poste>
     <poste>
         <idPoste>2</idPoste>
         <libelle>Directeur des ressources humaines</libelle>
         <nombreHeuresParSemaine>40</nombreHeuresParSemaine>
         <occupation>true</occupation>
+        <salaireBase>1960</salaireBase>
     </poste>
 
     <poste>
@@ -45,6 +51,7 @@
         <libelle>Responsable relations sociales</libelle>
         <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
         <occupation>true</occupation>
+        <salaireBase>2600</salaireBase>
     </poste>
 
     <poste>
@@ -52,6 +59,7 @@
         <libelle>Chargé de formation</libelle>
         <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
         <occupation>true</occupation>
+        <salaireBase>2450</salaireBase>
     </poste>
 
     <poste>
@@ -59,6 +67,7 @@
         <libelle>Chargé de recrutement</libelle>
         <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
         <occupation>false</occupation>
+        <salaireBase>2300</salaireBase>
     </poste>
 
     <poste>
@@ -66,6 +75,7 @@
         <libelle>Responsable des ressources humaines</libelle>
         <nombreHeuresParSemaine>40</nombreHeuresParSemaine>
         <occupation>false</occupation>
+        <salaireBase>2750</salaireBase>
     </poste>
 
     <poste>
@@ -73,6 +83,7 @@
         <libelle>Ingénieur logiciel</libelle>
         <nombreHeuresParSemaine>40</nombreHeuresParSemaine>
         <occupation>true</occupation>
+        <salaireBase>2130</salaireBase>
     </poste>
 
     <poste>
@@ -80,36 +91,42 @@
         <libelle>Chef de projet informatique</libelle>
         <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
         <occupation>true</occupation>
+        <salaireBase>1900</salaireBase>
     </poste>
     <poste>
         <idPoste>15</idPoste>
         <libelle>Responsable de la sécurité informatique</libelle>
         <nombreHeuresParSemaine>40</nombreHeuresParSemaine>
         <occupation>false</occupation>
+        <salaireBase>2100</salaireBase>
     </poste>
     <poste>
         <idPoste>19</idPoste>
         <libelle>Spécialiste en infrastructure informatique</libelle>
         <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
         <occupation>false</occupation>
+        <salaireBase>2250</salaireBase>
     </poste>
     <poste>
         <idPoste>4</idPoste>
         <libelle>Gestionnaire de paie</libelle>
         <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
         <occupation>true</occupation>
+        <salaireBase>2230</salaireBase>
     </poste>
     <poste>
         <idPoste>8</idPoste>
         <libelle>Directeur financier</libelle>
         <nombreHeuresParSemaine>40</nombreHeuresParSemaine>
         <occupation>false</occupation>
+        <salaireBase>2100</salaireBase>
     </poste>
     <poste>
         <idPoste>12</idPoste>
         <libelle>Contrôleur de gestion</libelle>
         <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
         <occupation>false</occupation>
+        <salaireBase>2000</salaireBase>
     </poste>
 
     <poste>
@@ -117,6 +134,7 @@
         <libelle>Comptable</libelle>
         <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
         <occupation>true</occupation>
+        <salaireBase>2500</salaireBase>
     </poste>
 
     <poste>
@@ -124,6 +142,7 @@
         <libelle>Controleur financier</libelle>
         <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
         <occupation>false</occupation>
+        <salaireBase>2550</salaireBase>
     </poste>
 </postes>
 

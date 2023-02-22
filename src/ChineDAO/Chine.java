@@ -1,4 +1,4 @@
-package src.Chine;
+package src.ChineDAO;
 
 public class Chine {
 }

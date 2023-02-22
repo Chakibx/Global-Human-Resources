@@ -57,3 +57,26 @@ JOIN performance pf1 ON e.id_employe = pf1.id_employe AND pf1.date_performance <
 JOIN performance pf2 ON e.id_employe = pf2.id_employe AND pf2.date_performance > sf.date_debut_formation
 WHERE pf2.note_performance > pf1.note_performance
 ORDER BY e.nom;
+
+
+--afficher le nom, la derniere performance, et le poste de tous les employé avec leur augmentation de salaire (différence entre salaire de base du poste et le salaire actuel de l'employé)--
+SELECT e.nom, p.libelle, MAX(cdi.salaire - p.salaire_base) AS augmentation, perf.note_performance
+FROM employe e
+JOIN poste p ON e.id_poste = p.id_poste
+JOIN contrat_duree_indeterminee cdi ON e.id_employe = cdi.id_employe
+JOIN performance perf ON e.id_employe = perf.id_employe
+WHERE perf.date_performance = (SELECT MAX(date_performance) FROM performance WHERE id_employe = e.id_employe)
+GROUP BY e.nom, p.libelle, perf.note_performance
+ORDER BY augmentation DESC;
+
+--tous les employés qui on une augmentation de salaire <= 700, et qui on une performance >= 15
+SELECT e.nom, e.prenom, p.libelle AS poste, d.nom_departement AS departement, (c.salaire - p.salaire_base) AS augmentation,perf.note_performance AS performance
+FROM employe e
+JOIN poste p ON e.id_poste = p.id_poste
+JOIN contrat_duree_indeterminee c ON e.id_employe = c.id_employe
+JOIN departement d ON e.id_departement = d.id_departement
+JOIN performance perf ON e.id_employe = perf.id_employe
+WHERE (c.salaire - p.salaire_base) < 1000
+  AND perf.date_performance = (SELECT MAX(date_performance) FROM performance WHERE id_employe = e.id_employe)
+  AND perf.note_performance >= 15;
+

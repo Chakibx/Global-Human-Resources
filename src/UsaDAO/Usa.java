@@ -1,4 +1,4 @@
-package src.Usa;
+package src.UsaDAO;
 
 public class Usa {
 }

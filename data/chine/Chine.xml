@@ -8,7 +8,7 @@
             <dateDeNaissance>1993-09-05</dateDeNaissance>
             <diplome>BTS</diplome>
         </employe>
-        <employe idEmploye="9" idDepartement="2" idPoste="2">
+        <employe idEmploye="9"  idDepartement="2" idPoste="2">
             <nom>Zhang</nom>
             <prenom>Yan</prenom>
             <telephone>+86 135 9876 5432</telephone>

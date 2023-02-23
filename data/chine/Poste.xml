@@ -144,6 +144,13 @@
         <occupation>false</occupation>
         <salaireBase>2550</salaireBase>
     </poste>
+    <poste>
+        <idPoste>7</idPoste>
+        <libelle>Développeur web</libelle>
+        <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
+        <occupation>false</occupation>
+        <salaireBase>2000</salaireBase>
+    </poste>
 </postes>
 
 

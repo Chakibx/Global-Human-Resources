@@ -2,9 +2,9 @@
     <!ELEMENT chine (employes, postes, contratsDureeIndeterminee, departements, formations, seFormes, performances, absences)>
     <!ELEMENT employes (employe+)>
     <!ELEMENT employe (nom, prenom, telephone, adresse, dateDeNaissance, diplome)>
-    <!ATTLIST   employe idEmploye ID #REQUIRED
-                idDepartement IDREF #REQUIRED
-                idPoste IDREF #REQUIRED>
+    <!ATTLIST  employe  idEmploye ID #REQUIRED
+                        idDepartement IDREF #REQUIRED
+                        idPoste IDREF #REQUIRED>
     <!ELEMENT nom (#PCDATA)>
     <!ELEMENT prenom (#PCDATA)>
     <!ELEMENT telephone (#PCDATA)>
@@ -56,7 +56,7 @@
 
     <!ELEMENT absences (absence+)>
     <!ELEMENT absence (motifAbsence, nombreDeJours, dateAbsence)>
-    <!ATTLIST absence    idAbence ID #REQUIRED
+    <!ATTLIST absence    idAbsence ID #REQUIRED
                          idEmploye IDREF #REQUIRED>
     <!ELEMENT motifAbsence (#PCDATA)>
     <!ELEMENT nombreDeJours (#PCDATA)>
@@ -64,7 +64,63 @@
     ]>
 <chine>
     <employes>
-        <employe idEmploye="8" idDepartement="4" idPoste="4">
+        <employe idEmploye="e1" idDepartement="d2" idPoste="p6">
+            <nom>Zhang</nom>
+            <prenom>Wei</prenom>
+            <telephone>1234567890</telephone>
+            <adresse>123 rue du Bonheur, Shanghai</adresse>
+            <dateDeNaissance>1990-01-01</dateDeNaissance>
+            <diplome>Master</diplome>
+        </employe>
+        <employe idEmploye="e2" idDepartement="d2" idPoste="p10">
+            <nom>Liu</nom>
+            <prenom>Xin</prenom>
+            <telephone>2345678901</telephone>
+            <adresse>456 avenue de la Paix, Pékin</adresse>
+            <dateDeNaissance>1995-05-05</dateDeNaissance>
+            <diplome>Licence</diplome>
+        </employe>
+        <employe idEmploye="e3" idDepartement="d1" idPoste="p13">
+            <nom>Chen</nom>
+            <prenom>Hong</prenom>
+            <telephone>3456789012</telephone>
+            <adresse>789 boulevard des Arts, Canton</adresse>
+            <dateDeNaissance>1988-08-08</dateDeNaissance>
+            <diplome>BTS</diplome>
+        </employe>
+        <employe idEmploye="e4" idDepartement="d4" idPoste="p16">
+            <nom>Wang</nom>
+            <prenom>Jian</prenom>
+            <telephone>4567890123</telephone>
+            <adresse>321 rue des Sciences, Shenzhen</adresse>
+            <dateDeNaissance>1993-03-03</dateDeNaissance>
+            <diplome>Master</diplome>
+        </employe>
+        <employe idEmploye="e5" idDepartement="d3" idPoste="p11">
+            <nom>Zhao</nom>
+            <prenom>Ling</prenom>
+            <telephone>5678901234</telephone>
+            <adresse>654 avenue de la Liberté, Chengdu</adresse>
+            <dateDeNaissance>1992-02-02</dateDeNaissance>
+            <diplome>Licence</diplome>
+        </employe>
+        <employe idEmploye="e6" idDepartement="d1" idPoste="p9">
+            <nom>Xu</nom>
+            <prenom>Min</prenom>
+            <telephone>6789012345</telephone>
+            <adresse>987 boulevard des Sciences, Guangzhou</adresse>
+            <dateDeNaissance>1991-01-01</dateDeNaissance>
+            <diplome>BTS</diplome>
+        </employe>
+        <employe idEmploye="e7" idDepartement="d3" idPoste="p3">
+            <nom>Wang</nom>
+            <prenom>Jing</prenom>
+            <telephone>+86 185 1234 5678</telephone>
+            <adresse>No. 123, Lane 45, Fengxian District, Shanghai, China</adresse>
+            <dateDeNaissance>1990-05-28</dateDeNaissance>
+            <diplome>Master</diplome>
+        </employe>
+        <employe idEmploye="e8" idDepartement="d4" idPoste="p4">
             <nom>Li</nom>
             <prenom>Wei</prenom>
             <telephone>+86 136 5678 1234</telephone>
@@ -72,7 +128,7 @@
             <dateDeNaissance>1993-09-05</dateDeNaissance>
             <diplome>BTS</diplome>
         </employe>
-        <employe idEmploye="9"  idDepartement="2" idPoste="2">
+        <employe idEmploye="e9" idDepartement="d2" idPoste="p2">
             <nom>Zhang</nom>
             <prenom>Yan</prenom>
             <telephone>+86 135 9876 5432</telephone>
@@ -80,7 +136,7 @@
             <dateDeNaissance>1991-12-18</dateDeNaissance>
             <diplome>Licence</diplome>
         </employe>
-        <employe idEmploye="10" idDepartement="1" idPoste="1">
+        <employe idEmploye="e10" idDepartement="d1" idPoste="p1">
             <nom>Chen</nom>
             <prenom>Xia</prenom>
             <telephone>+86 185 8765 4321</telephone>
@@ -88,7 +144,7 @@
             <dateDeNaissance>1989-02-27</dateDeNaissance>
             <diplome>Master</diplome>
         </employe>
-        <employe idEmploye="11" idDepartement="1" idPoste="5">
+        <employe idEmploye="e11" idDepartement="d1" idPoste="p5">
             <nom>Liu</nom>
             <prenom>Yang</prenom>
             <telephone>+86 138 7654 3210</telephone>
@@ -96,7 +152,7 @@
             <dateDeNaissance>1995-06-20</dateDeNaissance>
             <diplome>BTS</diplome>
         </employe>
-        <employe idEmploye="12" idDepartement="3" idPoste="7">
+        <employe idEmploye="e12" idDepartement="d3" idPoste="p7">
             <nom>Wang</nom>
             <prenom>Xiao</prenom>
             <telephone>13761234567</telephone>
@@ -107,393 +163,400 @@
     </employes>
 
     <postes>
-        <poste idPoste="1">
+        <poste idPoste="p1">
             <libelle>Promoteur de vente</libelle>
             <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
             <occupation>true</occupation>
             <salaireBase>1950</salaireBase>
         </poste>
 
-        <poste idPoste="5">
+
+        <poste idPoste="p5">
             <libelle>Directeur des opérations</libelle>
             <nombreHeuresParSemaine>40</nombreHeuresParSemaine>
             <occupation>true</occupation>
             <salaireBase>1900</salaireBase>
         </poste>
 
-        <poste idPoste="9">
+        <poste idPoste="p9">
             <libelle>Responsable de la chaîne logistique</libelle>
             <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
             <occupation>true</occupation>
             <salaireBase>2300</salaireBase>
         </poste>
 
-        <poste idPoste="13">
+        <poste idPoste="p13">
             <libelle>Responsable de la qualité</libelle>
             <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
             <occupation>true</occupation>
             <salaireBase>2250</salaireBase>
         </poste>
 
-        <poste idPoste="17">
+        <poste idPoste="p17">
             <libelle>Chargé de la planification</libelle>
             <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
             <occupation>false</occupation>
             <salaireBase>2550</salaireBase>
         </poste>
-        <poste idPoste="2">
+        <poste idPoste="p2">
             <libelle>Directeur des ressources humaines</libelle>
             <nombreHeuresParSemaine>40</nombreHeuresParSemaine>
             <occupation>true</occupation>
             <salaireBase>1960</salaireBase>
         </poste>
 
-        <poste idPoste="6">
+        <poste idPoste="p6">
             <libelle>Responsable relations sociales</libelle>
             <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
             <occupation>true</occupation>
             <salaireBase>2600</salaireBase>
         </poste>
 
-        <poste idPoste="10">
+        <poste idPoste="p10">
             <libelle>Chargé de formation</libelle>
             <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
             <occupation>true</occupation>
             <salaireBase>2450</salaireBase>
         </poste>
 
-        <poste idPoste="14">
+        <poste idPoste="p14">
             <libelle>Chargé de recrutement</libelle>
             <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
             <occupation>false</occupation>
             <salaireBase>2300</salaireBase>
         </poste>
 
-        <poste idPoste="18">
+        <poste idPoste="p18">
             <libelle>Responsable des ressources humaines</libelle>
             <nombreHeuresParSemaine>40</nombreHeuresParSemaine>
             <occupation>false</occupation>
             <salaireBase>2750</salaireBase>
         </poste>
 
-        <poste idPoste="3">
+        <poste idPoste="p3">
             <libelle>Ingénieur logiciel</libelle>
             <nombreHeuresParSemaine>40</nombreHeuresParSemaine>
             <occupation>true</occupation>
             <salaireBase>2130</salaireBase>
         </poste>
 
-        <poste idPoste="11">
+        <poste idPoste="p11">
             <libelle>Chef de projet informatique</libelle>
             <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
             <occupation>true</occupation>
             <salaireBase>1900</salaireBase>
         </poste>
-        <poste idPoste="15">
+        <poste idPoste="p15">
             <libelle>Responsable de la sécurité informatique</libelle>
             <nombreHeuresParSemaine>40</nombreHeuresParSemaine>
             <occupation>false</occupation>
             <salaireBase>2100</salaireBase>
         </poste>
-        <poste idPoste="19">
+        <poste idPoste="p19">
             <libelle>Spécialiste en infrastructure informatique</libelle>
             <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
             <occupation>false</occupation>
             <salaireBase>2250</salaireBase>
         </poste>
-        <poste idPoste="4">
+        <poste idPoste="p4">
             <libelle>Gestionnaire de paie</libelle>
             <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
             <occupation>true</occupation>
             <salaireBase>2230</salaireBase>
         </poste>
-        <poste idPoste="8">
+        <poste idPoste="p8">
             <libelle>Directeur financier</libelle>
             <nombreHeuresParSemaine>40</nombreHeuresParSemaine>
             <occupation>false</occupation>
             <salaireBase>2100</salaireBase>
         </poste>
-        <poste idPoste="12">
+        <poste idPoste="p12">
             <libelle>Contrôleur de gestion</libelle>
             <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
             <occupation>false</occupation>
             <salaireBase>2000</salaireBase>
         </poste>
 
-        <poste idPoste="16">
+        <poste idPoste="p16">
             <libelle>Comptable</libelle>
             <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
             <occupation>true</occupation>
             <salaireBase>2500</salaireBase>
         </poste>
 
-        <poste idPoste="20">
+        <poste idPoste="p20">
             <libelle>Controleur financier</libelle>
             <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
             <occupation>false</occupation>
             <salaireBase>2550</salaireBase>
         </poste>
+        <poste idPoste="p7">
+            <libelle>Développeur web</libelle>
+            <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
+            <occupation>false</occupation>
+            <salaireBase>2000</salaireBase>
+        </poste>
     </postes>
     <contratsDureeIndeterminee>
-        <contrat idContrat="1" idEmploye="1">
+        <contrat idContrat="c1" idEmploye="e1">
             <dateDebutContrat>2021-01-01</dateDebutContrat>
             <numeroContrat>12001</numeroContrat>
             <salaire>3575</salaire>
         </contrat>
-        <contrat idContrat="2" idEmploye="2">
+        <contrat idContrat="c2" idEmploye="e2">
             <dateDebutContrat>2021-01-02</dateDebutContrat>
             <numeroContrat>12002</numeroContrat>
             <salaire>2250</salaire>
         </contrat>
-        <contrat idContrat="3" idEmploye="3">
+        <contrat idContrat="c3" idEmploye="e3">
             <dateDebutContrat>2021-01-04</dateDebutContrat>
             <numeroContrat>12003</numeroContrat>
             <salaire>4110</salaire>
         </contrat>
-        <contrat idContrat="4" idEmploye="4">
+        <contrat idContrat="c4" idEmploye="e4">
             <dateDebutContrat>2021-01-04</dateDebutContrat>
             <numeroContrat>12004</numeroContrat>
             <salaire>3255</salaire>
         </contrat>
-        <contrat idContrat="5" idEmploye="5">
+        <contrat idContrat="c5" idEmploye="e5">
             <dateDebutContrat>2021-01-06</dateDebutContrat>
             <numeroContrat>12005</numeroContrat>
             <salaire>2350</salaire>
         </contrat>
-        <contrat idContrat="6" idEmploye="6">
+        <contrat idContrat="c6" idEmploye="e6">
             <dateDebutContrat>2021-01-06</dateDebutContrat>
             <numeroContrat>12006</numeroContrat>
             <salaire>3820</salaire>
         </contrat>
-        <contrat idContrat="7" idEmploye="7">
+        <contrat idContrat="c7" idEmploye="e7">
             <dateDebutContrat>2021-01-07</dateDebutContrat>
             <numeroContrat>12007</numeroContrat>
             <salaire>3520</salaire>
         </contrat>
-        <contrat idContrat="8" idEmploye="8">
+        <contrat idContrat="c8" idEmploye="c8">
             <dateDebutContrat>2021-01-08</dateDebutContrat>
             <numeroContrat>12008</numeroContrat>
             <salaire>3300</salaire>
         </contrat>
-        <contrat idContrat="9" idEmploye="9">
+        <contrat idContrat="c9" idEmploye="e9">
             <dateDebutContrat>2021-01-08</dateDebutContrat>
             <numeroContrat>12009</numeroContrat>
             <salaire>4050</salaire>
         </contrat>
-        <contrat idContrat="10" idEmploye="10">
+        <contrat idContrat="c10" idEmploye="e10">
             <dateDebutContrat>2021-02-08</dateDebutContrat>
             <numeroContrat>12011</numeroContrat>
             <salaire>4350</salaire>
         </contrat>
-        <contrat idContrat="11" idEmploye="11">
+        <contrat idContrat="c11" idEmploye="e11">
             <dateDebutContrat>2022-01-01</dateDebutContrat>
             <numeroContrat>12012</numeroContrat>
             <salaire>3350</salaire>
         </contrat>
-        <contrat idContrat="12" idEmploye="12">
+        <contrat idContrat="c12" idEmploye="e12">
             <dateDebutContrat>2022-01-15</dateDebutContrat>
             <numeroContrat>12013</numeroContrat>
             <salaire>2200</salaire>
         </contrat>
     </contratsDureeIndeterminee>
     <departements>
-        <departement idDepartement="1">
+        <departement idDepartement="d1">
             <nomDepartement>Ventes et marketing</nomDepartement>
             <pays>Chine</pays>
         </departement>
-        <departement idDepartement="2">
+        <departement idDepartement="d2">
             <nomDepartement>Ressources humaines</nomDepartement>
             <pays>Chine</pays>
         </departement>
-        <departement idDepartement="3">
+        <departement idDepartement="d3">
             <nomDepartement>IT</nomDepartement>
             <pays>Chine</pays>
         </departement>
-        <departement idDepartement="4">
+        <departement idDepartement="d4">
             <nomDepartement>Finance</nomDepartement>
             <pays>Chine</pays>
         </departement>
     </departements>
     <formations>
-        <formation idFormation="1">
+        <formation idFormation="f1">
             <typeFormation>Formation en vente et négociation</typeFormation>
             <coutFormation>1000</coutFormation>
         </formation>
-        <formation idFormation="2">
+        <formation idFormation="f2">
             <typeFormation>Formation en marketing digital</typeFormation>
             <coutFormation>1200</coutFormation>
         </formation>
-        <formation idFormation="3">
+        <formation idFormation="f3">
             <typeFormation>Formation en communication interne</typeFormation>
             <coutFormation>1300</coutFormation>
         </formation>
-        <formation idFormation="4">
+        <formation idFormation="f4">
             <typeFormation>Formation en recrutement</typeFormation>
             <coutFormation>1150</coutFormation>
         </formation>
-        <formation idFormation="5">
+        <formation idFormation="f5">
             <typeFormation>Formation en gestion des ressources humaines</typeFormation>
             <coutFormation>1300</coutFormation>
         </formation>
-        <formation idFormation="6">
+        <formation idFormation="f6">
             <typeFormation>Formation en comptabilité</typeFormation>
             <coutFormation>1450</coutFormation>
         </formation>
-        <formation idFormation="7">
+        <formation idFormation="f7">
             <typeFormation>Formation en gestion financière</typeFormation>
             <coutFormation>800</coutFormation>
         </formation>
-        <formation idFormation="8">
+        <formation idFormation="f8">
             <typeFormation>Formation en sécurité informatique</typeFormation>
             <coutFormation>700</coutFormation>
         </formation>
-        <formation idFormation="9">
+        <formation idFormation="f9">
             <typeFormation>Formation en CISCO CCNA</typeFormation>
             <coutFormation>900</coutFormation>
         </formation>
-        <formation idFormation="10">
+        <formation idFormation="f10">
             <typeFormation>Formation en gestion de projet</typeFormation>
             <coutFormation>500</coutFormation>
         </formation>
-        <formation idFormation="11">
+        <formation idFormation="f11">
             <typeFormation>Formation en Langue anglaise</typeFormation>
             <coutFormation>450</coutFormation>
         </formation>
     </formations>
     <seFormes>
-        <seForme idSeforme="1" idFormation="11" idEmploye="7">
+        <seForme idSeforme="sf1" idFormation="f11" idEmploye="e7">
             <DateDebutFormation>2022-12-20</DateDebutFormation>
         </seForme>
     </seFormes>
     <performances>
-        <performance idPerformance="1" idEmploye="1">
+        <performance idPerformance="pr1" idEmploye="e1">
             <notePerformance>12</notePerformance>
             <datePerformance>2021-12-01</datePerformance>
         </performance>
-        <performance idPerformance="2" idEmploye="2">
+        <performance idPerformance="pr2" idEmploye="e2">
             <notePerformance>10</notePerformance>
             <datePerformance>2021-12-02</datePerformance>
         </performance>
-        <performance idPerformance="3" idEmploye="3">
+        <performance idPerformance="pr3" idEmploye="e3">
             <notePerformance>12</notePerformance>
             <datePerformance>2021-12-03</datePerformance>
         </performance>
-        <performance idPerformance="4" idEmploye="4">
+        <performance idPerformance="pr4" idEmploye="e4">
             <notePerformance>14</notePerformance>
             <datePerformance>2021-12-04</datePerformance>
         </performance>
-        <performance idPerformance="5" idEmploye="5">
+        <performance idPerformance="pr5" idEmploye="e5">
             <notePerformance>12</notePerformance>
             <datePerformance>2021-12-05</datePerformance>
         </performance>
-        <performance idPerformance="6" idEmploye="6">
+        <performance idPerformance="pr6" idEmploye="e6">
             <notePerformance>14</notePerformance>
             <datePerformance>2021-12-06</datePerformance>
         </performance>
-        <performance idPerformance="7" idEmploye="7">
+        <performance idPerformance="pr7" idEmploye="e7">
             <notePerformance>17</notePerformance>
             <datePerformance>2021-12-07</datePerformance>
         </performance>
-        <performance idPerformance="8" idEmploye="8">
+        <performance idPerformance="pr8" idEmploye="e8">
             <notePerformance>19</notePerformance>
             <datePerformance>2021-12-08</datePerformance>
         </performance>
-        <performance idPerformance="9" idEmploye="9">
+        <performance idPerformance="pr9" idEmploye="e9">
             <notePerformance>13</notePerformance>
             <datePerformance>2021-12-09</datePerformance>
         </performance>
-        <performance idPerformance="10" idEmploye="10">
+        <performance idPerformance="pr10" idEmploye="e10">
             <notePerformance>11</notePerformance>
             <datePerformance>2021-12-10</datePerformance>
         </performance>
 
-        <performance idPerformance="21" idEmploye="1">
+        <performance idPerformance="pr21" idEmploye="e1">
             <notePerformance>15</notePerformance>
             <datePerformance>2022-12-01</datePerformance>
         </performance>
-        <performance idPerformance="22" idEmploye="2">
+        <performance idPerformance="pr22" idEmploye="e2">
             <notePerformance>13</notePerformance>
             <datePerformance>2022-12-02</datePerformance>
         </performance>
-        <performance idPerformance="23" idEmploye="3">
+        <performance idPerformance="pr23" idEmploye="e3">
             <notePerformance>13</notePerformance>
             <datePerformance>2022-12-03</datePerformance>
         </performance>
-        <performance idPerformance="24" idEmploye="4">
+        <performance idPerformance="pr24" idEmploye="e4">
             <notePerformance>17</notePerformance>
             <datePerformance>2022-12-04</datePerformance>
         </performance>
-        <performance idPerformance="25" idEmploye="5">
+        <performance idPerformance="pr25" idEmploye="e5">
             <notePerformance>16</notePerformance>
             <datePerformance>2022-12-05</datePerformance>
         </performance>
-        <performance idPerformance="26" idEmploye="6">
+        <performance idPerformance="pr26" idEmploye="e6">
             <notePerformance>14</notePerformance>
             <datePerformance>2022-12-06</datePerformance>
         </performance>
-        <performance idPerformance="27" idEmploye="7">
+        <performance idPerformance="pr27" idEmploye="e7">
             <notePerformance>15</notePerformance>
             <datePerformance>2022-12-07</datePerformance>
         </performance>
-        <performance idPerformance="28" idEmploye="8">
+        <performance idPerformance="pr28" idEmploye="e8">
             <notePerformance>19</notePerformance>
             <datePerformance>2022-12-08</datePerformance>
         </performance>
-        <performance idPerformance="29" idEmploye="9">
+        <performance idPerformance="pr29" idEmploye="e9">
             <notePerformance>11</notePerformance>
             <datePerformance>2022-12-09</datePerformance>
         </performance>
-        <performance idPerformance="30" idEmploye="10">
+        <performance idPerformance="pr30" idEmploye="e10">
             <notePerformance>11</notePerformance>
             <datePerformance>2022-12-10</datePerformance>
         </performance>
-        <performance idPerformance="31" idEmploye="11">
+        <performance idPerformance="pr31" idEmploye="e11">
             <notePerformance>15</notePerformance>
             <datePerformance>2022-12-11</datePerformance>
         </performance>
-        <performance idPerformance="32" idEmploye="12">
+        <performance idPerformance="pr32" idEmploye="e12">
             <notePerformance>14</notePerformance>
             <datePerformance>2022-12-12</datePerformance>
         </performance>
     </performances>
 
     <absences>
-        <absence idAbence="1" idEmploye="1">
+        <absence idAbsence="a1" idEmploye="e1">
             <motifAbsence>Congé annuel</motifAbsence>
             <nombreDeJours>5</nombreDeJours>
             <dateAbsence>2021-05-10</dateAbsence>
         </absence>
-        <absence idAbence="2" idEmploye="2">
+        <absence idAbsence="a2" idEmploye="e2">
             <motifAbsence>Maladie</motifAbsence>
             <nombreDeJours>2</nombreDeJours>
             <dateAbsence>2021-02-15</dateAbsence>
         </absence>
-        <absence idAbence="3" idEmploye="6">
+        <absence idAbsence="a3" idEmploye="e6">
             <motifAbsence>Congé sans solde</motifAbsence>
             <nombreDeJours>15</nombreDeJours>
             <dateAbsence>2022-07-10</dateAbsence>
         </absence>
-        <absence idAbence="4" idEmploye="7">
+        <absence idAbsence="a4" idEmploye="e7">
             <motifAbsence>Congé maladie enfant</motifAbsence>
             <nombreDeJours>3</nombreDeJours>
             <dateAbsence>2021-11-12</dateAbsence>
         </absence>
-        <absence idAbence="8" idEmploye="8">
+        <absence idAbsence="a8" idEmploye="e8">
             <motifAbsence>Congé maternité</motifAbsence>
             <nombreDeJours>90</nombreDeJours>
             <dateAbsence>2021-09-05</dateAbsence>
         </absence>
-        <absence idAbence="5" idEmploye="3">
+        <absence idAbsence="a5" idEmploye="e3">
             <motifAbsence>Formation</motifAbsence>
             <nombreDeJours>2</nombreDeJours>
             <dateAbsence>2021-10-20</dateAbsence>
         </absence>
-        <absence idAbence="6" idEmploye="10">
+        <absence idAbsence="a6" idEmploye="e10">
             <motifAbsence>Congé annuel</motifAbsence>
             <nombreDeJours>8</nombreDeJours>
             <dateAbsence>2021-10-01</dateAbsence>
         </absence>
-        <absence idAbence="7" idEmploye="7">
+        <absence idAbsence="a7" idEmploye="e7">
             <motifAbsence>Formation</motifAbsence>
             <nombreDeJours>6</nombreDeJours>
             <dateAbsence>2022-12-20</dateAbsence>

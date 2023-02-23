@@ -1,1 +1,3 @@
-//employe[fn:years-from-date(fn:date(dateDeNaissance)) >= 20 and fn:years-from-date(fn:date(dateDeNaissance)) <= 30]/contratsDureeIndeterminee/salaire
+La liste des noms,fonctions, salaires des employes qui ont un salaire plus que 3500
+        //employe[@idEmploye=//contrat[salaire>3500]/@idEmploye]/concat(nom,' ',telephone)
+

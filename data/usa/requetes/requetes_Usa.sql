@@ -89,5 +89,3 @@ JOIN Performance perf ON e.idEmploye = perf.idEmploye
 WHERE (c.salaire - p.salaireBase) < 500
 AND perf.datePerformance = (SELECT MAX(datePerformance) FROM Performance WHERE idEmploye = e.idEmploye)
 AND perf.notePerformance >= 15;
-
---

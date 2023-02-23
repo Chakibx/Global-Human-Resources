@@ -1,4 +1,4 @@
-package src.AllemagneDAO;
+package src.Allemagne;
 
 public class Allemagne {
 }

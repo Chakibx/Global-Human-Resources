@@ -1,4 +1,4 @@
-package src.UsaDAO;
+package src.Usa;
 
 public class MysqlQuery {
     private String MSQL1 = "SELECT d.nomDepartement, SUM(f.coutFormation) AS total_cout_formation FROM Departement d INNER JOIN Employe e ON d.idDepartement = e.idDepartement INNER JOIN SeForme s ON e.idEmploye = s.idEmploye INNER JOIN Formation f ON s.idFormation = f.idFormation WHERE YEAR(s.dateDebutFormation) = YEAR(CURDATE()) - 1 GROUP BY d.nomDepartement;";

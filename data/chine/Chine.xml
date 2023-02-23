@@ -371,94 +371,68 @@
             <notePerformance>15</notePerformance>
             <datePerformance>2022-12-07</datePerformance>
         </performance>
-        <performance>
-            <idPerformance>28</idPerformance>
+        <performance idPerformance="28" idEmploye="8">
             <notePerformance>19</notePerformance>
             <datePerformance>2022-12-08</datePerformance>
-            <idEmploye>8</idEmploye>
         </performance>
-        <performance>
-            <idPerformance>29</idPerformance>
+        <performance idPerformance="29" idEmploye="9">
             <notePerformance>11</notePerformance>
             <datePerformance>2022-12-09</datePerformance>
-            <idEmploye>9</idEmploye>
         </performance>
-        <performance>
-            <idPerformance>30</idPerformance>
+        <performance idPerformance="30" idEmploye="10">
             <notePerformance>11</notePerformance>
             <datePerformance>2022-12-10</datePerformance>
-            <idEmploye>10</idEmploye>
         </performance>
-        <performance>
-            <idPerformance>31</idPerformance>
+        <performance idPerformance="31" idEmploye="11">
             <notePerformance>15</notePerformance>
             <datePerformance>2022-12-11</datePerformance>
-            <idEmploye>11</idEmploye>
         </performance>
-        <performance>
-            <idPerformance>32</idPerformance>
+        <performance idPerformance="32" idEmploye="12">
             <notePerformance>14</notePerformance>
             <datePerformance>2022-12-12</datePerformance>
-            <idEmploye>12</idEmploye>
         </performance>
     </performances>
 
     <absences>
-        <absence>
-            <idAbsence>1</idAbsence>
+        <absence idAbence="1" idEmploye="1">
             <motifAbsence>Congé annuel</motifAbsence>
             <nombreDeJours>5</nombreDeJours>
             <dateAbsence>2021-05-10</dateAbsence>
-            <idEmploye>1</idEmploye>
         </absence>
-        <absence>
-            <idAbsence>2</idAbsence>
+        <absence idAbence="2" idEmploye="2">
             <motifAbsence>Maladie</motifAbsence>
             <nombreDeJours>2</nombreDeJours>
             <dateAbsence>2021-02-15</dateAbsence>
-            <idEmploye>2</idEmploye>
         </absence>
-        <absence>
-            <idAbsence>3</idAbsence>
+        <absence idAbence="3" idEmploye="6">
             <motifAbsence>Congé sans solde</motifAbsence>
             <nombreDeJours>15</nombreDeJours>
             <dateAbsence>2022-07-10</dateAbsence>
-            <idEmploye>6</idEmploye>
         </absence>
-        <absence>
-            <idAbsence>4</idAbsence>
+        <absence idAbence="4" idEmploye="7">
             <motifAbsence>Congé maladie enfant</motifAbsence>
             <nombreDeJours>3</nombreDeJours>
             <dateAbsence>2021-11-12</dateAbsence>
-            <idEmploye>7</idEmploye>
         </absence>
-        <absence>
-            <idAbsence>8</idAbsence>
+        <absence idAbence="8" idEmploye="8">
             <motifAbsence>Congé maternité</motifAbsence>
             <nombreDeJours>90</nombreDeJours>
             <dateAbsence>2021-09-05</dateAbsence>
-            <idEmploye>8</idEmploye>
         </absence>
-        <absence>
-            <idAbsence>5</idAbsence>
+        <absence idAbence="5" idEmploye="3">
             <motifAbsence>Formation</motifAbsence>
             <nombreDeJours>2</nombreDeJours>
             <dateAbsence>2021-10-20</dateAbsence>
-            <idEmploye>3</idEmploye>
         </absence>
-        <absence>
-            <idAbsence>6</idAbsence>
+        <absence idAbence="6" idEmploye="10">
             <motifAbsence>Congé annuel</motifAbsence>
             <nombreDeJours>8</nombreDeJours>
             <dateAbsence>2021-10-01</dateAbsence>
-            <idEmploye>10</idEmploye>
         </absence>
-        <absence>
-            <idAbsence>7</idAbsence>
+        <absence idAbence="7" idEmploye="7">
             <motifAbsence>Formation</motifAbsence>
             <nombreDeJours>6</nombreDeJours>
             <dateAbsence>2022-12-20</dateAbsence>
-            <idEmploye>7</idEmploye>
         </absence>
     </absences>
 </chine>

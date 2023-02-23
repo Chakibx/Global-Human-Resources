@@ -87,7 +87,7 @@ public class QueryExecution {
                     System.out.println("nom,libelle,augmentation,notePerformance");
                     System.out.println("******************************************************");
                     while (resultat.next()) {
-                        System.out.println(resultat.getString("nom")+","+resultat.getString("note_avant")+","+resultat.getString("date_note_avant")+","+resultat.getString("note_apres")+","+resultat.getString("date_note_apres")+","+resultat.getString("typeFormation")+","+resultat.getString("date_formation"));
+                        System.out.println(resultat.getString("nom")+","+resultat.getString("libelle")+","+resultat.getString("augmentation")+","+resultat.getString("notePerformance"));
                     }
                     break;
                 case 10:

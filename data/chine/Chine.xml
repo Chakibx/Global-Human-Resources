@@ -1,6 +1,6 @@
 <chine>
     <employes>
-        <employe>
+        <employe idEmploye="8">
             <idEmploye>8</idEmploye>
             <nom>Li</nom>
             <prenom>Wei</prenom>
@@ -11,8 +11,7 @@
             <idDepartement>4</idDepartement>
             <idPoste>4</idPoste>
         </employe>
-        <employe>
-            <idEmploye>9</idEmploye>
+        <employe idEmploye="9" >
             <nom>Zhang</nom>
             <prenom>Yan</prenom>
             <telephone>+86 135 9876 5432</telephone>

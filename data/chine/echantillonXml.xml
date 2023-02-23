@@ -1,0 +1,76 @@
+<entreprise>
+    <employes>
+        <employe idEmploye="1" idPoste="6" idDepartement="2">
+            <nom>Zhang</nom>
+            <prenom>Wei</prenom>
+            <telephone>1234567890</telephone>
+            <adresse>123 rue du Bonheur, Shanghai</adresse>
+            <dateDeNaissance>1990-01-01</dateDeNaissance>
+            <diplome>Master</diplome>
+        </employe>
+        ...
+    </employes>
+    <postes>
+        <poste  idPoste="16">
+            <libelle>Comptable</libelle>
+            <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
+            <occupation>true</occupation>
+            <salaireBase>2500</salaireBase>
+        </poste>
+        ....
+    </postes>
+    <contratsDureeIndeterminee>
+        <contrat idContrat="1" idEmploye="1">
+            <dateDebutContrat>2021-01-01</dateDebutContrat>
+            <numeroContrat>12001</numeroContrat>
+            <salaire>3575</salaire>
+        </contrat>
+        ...
+    </contratsDureeIndeterminee>
+    <departements>
+        <departement>
+            <idDepartement>1</idDepartement>
+            <nomDepartement>Ventes et marketing</nomDepartement>
+            <pays>Chine</pays>
+        </departement>
+        ...
+    </departements>
+    <absences>
+        <absence>
+            <idAbsence>1</idAbsence>
+            <motifAbsence>Congé annuel</motifAbsence>
+            <nombreDeJours>5</nombreDeJours>
+            <dateAbsence>2021-05-10</dateAbsence>
+            <idEmploye>1</idEmploye>
+        </absence>
+        ...
+    </absences>
+    <performances>
+        <performance>
+            <idPerfromance>1</idPerfromance>
+            <notePerformance>12</notePerformance>
+            <datePerformance>2021-12-01</datePerformance>
+            <idEmploye>1</idEmploye>
+        </performance>
+        ...
+    </performances>
+    <formations>
+        <formation idFormation="1">
+            <typeFormation>Formation en vente et négociation</typeFormation>
+            <coutFormation>1000</coutFormation>
+        </formation>
+        ...
+    </formations>
+    <seFormes>
+        <seForme idSeForme="1"  idFormation="11" idEmploye="7" >
+            <DateDebutFormation>2022-12-20</DateDebutFormation>
+        </seForme>
+        ...
+    </seFormes>
+
+
+
+
+
+
+</entreprise>

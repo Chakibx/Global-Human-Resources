@@ -57,7 +57,7 @@ FROM Poste p
 WHERE p.occupation = FALSE
 ORDER BY p.salaireBase ASC;
 
---
+--l'impact des formations sur les performances
 SELECT e.nom, pf1.notePerformance as note_avant, pf1.datePerformance AS date_note_avant, pf2.notePerformance as note_apres,pf2.datePerformance AS date_note_apres, f.typeFormation, sf.dateDebutFormation AS date_formation
 FROM SeForme sf
 JOIN Formation f ON sf.idFormation = f.idFormation
@@ -66,3 +66,28 @@ JOIN Performance pf1 ON e.idEmploye = pf1.idEmploye AND pf1.datePerformance < sf
 JOIN Performance pf2 ON e.idEmploye = pf2.idEmploye AND pf2.datePerformance > sf.dateDebutFormation
 WHERE pf2.notePerformance > pf1.notePerformance
 ORDER BY e.nom;
+
+
+--le nom, la derniere performance, et le poste de l'employé qui a eu la plus grosse augmentation de salaire
+
+SELECT e.nom, p.libelle, MAX(cdi.salaire - p.salaireBase) AS augmentation, perf.notePerformance
+FROM Employe e
+JOIN Poste p ON e.idPoste = p.idPoste
+JOIN ContratDureeIndeterminee cdi ON e.idEmploye = cdi.idEmploye
+JOIN Performance perf ON e.idEmploye = perf.idEmploye
+WHERE perf.datePerformance = (SELECT MAX(datePerformance) FROM Performance WHERE idEmploye = e.idEmploye)
+GROUP BY e.nom, p.libelle, perf.notePerformance
+ORDER BY augmentation DESC;
+
+--tous les employes qui ont une aaugmentation de salaire <=700 et une performance <=15
+SELECT e.nom, e.prenom, p.libelle AS poste, d.nomDepartement AS departement, (c.salaire - p.salaireBase) AS augmentation,perf.notePerformance AS performance
+FROM Employe e
+JOIN Poste p ON e.idPoste = p.idPoste
+JOIN ContratDureeIndeterminee c ON e.idEmploye = c.idEmploye
+JOIN Departement d ON e.idDepartement = d.idDepartement
+JOIN Performance perf ON e.idEmploye = perf.idEmploye
+WHERE (c.salaire - p.salaireBase) < 500
+AND perf.datePerformance = (SELECT MAX(datePerformance) FROM Performance WHERE idEmploye = e.idEmploye)
+AND perf.notePerformance >= 15;
+
+--

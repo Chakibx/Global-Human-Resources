@@ -28,29 +28,28 @@
         ...
     </contratsDureeIndeterminee>
     <departements>
-        <departement>
-            <idDepartement>1</idDepartement>
+        <departement idDepartement="1" >
             <nomDepartement>Ventes et marketing</nomDepartement>
             <pays>Chine</pays>
         </departement>
         ...
     </departements>
     <absences>
-        <absence>
-            <idAbsence>1</idAbsence>
+        <absence idAbsence="1"  idEmploye="1">
+
             <motifAbsence>Congé annuel</motifAbsence>
             <nombreDeJours>5</nombreDeJours>
             <dateAbsence>2021-05-10</dateAbsence>
-            <idEmploye>1</idEmploye>
+
         </absence>
         ...
     </absences>
     <performances>
-        <performance>
-            <idPerfromance>1</idPerfromance>
+        <performance idPerfromance="1" idEmploye="1">
+
             <notePerformance>12</notePerformance>
             <datePerformance>2021-12-01</datePerformance>
-            <idEmploye>1</idEmploye>
+
         </performance>
         ...
     </performances>
@@ -67,10 +66,6 @@
         </seForme>
         ...
     </seFormes>
-
-
-
-
 
 
 </entreprise>

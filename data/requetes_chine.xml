@@ -1,0 +1,1 @@
+//employe[fn:years-from-date(fn:date(dateDeNaissance)) >= 20 and fn:years-from-date(fn:date(dateDeNaissance)) <= 30]/contratsDureeIndeterminee/salaire

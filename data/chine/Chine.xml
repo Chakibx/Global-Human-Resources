@@ -2,9 +2,9 @@
     <!ELEMENT chine (employes, postes, contratsDureeIndeterminee, departements, formations, seFormes, performances, absences)>
     <!ELEMENT employes (employe+)>
     <!ELEMENT employe (nom, prenom, telephone, adresse, dateDeNaissance, diplome)>
-    <!ATTLIST employe idEmploye CDATA #REQUIRED
-            idDepartement CDATA #REQUIRED
-            idPoste CDATA #REQUIRED>
+    <!ATTLIST   employe idEmploye ID #REQUIRED
+                idDepartement IDREF #REQUIRED
+                idPoste IDREF #REQUIRED>
     <!ELEMENT nom (#PCDATA)>
     <!ELEMENT prenom (#PCDATA)>
     <!ELEMENT telephone (#PCDATA)>
@@ -14,7 +14,7 @@
 
     <!ELEMENT postes (poste+)>
     <!ELEMENT poste (libelle, nombreHeuresParSemaine, occupation, salaireBase)>
-    <!ATTLIST poste idPoste CDATA #REQUIRED>
+    <!ATTLIST poste idPoste ID #REQUIRED>
     <!ELEMENT libelle (#PCDATA)>
     <!ELEMENT nombreHeuresParSemaine (#PCDATA)>
     <!ELEMENT occupation (#PCDATA)>
@@ -22,42 +22,42 @@
 
     <!ELEMENT contratsDureeIndeterminee (contrat+)>
     <!ELEMENT contrat (dateDebutContrat, numeroContrat, salaire)>
-    <!ATTLIST contrat idContrat CDATA #REQUIRED
-            idEmploye CDATA #REQUIRED>
+    <!ATTLIST   contrat idContrat ID #REQUIRED
+                idEmploye IDREF #REQUIRED>
     <!ELEMENT dateDebutContrat (#PCDATA)>
     <!ELEMENT numeroContrat (#PCDATA)>
     <!ELEMENT salaire (#PCDATA)>
 
     <!ELEMENT departements (departement+)>
     <!ELEMENT departement (nomDepartement, pays)>
-    <!ATTLIST departement idDepartement CDATA #REQUIRED>
+    <!ATTLIST departement idDepartement ID #REQUIRED>
     <!ELEMENT nomDepartement (#PCDATA)>
     <!ELEMENT pays (#PCDATA)>
 
     <!ELEMENT formations (formation+)>
     <!ELEMENT formation (typeFormation, coutFormation)>
-    <!ATTLIST formation idFormation CDATA #REQUIRED>
+    <!ATTLIST formation idFormation ID #REQUIRED>
     <!ELEMENT typeFormation (#PCDATA)>
     <!ELEMENT coutFormation (#PCDATA)>
 
     <!ELEMENT seFormes (seForme+)>
     <!ELEMENT seForme (DateDebutFormation)>
-    <!ATTLIST seForme idSeforme CDATA #REQUIRED
-            idFormation CDATA #REQUIRED
-            idEmploye CDATA #REQUIRED>
+    <!ATTLIST seForme   idSeforme ID #REQUIRED
+                        idFormation IDREF #REQUIRED
+                        idEmploye IDREF #REQUIRED>
     <!ELEMENT DateDebutFormation (#PCDATA)>
 
     <!ELEMENT performances (performance+)>
     <!ELEMENT performance (notePerformance, datePerformance)>
-    <!ATTLIST performance idPerformance CDATA #REQUIRED
-            idEmploye CDATA #REQUIRED>
+    <!ATTLIST performance   idPerformance ID #REQUIRED
+                            idEmploye IDREF #REQUIRED>
     <!ELEMENT notePerformance (#PCDATA)>
     <!ELEMENT datePerformance (#PCDATA)>
 
     <!ELEMENT absences (absence+)>
     <!ELEMENT absence (motifAbsence, nombreDeJours, dateAbsence)>
-    <!ATTLIST absence idAbence CDATA #REQUIRED
-            idEmploye CDATA #REQUIRED>
+    <!ATTLIST absence    idAbence ID #REQUIRED
+                         idEmploye IDREF #REQUIRED>
     <!ELEMENT motifAbsence (#PCDATA)>
     <!ELEMENT nombreDeJours (#PCDATA)>
     <!ELEMENT dateAbsence (#PCDATA)>

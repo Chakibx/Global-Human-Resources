@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class QueryExecution {
     private Connection connection;
     private String query;
-    private int numeroQuery;
+    private Integer numeroQuery;
 
-    public QueryExecution(Connection connection, String query, int numeroQuery) {
+    public QueryExecution(Connection connection, String query, Integer numeroQuery) {
         this.connection = connection;
         this.query = query;
         this.numeroQuery = numeroQuery;
@@ -81,12 +81,7 @@ public class QueryExecution {
                     while (resultat.next()) {
                         System.out.println(resultat.getString("nom")+","+resultat.getString("prenom")+","+resultat.getString("poste")+","+resultat.getString("departement")+","+resultat.getString("augmentation")+","+resultat.getString("performance"));
                     }
-
-
-
-
-
-
+                default: return;
             }
 
         }catch(Exception e){

@@ -62,6 +62,7 @@
     <!ELEMENT nombreDeJours (#PCDATA)>
     <!ELEMENT dateAbsence (#PCDATA)>
     ]>
+
 <chine>
     <employes>
         <employe idEmploye="e1" idDepartement="d2" idPoste="p6">

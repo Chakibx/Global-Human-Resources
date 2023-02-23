@@ -13,8 +13,8 @@ FROM employe e
 JOIN contrat_duree_indeterminee c ON e.id_employe = c.id_employe
 WHERE (CURRENT_DATE - e.date_de_naissance) BETWEEN 7300 AND 10950;
 
--- La liste des noms,fonctions,salaires, et date de debut de contrat des employés qui gagnent entre 2200€ et 2800€
-SELECT e.nom, p."libelle", cdi.salaire, cdi.date_debut_contrat
+--La liste des noms,fonctions, salaires des employes qui ont un salaire plus que 3500
+SELECT e.nom, p.libelle, cdi.salaire, cdi.date_debut_contrat
 FROM employe e
 JOIN contrat_duree_indeterminee cdi ON e.id_employe = cdi.id_employe
 JOIN poste p ON e.id_poste = p.id_poste

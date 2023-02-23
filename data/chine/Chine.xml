@@ -72,11 +72,10 @@
         </poste>
 
         <poste idPoste="17">
-
             <libelle>Chargé de la planification</libelle>
             <nombreHeuresParSemaine>35</nombreHeuresParSemaine>
             <occupation>false</occupation>
-            v<salaireBase>2550</salaireBase>
+            <salaireBase>2550</salaireBase>
         </poste>
         <poste idPoste="2">
             <libelle>Directeur des ressources humaines</libelle>

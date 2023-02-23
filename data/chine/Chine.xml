@@ -1,3 +1,67 @@
+<!DOCTYPE chine [
+    <!ELEMENT chine (employes, postes, contratsDureeIndeterminee, departements, formations, seFormes, performances, absences)>
+    <!ELEMENT employes (employe+)>
+    <!ELEMENT employe (nom, prenom, telephone, adresse, dateDeNaissance, diplome)>
+    <!ATTLIST employe idEmploye CDATA #REQUIRED
+            idDepartement CDATA #REQUIRED
+            idPoste CDATA #REQUIRED>
+    <!ELEMENT nom (#PCDATA)>
+    <!ELEMENT prenom (#PCDATA)>
+    <!ELEMENT telephone (#PCDATA)>
+    <!ELEMENT adresse (#PCDATA)>
+    <!ELEMENT dateDeNaissance (#PCDATA)>
+    <!ELEMENT diplome (#PCDATA)>
+
+    <!ELEMENT postes (poste+)>
+    <!ELEMENT poste (libelle, nombreHeuresParSemaine, occupation, salaireBase)>
+    <!ATTLIST poste idPoste CDATA #REQUIRED>
+    <!ELEMENT libelle (#PCDATA)>
+    <!ELEMENT nombreHeuresParSemaine (#PCDATA)>
+    <!ELEMENT occupation (#PCDATA)>
+    <!ELEMENT salaireBase (#PCDATA)>
+
+    <!ELEMENT contratsDureeIndeterminee (contrat+)>
+    <!ELEMENT contrat (dateDebutContrat, numeroContrat, salaire)>
+    <!ATTLIST contrat idContrat CDATA #REQUIRED
+            idEmploye CDATA #REQUIRED>
+    <!ELEMENT dateDebutContrat (#PCDATA)>
+    <!ELEMENT numeroContrat (#PCDATA)>
+    <!ELEMENT salaire (#PCDATA)>
+
+    <!ELEMENT departements (departement+)>
+    <!ELEMENT departement (nomDepartement, pays)>
+    <!ATTLIST departement idDepartement CDATA #REQUIRED>
+    <!ELEMENT nomDepartement (#PCDATA)>
+    <!ELEMENT pays (#PCDATA)>
+
+    <!ELEMENT formations (formation+)>
+    <!ELEMENT formation (typeFormation, coutFormation)>
+    <!ATTLIST formation idFormation CDATA #REQUIRED>
+    <!ELEMENT typeFormation (#PCDATA)>
+    <!ELEMENT coutFormation (#PCDATA)>
+
+    <!ELEMENT seFormes (seForme+)>
+    <!ELEMENT seForme (DateDebutFormation)>
+    <!ATTLIST seForme idSeforme CDATA #REQUIRED
+            idFormation CDATA #REQUIRED
+            idEmploye CDATA #REQUIRED>
+    <!ELEMENT DateDebutFormation (#PCDATA)>
+
+    <!ELEMENT performances (performance+)>
+    <!ELEMENT performance (notePerformance, datePerformance)>
+    <!ATTLIST performance idPerformance CDATA #REQUIRED
+            idEmploye CDATA #REQUIRED>
+    <!ELEMENT notePerformance (#PCDATA)>
+    <!ELEMENT datePerformance (#PCDATA)>
+
+    <!ELEMENT absences (absence+)>
+    <!ELEMENT absence (motifAbsence, nombreDeJours, dateAbsence)>
+    <!ATTLIST absence idAbence CDATA #REQUIRED
+            idEmploye CDATA #REQUIRED>
+    <!ELEMENT motifAbsence (#PCDATA)>
+    <!ELEMENT nombreDeJours (#PCDATA)>
+    <!ELEMENT dateAbsence (#PCDATA)>
+    ]>
 <chine>
     <employes>
         <employe idEmploye="8" idDepartement="4" idPoste="4">

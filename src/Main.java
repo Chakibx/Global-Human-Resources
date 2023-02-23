@@ -1,16 +1,17 @@
 package src;
 import java.sql.*;
-import src.FranceDAO.JdbcConnection;
+import src.UsaDAO.MysqlConnection;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
-        JdbcConnection test = new JdbcConnection();
+        MysqlConnection test = new MysqlConnection();
         Connection connexion = test.getConnection();
         Statement query = connexion.createStatement();
-        String requete = "SELECT e.nom, p.libelle, cdi.salaire, cdi.date_debut_contrat FROM employe e JOIN contrat_duree_indeterminee cdi ON e.id_employe = cdi.id_employe JOIN poste p ON e.id_poste = p.id_poste WHERE cdi.salaire > 3500;";
+        String requete =
+                "SELECT AVG(c.salaire) AS moyenne_salaires FROM Employe e JOIN ContratDureeIndeterminee c ON e.idEmploye = c.idEmploye WHERE DATEDIFF( CURDATE(),e.dateDeNaissance) BETWEEN 7300 AND 10950;";
         ResultSet resultat = query.executeQuery(requete);
         while (resultat.next()) {
-            System.out.println("nom:"+resultat.getString("nom")+" libelle:"+resultat.getString("libelle")+" salaire:"+resultat.getString("salaire")+" date debut de contrat:"+resultat.getString("date_debut_contrat"));
+            System.out.println("Moyenne des salaires:"+resultat.getString("moyenne_salaires"));
         }
     }
 }

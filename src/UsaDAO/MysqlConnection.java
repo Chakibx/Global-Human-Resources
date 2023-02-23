@@ -8,11 +8,11 @@ public class MysqlConnection {
 	public MysqlConnection() {
 	}
 
-	private static String host = "postgresql-globalhumanressources.alwaysdata.net";
-	private static String base = "globalhumanressources_postgresql";
-	private static String user = "globalhumanressources";
+	private static String host = "mysql-globalhumanressources.alwaysdata.net";
+	private static String base = "globalhumanressources_mysql";
+	private static String user = "300818_admin";
 	private static String password = "GHR-2023";
-	private static String url = "jdbc:postgresql://" + host + "/" + base;
+	private static String url = "jdbc:mysql://" + host + "/" + base;
 
 	/**
 	 * Singleton instance.

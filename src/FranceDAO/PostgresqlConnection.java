@@ -1,4 +1,4 @@
-package src.FranceDAO;s
+package src.FranceDAO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 

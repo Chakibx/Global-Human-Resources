@@ -13,9 +13,6 @@ public class PostgresqlConnection {
 	private static String password = "GHR-2023";
 	private static String url = "jdbc:postgresql://" + host + "/" + base;
 
-	/**
-	 * Singleton instance.
-	 */
 	private static Connection connection;
 
 	public static Connection getConnection() {		

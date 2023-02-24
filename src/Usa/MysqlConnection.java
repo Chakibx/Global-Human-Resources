@@ -4,10 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class MysqlConnection {
-
 	public MysqlConnection() {
 	}
-
 	private static String host = "mysql-globalhumanressources.alwaysdata.net";
 	private static String base = "globalhumanressources_mysql";
 	private static String user = "300818_admin";

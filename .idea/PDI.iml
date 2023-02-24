@@ -9,5 +9,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="postgresql-42.5.4" level="project" />
     <orderEntry type="library" name="mysql-connector-j-8.0.32" level="project" />
+    <orderEntry type="library" name="csvjdbc-1.0.40" level="project" />
+    <orderEntry type="library" name="spring-jdbc-6.0.5" level="project" />
   </component>
 </module>

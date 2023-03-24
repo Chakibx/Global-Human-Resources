@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="spring-jdbc-6.0.5">
+  <library name="saxon-xpath">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/spring-jdbc-6.0.5.jar!/" />
+      <root url="jar://$USER_HOME$/Bureau/saxon-xpath.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

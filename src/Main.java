@@ -12,6 +12,7 @@ import src.France.PostgresqlQueryExecution;
 import src.Usa.MysqlConnection;
 import src.Usa.MysqlQuery;
 import src.Usa.MysqlQueryExecution;
+import src.test.Xquery;
 
 import javax.swing.*;
 
@@ -19,12 +20,16 @@ public class Main {
     public static void main(String[] args) throws SQLException {
        while(true){
             try {
-                System.out.println("\n************************************************************************************");
+                Xquery.xpath();
+                /*System.out.println("\n************************************************************************************");
                 System.out.print("Enter Query Number: ");
                 Scanner s = new Scanner(System.in);
                 int QueryNumber = s.nextInt();
 
-                //Mysql Databse
+                //XML Data Base
+                Dom.xpath(QueryNumber);*/
+
+               /* //Mysql Database
                 MysqlQuery Mquery = new MysqlQuery();
                 String Msql = Mquery.GetQuery(QueryNumber);
                 MysqlQueryExecution Mexecution = new MysqlQueryExecution(MysqlConnection.getConnection(),Msql,QueryNumber);
@@ -34,14 +39,13 @@ public class Main {
                 PostgresqlQuery Pquery = new PostgresqlQuery();
                 String Psql = Pquery.GetQuery(QueryNumber);
                 PostgresqlQueryExecution Pexecution = new PostgresqlQueryExecution(PostgresqlConnection.getConnection(),Psql,QueryNumber);
-                Pexecution.Execute();
+                Pexecution.Execute();*/
 
             }catch (Exception e){
                 System.out.println("Errors: "+e.getMessage());
             }
         }
-        /*//XML Data Base
-        Dom.xpath(0);*/
+
 
     }
 

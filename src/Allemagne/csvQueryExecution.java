@@ -1,4 +1,4 @@
-package src.Allemagne;
+/*package src.Allemagne;
 import java.util.*;
 import org.apache.commons.dhcp2.BasicDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -8,4 +8,4 @@ public class csvQueryExecution {
     public static void main(String[] args){
         BasicDataSource ds = new BasicDataSource();
     }
-}
+}*/

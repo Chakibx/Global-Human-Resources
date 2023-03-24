@@ -1,4 +1,5 @@
-package src.Allemagne;
+/*package src.Allemagne;
 
 public class Allemagne {
 }
+*/

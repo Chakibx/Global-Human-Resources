@@ -37,7 +37,7 @@ SELECT COUNT(*) AS nombre_absences
 FROM absence a
 JOIN employe e ON a.id_employe = e.id_employe
 JOIN departement d ON e.id_departement = d.id_departement
-WHERE d.nom_departement = 'Ventes et marketing' AND a.motif_absence = 'Formation';
+WHERE d.nom_departement = 'Ventes et marketing' AND a.motif_abs￼
 
 -- les employés qui ont comme moyenne de performance une note <= 12,avec leut noms, leur note, leur departement, et leur poste
 SELECT e.nom, p.libelle AS poste, d.nom_departement AS departement, pf.note_performance

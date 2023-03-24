@@ -11,5 +11,10 @@
     <orderEntry type="library" name="mysql-connector-j-8.0.32" level="project" />
     <orderEntry type="library" name="csvjdbc-1.0.40" level="project" />
     <orderEntry type="library" name="spring-jdbc-6.0.5" level="project" />
+    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
+    <orderEntry type="library" name="saxon-ee-12.1" level="project" />
+    <orderEntry type="library" name="saxon-xqj-9.x" level="project" />
+    <orderEntry type="library" name="saxon-ee-test-12.1" level="project" />
+    <orderEntry type="library" name="snakeyaml-1.6" level="project" />
   </component>
 </module>

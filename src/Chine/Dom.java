@@ -1,43 +1,41 @@
 package src.Chine;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathFactory;
-import javax.xml.transform.*;
 import java.io.File;
+import java.io.IOException;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.*;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 public class Dom {
-    public static void xpath(Integer QueryNumber) {
-        try {
-            File inputFile = new File("/home/chakib/IdeaProjects/PDI/data/chine/Chine.xml");
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder;
+    public static void xpath(Integer QueryNumber) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException {
+        // Chemin vers le fichier XML à traiter
+        File inputFile = new File("/home/chakib/IdeaProjects/PDI/data/chine/Chine.xml");
 
-            dBuilder = dbFactory.newDocumentBuilder();
+        // Création d'un objet Document à partir du fichier XML
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        Document doc = factory.newDocumentBuilder().parse(inputFile);
 
-            Document doc = dBuilder.parse(inputFile);
-            doc.getDocumentElement().normalize();
+        // Création d'un objet XPath pour exécuter la requête XQuery
+        XPathFactory xpathFactory = XPathFactory.newInstance();
+        XPath xpath = xpathFactory.newXPath();
 
-            XPath xPath = XPathFactory.newInstance().newXPath();
+        // Requête XQuery stockée dans une variable
+        XmlQuery query = new XmlQuery();
+        String xquery = query.GetQuery(QueryNumber);
 
-            XmlQuery query = new XmlQuery();
-            String expression = query.GetQuery(QueryNumber);
+        // Compilation de la requête XQuery en une expression XPath
+        XPathExpression expr = xpath.compile(xquery);
 
-            NodeList nodeList = (NodeList) xPath.compile(expression).evaluate(doc, XPathConstants.NODESET);
-            System.out.println("\nChine: ");
+        // Exécution de la requête XQuery sur le document XML
+        Object result = expr.evaluate(doc, XPathConstants.NODESET);
 
-            System.out.println("0: Les noms des employés qui gagnent > 3500\n");
-            for (int i = 0; i < nodeList.getLength(); i++) {
-                Node nNode = nodeList.item(i);
-                System.out.println(nNode.getNodeValue());
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        // Affichage des résultats
+        NodeList nodes = (NodeList) result;
+        for (int i = 0; i < nodes.getLength(); i++) {
+            System.out.println(nodes.item(i).getNodeValue());
         }
     }
 }

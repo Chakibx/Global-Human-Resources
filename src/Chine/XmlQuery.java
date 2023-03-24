@@ -2,7 +2,10 @@ package src.Chine;
 import javax.xml.transform.*;
 import java.util.ArrayList;
 public class XmlQuery {
-    private String XPATH0 = "sum(//formation[@idFormation = //seForme[contains(DateDebutFormation,\"2022\")]/@idFormation]/coutFormation/text())";
+    private String XPATH0 = "for $emp in /chine/employes/employe " +
+            "let $perf := /chine/performances/performance[@idEmploye = $emp/@idEmploye]/notePerformance" +
+            "where avg($perf) <= 12" +
+            "return concat('nom= ', $emp/nom, ' poste= ', /chine/postes/poste[@idPoste = $emp/@idPoste]/libelle, ' departement= ', /chine/departements/departement[@idDepartement = $emp/@idDepartement]/nomDepartement, ' moyenne_performance= ', avg($perf))";
     private String XPATH1 = "declare namespace chine = \"http://example.com/chine\";\n" +
             "\n" +
             "for $e in /chine:chine/chine:employes/chine:employe,\n" +

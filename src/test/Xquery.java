@@ -23,10 +23,7 @@ public class Xquery {
         XQueryCompiler compiler = processor.newXQueryCompiler();
 
         // Définition de la requête XQuery
-        String xqueryExpression = "for $emp in /chine/employes/employe " +
-                                  "let $perf := /chine/performances/performance[@idEmploye = $emp/@idEmploye]/notePerformance " +
-                                  "where avg($perf) <= 12 " +
-                                  "return concat('nom= ', $emp/nom, ' poste= ', /chine/postes/poste[@idPoste = $emp/@idPoste]/libelle, ' departement= ', /chine/departements/departement[@idDepartement = $emp/@idDepartement]/nomDepartement, ' moyenne_performance= ', avg($perf))";
+        String xqueryExpression = "";
         XQueryExecutable xqueryExec = compiler.compile(xqueryExpression);
 
         // Évaluation de la requête XQuery et affichage des résultats

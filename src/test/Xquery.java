@@ -1,19 +1,12 @@
 package src.test;
-
-import java.io.File;
+import net.sf.saxon.s9api.*;
 import javax.xml.transform.stream.StreamSource;
-import net.sf.saxon.s9api.Processor;
-import net.sf.saxon.s9api.SaxonApiException;
-import net.sf.saxon.s9api.XQueryCompiler;
-import net.sf.saxon.s9api.XQueryExecutable;
-import net.sf.saxon.s9api.XQueryEvaluator;
-import net.sf.saxon.s9api.XdmItem;
-import net.sf.saxon.s9api.XdmValue;
+import java.io.File;
 
 public class Xquery {
     public static void xpath() throws SaxonApiException {
         // Chargement du fichier XML en entrée
-        File inputFile = new File("/home/chakib/IdeaProjects/PDI/data/chine/Chine.xml");
+        File inputFile =  new File("/home/chakib/IdeaProjects/PDI/data/chine/Chine.xml");
         StreamSource input = new StreamSource(inputFile);
 
         // Création du processeur Saxon
@@ -23,7 +16,9 @@ public class Xquery {
         XQueryCompiler compiler = processor.newXQueryCompiler();
 
         // Définition de la requête XQuery
-        String xqueryExpression = "";
+        String xqueryExpression = "for $p in chine/postes/poste[occupation = 'false']" +
+                "order by $p/salaireBase ascending\n" +
+                "return concat('libelle= ', $p/libelle, ' salaire de Base= ', $p/salaireBase, ' nombreHeuresParSemaine= ', $p/nombreHeuresParSemaine)\n";
         XQueryExecutable xqueryExec = compiler.compile(xqueryExpression);
 
         // Évaluation de la requête XQuery et affichage des résultats

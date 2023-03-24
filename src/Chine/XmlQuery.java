@@ -1,5 +1,5 @@
 package src.Chine;
-import javax.xml.transform.*;
+
 import java.util.ArrayList;
 public class XmlQuery {
     private String XPATH0 = "for $emp in /chine/employes/employe " +

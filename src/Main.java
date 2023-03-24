@@ -1,19 +1,7 @@
 package src;
-import java.io.BufferedReader;
-import java.io.Reader;
-import java.sql.*;
-import java.util.Scanner;
 
-import org.postgresql.util.ReaderInputStream;
-import src.Chine.Dom;
-import src.France.PostgresqlConnection;
-import src.France.PostgresqlQuery;
-import src.France.PostgresqlQueryExecution;
-import src.Usa.MysqlConnection;
-import src.Usa.MysqlQuery;
-import src.Usa.MysqlQueryExecution;
 import src.test.Xquery;
-import javax.swing.*;
+import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) throws SQLException {

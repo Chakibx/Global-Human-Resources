@@ -4,11 +4,10 @@ import java.io.File;
 import javax.xml.transform.stream.StreamSource;
 import net.sf.saxon.s9api.Processor;
 import net.sf.saxon.s9api.SaxonApiException;
-import net.sf.saxon.s9api.XPathCompiler;
-import net.sf.saxon.s9api.XPathExecutable;
-import net.sf.saxon.s9api.XPathSelector;
+import net.sf.saxon.s9api.XQueryCompiler;
+import net.sf.saxon.s9api.XQueryExecutable;
+import net.sf.saxon.s9api.XQueryEvaluator;
 import net.sf.saxon.s9api.XdmItem;
-import net.sf.saxon.s9api.XdmNode;
 import net.sf.saxon.s9api.XdmValue;
 
 public class Xquery {
@@ -20,17 +19,20 @@ public class Xquery {
         // Création du processeur Saxon
         Processor processor = new Processor(false);
 
-        // Création du compilateur XPath
-        XPathCompiler compiler = processor.newXPathCompiler();
+        // Création du compilateur XQuery
+        XQueryCompiler compiler = processor.newXQueryCompiler();
 
-        // Définition de la requête XPath
-        String xpathExpression = "//employe[telephone='1234567890']/prenom";
-        XPathExecutable xpathExec = compiler.compile(xpathExpression);
+        // Définition de la requête XQuery
+        String xqueryExpression = "for $emp in /chine/employes/employe " +
+                                  "let $perf := /chine/performances/performance[@idEmploye = $emp/@idEmploye]/notePerformance " +
+                                  "where avg($perf) <= 12 " +
+                                  "return <employe nom=\"{$emp/nom}\" poste=\"{/chine/postes/poste[@idPoste = $emp/@idPoste]/libelle}\" departement=\"{/chine/departements/departement[@idDepartement = $emp/@idDepartement]/nomDepartement}\" note_performance=\"{string-join($perf,'|')}\"/>";
+        XQueryExecutable xqueryExec = compiler.compile(xqueryExpression);
 
-        // Évaluation de la requête XPath et affichage des résultats
-        XPathSelector selector = xpathExec.load();
-        selector.setContextItem(processor.newDocumentBuilder().build(input));
-        XdmValue result = selector.evaluate();
+        // Évaluation de la requête XQuery et affichage des résultats
+        XQueryEvaluator evaluator = xqueryExec.load();
+        evaluator.setSource(input);
+        XdmValue result = evaluator.evaluate();
         if (result.size() > 0) {
             for (XdmItem item : result) {
                 System.out.println(item.getStringValue());
@@ -38,8 +40,6 @@ public class Xquery {
         } else {
             System.out.println("Aucun résultat trouvé.");
         }
-
-
 
     }
 }

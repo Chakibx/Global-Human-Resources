@@ -11,8 +11,9 @@
     <orderEntry type="library" name="mysql-connector-j-8.0.32" level="project" />
     <orderEntry type="library" name="csvjdbc-1.0.40" level="project" />
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
+    <orderEntry type="library" name="PDI" level="project" />
     <orderEntry type="library" name="saxon-9.1.0.8" level="project" />
     <orderEntry type="library" name="saxon-xpath" level="project" />
-    <orderEntry type="library" name="saxon9-s9api" level="project" />
+    <orderEntry type="library" name="PDI1" level="project" />
   </component>
 </module>

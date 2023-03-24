@@ -24,15 +24,22 @@ public class Xquery {
         XPathCompiler compiler = processor.newXPathCompiler();
 
         // Définition de la requête XPath
-        String xpathExpression = "//employe[contrat/salaire > 3500]/concat(nom/text(), ' ', prenom/text(), ', ', ../postes/poste[@idPoste=current()/@idPoste]/libelle/text(), ', Salaire: ', contrat/salaire/text())\n";
+        String xpathExpression = "//employe[telephone='1234567890']/prenom";
         XPathExecutable xpathExec = compiler.compile(xpathExpression);
 
         // Évaluation de la requête XPath et affichage des résultats
         XPathSelector selector = xpathExec.load();
         selector.setContextItem(processor.newDocumentBuilder().build(input));
         XdmValue result = selector.evaluate();
-        for (XdmItem item : result) {
-            System.out.println(item.getStringValue());
+        if (result.size() > 0) {
+            for (XdmItem item : result) {
+                System.out.println(item.getStringValue());
+            }
+        } else {
+            System.out.println("Aucun résultat trouvé.");
         }
+
+
+
     }
 }

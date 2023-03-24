@@ -18,7 +18,7 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
-       while(true){
+
             try {
                 Xquery.xpath();
                 /*System.out.println("\n************************************************************************************");
@@ -44,7 +44,7 @@ public class Main {
             }catch (Exception e){
                 System.out.println("Errors: "+e.getMessage());
             }
-        }
+
 
 
     }

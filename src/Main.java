@@ -13,7 +13,6 @@ import src.Usa.MysqlConnection;
 import src.Usa.MysqlQuery;
 import src.Usa.MysqlQueryExecution;
 import src.test.Xquery;
-
 import javax.swing.*;
 
 public class Main {
@@ -44,9 +43,6 @@ public class Main {
             }catch (Exception e){
                 System.out.println("Errors: "+e.getMessage());
             }
-
-
-
     }
 
 }

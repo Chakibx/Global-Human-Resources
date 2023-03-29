@@ -1,4 +1,5 @@
 package src.test;
+
 import net.sf.saxon.s9api.*;
 import javax.xml.transform.stream.StreamSource;
 import java.io.File;
@@ -16,9 +17,10 @@ public class Xquery {
         XQueryCompiler compiler = processor.newXQueryCompiler();
 
         // Définition de la requête XQuery
-        String xqueryExpression = "for $p in chine/postes/poste[occupation = 'false']" +
-                "order by $p/salaireBase ascending\n" +
-                "return concat('libelle= ', $p/libelle, ' salaire de Base= ', $p/salaireBase, ' nombreHeuresParSemaine= ', $p/nombreHeuresParSemaine)\n";
+        String xqueryExpression =
+                                "for $p in /chine/postes/poste[occupation = 'false']\n" +
+                                        "order by $p/salaireBase ascending\n" +
+                                        "return concat('libelle= ', $p/libelle, ' salaire de Base= ', $p/salaireBase, ' nombreHeuresParSemaine= ', $p/nombreHeuresParSemaine)";
         XQueryExecutable xqueryExec = compiler.compile(xqueryExpression);
 
         // Évaluation de la requête XQuery et affichage des résultats

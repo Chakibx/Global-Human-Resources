@@ -64,7 +64,6 @@ JOIN performance pf2 ON e.id_employe = pf2.id_employe AND pf2.date_performance >
 WHERE pf2.note_performance > pf1.note_performance
 ORDER BY e.nom;
 
-
 9--afficher le nom, la derniere performance, et le poste de tous les employé avec leur augmentation de salaire (différence entre salaire de base du poste et le salaire actuel de l'employé)--
 SELECT e.nom, p.libelle, MAX(cdi.salaire - p.salaire_base) AS augmentation, perf.note_performance
 FROM employe e

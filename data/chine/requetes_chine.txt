@@ -1,0 +1,34 @@
+4-- Le poste le plus performant de chaque departement avec le nom de l'empolyé et sa note --
+for $departement in /chine/departements/departement
+let $employe := /chine/employes/employe[@idDepartement = $departement/@idDepartement]
+let $performances := /chine/performances/performance
+let $maxNote := max($performances[@idEmploye = $employe/@idEmploye]/notePerformance)
+for $employeP in $employe[@idEmploye = /chine/performances/performance[notePerformance = $maxNote]/@idEmploye]
+let $poste := /chine/postes/poste[@idPoste = $employeP/@idPoste]
+return concat('Departement: ', $departement/nomDepartement, ' Employe: ', $employeP/nom, ' Poste: ', $poste/libelle, ' Note: ', $maxNote)
+
+5-- le nombre d'absences dans le departement de ventes et marketing avec motif "Formation"
+let $nombre_absences :=
+count(for $a in /chine/absences/absence
+let $e := /chine/employes/employe[@idEmploye = $a/@idEmploye]
+let $d := /chine/departements/departement[@idDepartement = $e/@idDepartement]
+where $d/nomDepartement = 'Ventes et marketing' and $a/motifAbsence = 'Formation'
+return $a)
+return $nombre_absences
+
+6-- les employés qui ont comme moyenne de performance une note <= 12,avec leut noms, leur note, leur departement, et leur poste
+for $emp in /chine/employes/employe
+let $perf := /chine/performances/performance[@idEmploye = $emp/@idEmploye]/notePerformance
+where avg($perf) <= 12
+return concat('nom= ', $emp/nom, ' poste= ', /chine/postes/poste[@idPoste = $emp/@idPoste]/libelle, ' departement= ', /chine/departements/departement[@idDepartement = $emp/@idDepartement]/nomDepartement, ' moyenne_performance= ', avg($perf));
+
+7-- la liste des postes libres classé par ordre croissant des salaires de bases
+for $p in /chine/postes/poste[occupation = 'false']
+order by $p/salaireBase ascending
+return concat('libelle= ', $p/libelle, ' salaire de Base= ', $p/salaireBase, ' nombreHeuresParSemaine= ', $p/nombreHeuresParSemaine)
+
+
+
+
+
+

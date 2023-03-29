@@ -41,11 +41,11 @@
     <!ELEMENT coutFormation (#PCDATA)>
 
     <!ELEMENT seFormes (seForme+)>
-    <!ELEMENT seForme (DateDebutFormation)>
+    <!ELEMENT seForme (dateDebutFormation)>
     <!ATTLIST seForme   idSeforme ID #REQUIRED
                         idFormation IDREF #REQUIRED
                         idEmploye IDREF #REQUIRED>
-    <!ELEMENT DateDebutFormation (#PCDATA)>
+    <!ELEMENT dateDebutFormation (#PCDATA)>
 
     <!ELEMENT performances (performance+)>
     <!ELEMENT performance (notePerformance, datePerformance)>
@@ -426,7 +426,7 @@
     </formations>
     <seFormes>
         <seForme idSeforme="sf1" idFormation="f11" idEmploye="e7">
-            <DateDebutFormation>2022-12-20</DateDebutFormation>
+            <dateDebutFormation>2022-12-20</dateDebutFormation>
         </seForme>
     </seFormes>
     <performances>
@@ -455,7 +455,7 @@
             <datePerformance>2021-12-06</datePerformance>
         </performance>
         <performance idPerformance="pr7" idEmploye="e7">
-            <notePerformance>17</notePerformance>
+            <notePerformance>14</notePerformance>
             <datePerformance>2021-12-07</datePerformance>
         </performance>
         <performance idPerformance="pr8" idEmploye="e8">
@@ -496,7 +496,7 @@
             <datePerformance>2022-12-06</datePerformance>
         </performance>
         <performance idPerformance="pr27" idEmploye="e7">
-            <notePerformance>15</notePerformance>
+            <notePerformance>17</notePerformance>
             <datePerformance>2022-12-07</datePerformance>
         </performance>
         <performance idPerformance="pr28" idEmploye="e8">

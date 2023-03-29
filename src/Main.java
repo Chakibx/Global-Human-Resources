@@ -1,19 +1,19 @@
 package src;
 
-import src.test.Xquery;
+import src.Chine.Dom;
+
 import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
             try {
-                Xquery.xpath();
-                /*System.out.println("\n************************************************************************************");
+                /* System.out.println("\n************************************************************************************");
                 System.out.print("Enter Query Number: ");
                 Scanner s = new Scanner(System.in);
-                int QueryNumber = s.nextInt();
+                int QueryNumber = s.nextInt();*/
 
                 //XML Data Base
-                Dom.xpath(QueryNumber);*/
+                Dom.xquery(0);
 
                /* //Mysql Database
                 MysqlQuery Mquery = new MysqlQuery();

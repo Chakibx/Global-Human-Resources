@@ -1,3 +1,25 @@
+1--le cout total des formations de l'annee derniere
+for $d in /chine/departements/departement
+let $total := sum(
+    for $e in /chine/employes/employe[@idDepartement = $d/@idDepartement]
+    for $sf in /chine/seFormes/seForme[@idEmploye = $e/@idEmploye][contains(DateDebutFormation, '2022-')]
+    let $f := /chine/formations/formation[@idFormation = $sf/@idFormation]
+    return $f/coutFormation
+)
+return concat('Département: ', $d/nomDepartement,'| Coût total des formations:' , $total)
+
+
+
+
+
+3--La liste des noms,fonctions, salaires des employes qui ont un salaire plus que 3500
+for $e in /chine/employes/employe
+let $c := /chine/contratsDureeIndeterminee/contrat[@idEmploye = $e/@idEmploye]
+let $p := /chine/postes/poste[@idPoste = $e/@idPoste]
+where $c/salaire > 3500
+return concat('Nom : ', $e/nom, '| Fonction : ', $p/libelle, '| Salaire : ', $c/salaire)
+
+
 4-- Le poste le plus performant de chaque departement avec le nom de l'empolyé et sa note --
 for $departement in /chine/departements/departement
 let $employe := /chine/employes/employe[@idDepartement = $departement/@idDepartement]
@@ -27,8 +49,29 @@ for $p in /chine/postes/poste[occupation = 'false']
 order by $p/salaireBase ascending
 return concat('libelle= ', $p/libelle, ' salaire de Base= ', $p/salaireBase, ' nombreHeuresParSemaine= ', $p/nombreHeuresParSemaine)
 
+8-- l'impact des formations sur les performances
+"for $sf in /chine/seFormes/seForme\n" +
+                        "let $f := /chine/formations/formation[@idFormation = $sf/@idFormation]\n" +
+                        "let $e := /chine/employes/employe[@idEmploye = $sf/@idEmploye]\n" +
+                        "let $pf1 := /chine/performances/performance[@idEmploye = $e/@idEmploye and contains(datePerformance, '2021-')]\n" +
+                        "let $pf2 := /chine/performances/performance[@idEmploye = $e/@idEmploye and contains(datePerformance, '2022-')]\n" +
+                        "where $pf2/notePerformance > $pf1/notePerformance\n" +
+                        "order by $e/nom\n" +
+                        "return concat('Nom: ', $e/nom, '| Note avant: ', $pf1/notePerformance, '| Date note avant: ', $pf1/datePerformance, '| Note après: ', $pf2/notePerformance, '| Date note après: ', $pf2/datePerformance, '| Type formation: ', $f/typeFormation, '| Date formation: ', $sf/dateDebutFormation, '&#xa;')\n";
 
+9--afficher le nom, la derniere performance, et le poste de tous les employé avec leur augmentation de salaire (différence entre salaire de base du poste et le salaire actuel de l'employé)--
+"for $e in /chine/employes/employe\n" +
+                        "let $p := /chine/postes/poste[@idPoste = $e/@idPoste]\n" +
+                        "let $c := /chine/contratsDureeIndeterminee/contrat[@idEmploye = $e/@idEmploye]\n" +
+                        "let $perf := /chine/performances/performance[@idEmploye = $e/@idEmploye][contains(datePerformance,'2022-')]\n" +
+                        "let $augmentation := xs:integer($c/salaire) - xs:integer($p/salaireBase)\n" +
+                        "return concat('Nom : ', $e/nom, '| Dernière performance : ', $perf/notePerformance, '| Poste : ', $p/libelle, '| Augmentation : ', $augmentation)\n";
 
-
-
-
+10--tous les employés qui on une augmentation de salaire <= 700, et qui on une performance >= 15
+                "for $e in /chine/employes/employe\n" +
+                        "let $p := /chine/postes/poste[@idPoste = $e/@idPoste]\n" +
+                        "let $c := /chine/contratsDureeIndeterminee/contrat[@idEmploye = $e/@idEmploye]\n" +
+                        "let $perf := /chine/performances/performance[@idEmploye = $e/@idEmploye][contains(datePerformance, '2022-')]\n" +
+                        "let $augmentation := xs:integer($c/salaire) - xs:integer($p/salaireBase)\n" +
+                        "where $augmentation <= 700 and $perf/notePerformance >= 15\n" +
+                        "return concat('Nom : ', $e/nom, '| Dernière performance : ', $perf/notePerformance, '| Poste : ', $p/libelle, '| Augmentation : ', $augmentation)\n";

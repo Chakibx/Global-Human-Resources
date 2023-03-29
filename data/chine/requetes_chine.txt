@@ -36,7 +36,7 @@ let $e := /chine/employes/employe[@idEmploye = $a/@idEmploye]
 let $d := /chine/departements/departement[@idDepartement = $e/@idDepartement]
 where $d/nomDepartement = 'Ventes et marketing' and $a/motifAbsence = 'Formation'
 return $a)
-return $nombre_absences
+return return($nombre_absences)
 
 6-- les employés qui ont comme moyenne de performance une note <= 12,avec leut noms, leur note, leur departement, et leur poste
 for $emp in /chine/employes/employe

@@ -10,7 +10,9 @@ public class XmlQuery {
             "    return $f/coutFormation\n" +
             ")\n" +
             "return concat('Département: ', $d/nomDepartement,'| Coût total des formations:' , $total)";
-    private String XQUERY1 = "";
+    private String XQUERY1 = "let $employes := /chine/employes/employe[contains(dateDeNaissance,'1993-') or contains(dateDeNaissance,'1994-') or contains(dateDeNaissance,'1995-') or contains(dateDeNaissance,'1996-') or contains(dateDeNaissance,'1997-') ]/@idEmploye " +
+                             "let $moyenneSalaires := avg(/chine/contratsDureeIndeterminee/contrat[@idEmploye=$employes]/salaire) " +
+                             "return concat('Moyenne salaire agés entre 25 et 30 ans: ',$moyenneSalaires)";
     private String XQUERY2 = "for $e in /chine/employes/employe\n" +
             "let $c := /chine/contratsDureeIndeterminee/contrat[@idEmploye = $e/@idEmploye]\n" +
             "let $p := /chine/postes/poste[@idPoste = $e/@idPoste]\n" +
@@ -33,7 +35,7 @@ public class XmlQuery {
     private String XQUERY5 = "for $emp in /chine/employes/employe\n" +
             "let $perf := /chine/performances/performance[@idEmploye = $emp/@idEmploye]/notePerformance\n" +
             "where avg($perf) <= 12\n" +
-            "return concat('nom= ', $emp/nom, ' poste= ', /chine/postes/poste[@idPoste = $emp/@idPoste]/libelle, ' departement= ', /chine/departements/departement[@idDepartement = $emp/@idDepartement]/nomDepartement, ' moyenne_performance= ', avg($perf));";
+            "return concat('nom= ', $emp/nom, ' poste= ', /chine/postes/poste[@idPoste = $emp/@idPoste]/libelle, ' departement= ', /chine/departements/departement[@idDepartement = $emp/@idDepartement]/nomDepartement, ' moyenne_performance= ', avg($perf))";
     private String XQUERY6 = "for $p in /chine/postes/poste[occupation = 'false']\n" +
             "order by $p/salaireBase ascending\n" +
             "return concat('libelle= ', $p/libelle, ' salaire de Base= ', $p/salaireBase, ' nombreHeuresParSemaine= ', $p/nombreHeuresParSemaine)";

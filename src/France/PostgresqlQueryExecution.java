@@ -17,10 +17,7 @@ public class PostgresqlQueryExecution {
         this.numeroQuery = numeroQuery;
     }
 
-    public ArrayList<Query_0> ExecuteQuery0(ArrayList<Query_0> ) {
-        add element;
-        return list;
-    }
+
     public void Execute(){
         try{
             Statement statement = this.connection.createStatement();

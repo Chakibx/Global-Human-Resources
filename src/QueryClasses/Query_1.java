@@ -9,4 +9,11 @@ public class Query_1 {
         this.pays = pays;
     }
 
+    public Double getMoyenne() {
+        return moyenne;
+    }
+
+    public Integer getPays() {
+        return pays;
+    }
 }

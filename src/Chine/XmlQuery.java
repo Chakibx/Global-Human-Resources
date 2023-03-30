@@ -9,7 +9,8 @@ public class XmlQuery {
             "    let $f := /chine/formations/formation[@idFormation = $sf/@idFormation]\n" +
             "    return $f/coutFormation\n" +
             ")\n" +
-            "return concat('Département: ', $d/nomDepartement,'| Coût total des formations:' , $total)";
+            "return <resultat><departement>{$d/nomDepartement/text()}</departement><total>{$total}</total></resultat>";
+
     private String XQUERY1 = "let $employes := /chine/employes/employe[contains(dateDeNaissance,'1993-') or contains(dateDeNaissance,'1994-') or contains(dateDeNaissance,'1995-') or contains(dateDeNaissance,'1996-') or contains(dateDeNaissance,'1997-') ]/@idEmploye " +
                              "let $moyenneSalaires := avg(/chine/contratsDureeIndeterminee/contrat[@idEmploye=$employes]/salaire) " +
                              "return concat('Moyenne salaire agés entre 25 et 30 ans: ',$moyenneSalaires)";

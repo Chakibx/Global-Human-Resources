@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) throws SQLException {
             try {
 
-                Mediator.mediate(0);
+                //Mediator.mediate(0);
 
                 /* System.out.println("\n************************************************************************************");
                 System.out.print("Enter Query Number: ");
@@ -21,7 +21,7 @@ public class Main {
                 int QueryNumber = s.nextInt();*/
 
                 //XML Data Base
-                //Dom.xquery(0);
+                Mediator.mediate(0);
 
                 //Mysql Database
                 /*MysqlQuery Mquery = new MysqlQuery();

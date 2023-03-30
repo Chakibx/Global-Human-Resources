@@ -1,7 +1,10 @@
 package src.France;
+import src.QueryClasses.Query_0;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class PostgresqlQueryExecution {
     private Connection connection;
@@ -14,6 +17,10 @@ public class PostgresqlQueryExecution {
         this.numeroQuery = numeroQuery;
     }
 
+    public ArrayList<Query_0> ExecuteQuery0(ArrayList<Query_0> ) {
+        add element;
+        return list;
+    }
     public void Execute(){
         try{
             Statement statement = this.connection.createStatement();

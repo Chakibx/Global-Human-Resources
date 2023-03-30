@@ -13,7 +13,7 @@ public class MysqlQuery {
     private String MSQL8 = "SELECT e.nom, p.libelle, MAX(cdi.salaire - p.salaireBase) AS augmentation, perf.notePerformance FROM Employe e JOIN Poste p ON e.idPoste = p.idPoste JOIN ContratDureeIndeterminee cdi ON e.idEmploye = cdi.idEmploye JOIN Performance perf ON e.idEmploye = perf.idEmploye WHERE perf.datePerformance = (SELECT MAX(datePerformance) FROM Performance WHERE idEmploye = e.idEmploye) GROUP BY e.nom, p.libelle, perf.notePerformance ORDER BY augmentation DESC;";
     private String MSQL9 = "SELECT e.nom, e.prenom, p.libelle AS poste, d.nomDepartement AS departement, (c.salaire - p.salaireBase) AS augmentation,perf.notePerformance AS performance FROM Employe e JOIN Poste p ON e.idPoste = p.idPoste JOIN ContratDureeIndeterminee c ON e.idEmploye = c.idEmploye JOIN Departement d ON e.idDepartement = d.idDepartement JOIN Performance perf ON e.idEmploye = perf.idEmploye WHERE (c.salaire - p.salaireBase) < 500 AND perf.datePerformance = (SELECT MAX(datePerformance) FROM Performance WHERE idEmploye = e.idEmploye) AND perf.notePerformance >= 15;";
 
-    private ArrayList<String> QueryList = new ArrayList<String>();
+    private static ArrayList<String> QueryList = new ArrayList<String>();
 
     public  MysqlQuery() {
         QueryList.add(this.MSQL0);
@@ -28,7 +28,8 @@ public class MysqlQuery {
         QueryList.add(this.MSQL9);
     }
 
-    public String GetQuery(Integer index ){
+
+    public static String GetQuery(Integer index ){
         return QueryList.get(index);
     }
 }

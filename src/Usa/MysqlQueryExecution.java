@@ -1,21 +1,52 @@
 package src.Usa;
 
+import src.QueryClasses.Query_0;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class MysqlQueryExecution {
-    private Connection connection;
-    private String query;
-    private Integer numeroQuery;
 
-    public MysqlQueryExecution(Connection connection, String query, Integer numeroQuery) {
-        this.connection = connection;
-        this.query = query;
-        this.numeroQuery = numeroQuery;
-    }
+    public static ArrayList<Query_0> Execute_query_0(ArrayList<Query_0> liste) throws SQLException {
+        Statement statement = (MysqlConnection.getConnection()).createStatement();
+        MysqlQuery QueryList = new MysqlQuery();
+        String sql = QueryList.GetQuery(0);
+        System.out.println("requete : " + sql);
+        ResultSet resultat = statement.executeQuery(sql);
 
-    public void Execute(){
+        while (resultat.next()) {
+            String nomDepartement = resultat.getString("nomDepartement");
+            double coutTotal = resultat.getDouble("total_cout_formation");
+
+            if (nomDepartement.equals("Ventes et marketing")) {
+                Query_0 q = liste.get(0);
+                Query_0 p = new Query_0(nomDepartement,coutTotal + q.getCoutTotal(),1);
+                liste.set(0, p);
+            }
+            if (nomDepartement.equals( "Ressources humaines")) {
+                Query_0 q = liste.get(1);
+                Query_0 p = new Query_0(nomDepartement,coutTotal + q.getCoutTotal(),1);
+                liste.set(1, p);
+            }
+            if (nomDepartement.equals("IT")) {
+                Query_0 q = liste.get(2);
+                Query_0 p = new Query_0(nomDepartement,coutTotal + q.getCoutTotal(),1);
+                liste.set(2, p);
+            }
+            if (nomDepartement.equals("Finance")) {
+                Query_0 q = liste.get(3);
+                Query_0 p = new Query_0(nomDepartement,coutTotal + q.getCoutTotal(),1);
+                liste.set(3, p);
+            }
+
+        }
+
+        return liste;
+
+  /*  public void Execute(){
         try{
             Statement statement = this.connection.createStatement();
             ResultSet resultat = statement.executeQuery(query);
@@ -118,5 +149,5 @@ public class MysqlQueryExecution {
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
-    }
-}
+    }*/
+    }}

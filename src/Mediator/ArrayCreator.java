@@ -1,4 +1,4 @@
-package src.Mediator;
+/*package src.Mediator;
 
 import src.QueryClasses.Query_0;
 
@@ -12,3 +12,4 @@ public class ArrayCreator {
 
     }
 }
+*/

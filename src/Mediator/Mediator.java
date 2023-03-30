@@ -1,4 +1,4 @@
-vpackage src.Mediator;
+package src.Mediator;
 
 import src.Chine.XmlQuery;
 import src.France.PostgresqlQueryExecution;
@@ -6,16 +6,29 @@ import src.QueryClasses.Query_0;
 import src.Usa.MysqlQuery;
 import src.Usa.MysqlQueryExecution;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Mediator {
-    public static void mediate(Integer QueryNumber) {
-        switch (QueryNumber) :
-        case 0 :
-            ArrayList<Query_0> Liste_0 = new ArrayList<Query_0>();
-            Liste_0 = PostgresqlQueryExecution(QueryNumber, Liste_0);
-            Liste_0 = XmlQuery(QueryNumber, Liste_0);
-            Liste_0 = MysqlQueryExecution(QueryNumber, Liste_0);
-            Liste_0 = Csv(QueryNumber,Liste_0);
+    public static void mediate(Integer QueryNumber) throws SQLException {
+        switch (QueryNumber) {
+            case 0 -> {
+                ArrayList<Query_0> liste0 = new ArrayList<Query_0>();
+                Query_0 q1 = new Query_0("Ventes et marketing",0,1);
+                Query_0 q2 = new Query_0("Ressources humaines",0,1);
+                Query_0 q3 = new Query_0("IT",0,1);
+                Query_0 q4 = new Query_0("Finance",0,1);
+                liste0.add(q1);
+                liste0.add(q2);
+                liste0.add(q3);
+                liste0.add(q4);
+
+                liste0 = MysqlQueryExecution.Execute_query_0(liste0);
+                for (Query_0 test : liste0) {
+                    System.out.println(test.getNom()  + " " +test.getCoutTotal());
+                }
+            }
+        }
+
     }
 }

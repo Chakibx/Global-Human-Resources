@@ -1,7 +1,5 @@
 package src.Usa;
-
 import src.QueryClasses.Query_0;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,7 +12,6 @@ public class MysqlQueryExecution {
         Statement statement = (MysqlConnection.getConnection()).createStatement();
         MysqlQuery QueryList = new MysqlQuery();
         String sql = QueryList.GetQuery(0);
-        System.out.println("requete : " + sql);
         ResultSet resultat = statement.executeQuery(sql);
 
         while (resultat.next()) {
@@ -44,7 +41,7 @@ public class MysqlQueryExecution {
 
         }
 
-        return liste;
+        return liste;}
 
   /*  public void Execute(){
         try{
@@ -150,4 +147,4 @@ public class MysqlQueryExecution {
             System.out.println(e.getMessage());
         }
     }*/
-    }}
+    }

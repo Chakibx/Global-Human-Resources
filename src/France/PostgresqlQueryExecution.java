@@ -1,5 +1,8 @@
 package src.France;
 import src.QueryClasses.Query_0;
+import src.Usa.MysqlConnection;
+import src.Usa.MysqlQuery;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -43,6 +46,17 @@ public class PostgresqlQueryExecution {
         return liste;
     }
 
+    public static Double Execute_query_1(Double moyenne) throws SQLException {
+        Statement statement = (PostgresqlConnection.getConnection()).createStatement();
+        PostgresqlQuery QueryList = new PostgresqlQuery();
+        String sql = QueryList.GetQuery(1);
+        ResultSet resultat = statement.executeQuery(sql);
+        while (resultat.next()) {
+            moyenne = moyenne + Double.valueOf(resultat.getString("moyenne_salaires"));
+            System.out.println(moyenne);
+        }
+
+        return moyenne;}
 
     /*public void Execute(){
         try{

@@ -13,7 +13,7 @@ public class XmlQuery {
 
     private String XQUERY1 = "let $employes := /chine/employes/employe[contains(dateDeNaissance,'1993-') or contains(dateDeNaissance,'1994-') or contains(dateDeNaissance,'1995-') or contains(dateDeNaissance,'1996-') or contains(dateDeNaissance,'1997-') ]/@idEmploye " +
                              "let $moyenneSalaires := avg(/chine/contratsDureeIndeterminee/contrat[@idEmploye=$employes]/salaire) " +
-                             "return concat('Moyenne salaire agés entre 25 et 30 ans: ',$moyenneSalaires)";
+                             "return <resultat><moyenne>{$moyenneSalaires}</moyenne></resultat>";
     private String XQUERY2 = "for $e in /chine/employes/employe\n" +
             "let $c := /chine/contratsDureeIndeterminee/contrat[@idEmploye = $e/@idEmploye]\n" +
             "let $p := /chine/postes/poste[@idPoste = $e/@idPoste]\n" +

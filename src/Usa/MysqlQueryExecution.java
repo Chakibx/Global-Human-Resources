@@ -43,6 +43,19 @@ public class MysqlQueryExecution {
 
         return liste;}
 
+    public static Double Execute_query_1(Double moyenne) throws SQLException {
+        Statement statement = (MysqlConnection.getConnection()).createStatement();
+        MysqlQuery QueryList = new MysqlQuery();
+        String sql = QueryList.GetQuery(1);
+        ResultSet resultat = statement.executeQuery(sql);
+        while (resultat.next()) {
+            moyenne = moyenne + Double.valueOf(resultat.getString("moyenne_salaires"));
+            System.out.println(moyenne);
+        }
+        return moyenne;}
+
+
+
   /*  public void Execute(){
         try{
             Statement statement = this.connection.createStatement();

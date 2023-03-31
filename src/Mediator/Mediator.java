@@ -30,6 +30,13 @@ public class Mediator {
                     System.out.println(element.getNom()  + " " +element.getCoutTotal());
                 }
             }
+            case 1 -> {
+                Double moyenne = 0.0;
+                //moyenne = MysqlQueryExecution.Execute_query_1(moyenne);
+                //moyenne = PostgresqlQueryExecution.Execute_query_1(moyenne);
+                moyenne = Dom.Execute_query_1(moyenne);
+                System.out.println("Moyenne= "+ moyenne/3);
+            }
         }
 
     }

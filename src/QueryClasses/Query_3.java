@@ -31,6 +31,16 @@ public class Query_3 {
         return notePerformance;
     }
 
+    @Override
+    public String toString() {
+        return
+                "departement='" + departement + '\'' +
+                ", poste='" + poste + '\'' +
+                ", nom='" + nom + '\'' +
+                ", notePerformance=" + notePerformance +
+                ", pays=" + pays ;
+    }
+
     public int getPays() {
         return pays;
     }

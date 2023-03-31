@@ -19,6 +19,18 @@ public class Query_9 {
         this.pays = pays;
     }
 
+    @Override
+    public String toString() {
+        return
+                "nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", poste='" + poste + '\'' +
+                ", departement='" + departement + '\'' +
+                ", augmentation=" + augmentation +
+                ", performance=" + performance +
+                ", pays=" + pays ;
+    }
+
     public String getNom() {
         return nom;
     }

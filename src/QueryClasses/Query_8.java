@@ -1,6 +1,16 @@
 package src.QueryClasses;
 
 public class Query_8 {
+    @Override
+    public String toString() {
+        return
+                "nom='" + nom + '\'' +
+                ", dernierePerformance=" + dernierePerformance +
+                ", poste='" + poste + '\'' +
+                ", augmentation=" + augmentation +
+                ", pays=" + pays ;
+    }
+
     private String nom;
     private Integer dernierePerformance;
     private String poste;

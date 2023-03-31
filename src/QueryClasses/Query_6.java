@@ -6,6 +6,15 @@ public class Query_6 {
     private Integer nombreHeuresParSemaine;
     private Integer pays;
 
+    @Override
+    public String toString() {
+        return
+                "poste='" + poste + '\'' +
+                ", salaireBase=" + salaireBase +
+                ", nombreHeuresParSemaine=" + nombreHeuresParSemaine +
+                ", pays=" + pays ;
+    }
+
     public Query_6(String poste, Double salaireBase, Integer nombreHeuresParSemaine, Integer pays) {
         this.poste = poste;
         this.salaireBase = salaireBase;

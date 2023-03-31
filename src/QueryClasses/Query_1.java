@@ -16,4 +16,11 @@ public class Query_1 {
     public Integer getPays() {
         return pays;
     }
+
+    @Override
+    public String toString() {
+        return "moyenne=" + moyenne +
+                ", pays=" + pays +
+                '}';
+    }
 }

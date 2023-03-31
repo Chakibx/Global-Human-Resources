@@ -27,6 +27,16 @@ public class Query_5 {
         return Departement;
     }
 
+    @Override
+    public String toString() {
+        return
+                "nom='" + nom + '\'' +
+                ", poste='" + poste + '\'' +
+                ", Departement='" + Departement + '\'' +
+                ", moyennePerformance=" + moyennePerformance +
+                ", pays=" + pays ;
+    }
+
     public double getMoyennePerformance() {
         return moyennePerformance;
     }

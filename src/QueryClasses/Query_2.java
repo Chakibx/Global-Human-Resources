@@ -28,4 +28,12 @@ public class Query_2 {
     public Integer getPays() {
         return pays;
     }
+
+    @Override
+    public String toString() {
+        return "nom='" + nom + '\'' +
+                ", fonction='" + fonction + '\'' +
+                ", salaire=" + salaire +
+                ", pays=" + pays ;
+    }
 }

@@ -16,4 +16,10 @@ public class Query_4 {
     public int getPays() {
         return pays;
     }
+
+    @Override
+    public String toString() {
+        return "NombreAbsences=" + NombreAbsences +
+                ", pays=" + pays ;
+    }
 }

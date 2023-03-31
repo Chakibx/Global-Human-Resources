@@ -29,6 +29,18 @@ public class Query_7 {
         return noteAvant;
     }
 
+    @Override
+    public String toString() {
+        return "nom='" + nom + '\'' +
+                ", noteAvant=" + noteAvant +
+                ", dateNoteAvant='" + dateNoteAvant + '\'' +
+                ", noteApres=" + noteApres +
+                ", dateNoteApres='" + dateNoteApres + '\'' +
+                ", typeFormation='" + typeFormation + '\'' +
+                ", dateDebutFormation='" + dateDebutFormation + '\'' +
+                ", pays=" + pays ;
+    }
+
     public String getDateNoteAvant() {
         return dateNoteAvant;
     }

@@ -4,10 +4,10 @@ public class Query_5 {
     private String nom;
     private String poste;
     private String Departement;
-    private Integer moyennePerformance;
+    private double moyennePerformance;
     private Integer pays;
 
-    public Query_5(String nom, String poste, String departement, Integer moyennePerformance, Integer pays) {
+    public Query_5(String nom, String poste, String departement, double moyennePerformance, Integer pays) {
         this.nom = nom;
         this.poste = poste;
         Departement = departement;
@@ -27,7 +27,7 @@ public class Query_5 {
         return Departement;
     }
 
-    public Integer getMoyennePerformance() {
+    public double getMoyennePerformance() {
         return moyennePerformance;
     }
 

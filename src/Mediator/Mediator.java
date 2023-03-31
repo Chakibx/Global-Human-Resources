@@ -6,6 +6,11 @@ import src.France.PostgresqlQueryExecution;
 import src.QueryClasses.Query_0;
 import src.QueryClasses.Query_2;
 import src.QueryClasses.Query_3;
+import src.QueryClasses.Query_4;
+import src.QueryClasses.Query_5;
+import src.QueryClasses.Query_6;
+import src.QueryClasses.Query_7;
+import src.QueryClasses.Query_8;
 import src.Usa.MysqlQuery;
 import src.Usa.MysqlQueryExecution;
 import java.sql.SQLException;
@@ -67,7 +72,53 @@ public class Mediator {
                     System.out.println(element.getDepartement()  + " " +element.getPoste()+" "+element.getNom()+ " "+element.getNotePerformance()+" "+element.getPays());
                 }
             }
+            case 4->{
+                ArrayList<Query_4> liste4 = new ArrayList<Query_4>();
+                liste4 = MysqlQueryExecution.Execute_query_4(liste4);
+                liste4 = PostgresqlQueryExecution.Execute_query_4(liste4);
+                //liste4 = Dom.Execute_query_4(liste4);
+                for (Query_4 element : liste4) {
+                    System.out.println(element.getNombreAbsences()  + "|" +element.getPays());
+                }
+            }
+            case 5->{
+                ArrayList<Query_5> liste5 = new ArrayList<Query_5>();
+                liste5 = MysqlQueryExecution.Execute_query_5(liste5);
+                liste5 = PostgresqlQueryExecution.Execute_query_5(liste5);
+                //liste5 = Dom.Execute_query_5(liste5);
+                for (Query_5 element : liste5) {
+                    System.out.println(element.getNom()+ "|" +element.getPoste()+"|"+element.getDepartement()+"|"+element.getMoyennePerformance()+"|"+element.getPays());
+                }
+            }
+            case 6->{
+                ArrayList<Query_6> liste6 = new ArrayList<Query_6>();
+                liste6 = MysqlQueryExecution.Execute_query_6(liste6);
+                liste6 = PostgresqlQueryExecution.Execute_query_6(liste6);
+                //liste6 = Dom.Execute_query_6(liste6);
+                for (Query_6 element : liste6) {
+                    System.out.println(element.getPoste()+ "|" +element.getSalaireBase()+"|"+element.getNombreHeuresParSemaine()+"|"+element.getPays());
+                }
+            }
+            case 7->{
+                ArrayList<Query_7> liste7 = new ArrayList<Query_7>();
+                liste7 = MysqlQueryExecution.Execute_query_7(liste7);
+                liste7 = PostgresqlQueryExecution.Execute_query_7(liste7);
+                //liste7 = Dom.Execute_query_7(liste7);
+                for (Query_7 element : liste7) {
+                    System.out.println(element.getNom()+ "|" +element.getNoteAvant()+"|"+element.getDateNoteAvant()+"|"+element.getNoteApres()+element.getTypeFormation()+"|"+element.getDateDebutFormation()+"|"+element.getPays());
+                }
+            }
+            case 8->{
+                ArrayList<Query_8> liste8 = new ArrayList<Query_8>();
+                liste8 = MysqlQueryExecution.Execute_query_8(liste8);
+                liste8 = PostgresqlQueryExecution.Execute_query_8(liste8);
+                //liste8 = Dom.Execute_query_8(liste8);
+                for (Query_8 element : liste8) {
+                    System.out.println(element.getNom()+ "|" +element.getDernierePerformance()+"|"+element.getPoste()+"|"+element.getAugmentation()+" "+element.getPays());
+                }
+            }
         }
+
 
     }
 }

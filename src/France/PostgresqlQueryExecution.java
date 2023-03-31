@@ -1,14 +1,13 @@
 package src.France;
-import src.QueryClasses.Query_0;
-import src.QueryClasses.Query_2;
-import src.QueryClasses.Query_3;
+import src.QueryClasses.*;
 import src.Usa.MysqlConnection;
 import src.Usa.MysqlQuery;
-
+import java.util.Collections;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 public class PostgresqlQueryExecution {
 
@@ -126,6 +125,99 @@ public class PostgresqlQueryExecution {
         return liste;
     }
 
+    public static ArrayList<Query_4> Execute_query_4(ArrayList<Query_4> liste) throws SQLException {
+        Statement statement = (PostgresqlConnection.getConnection()).createStatement();
+        PostgresqlQuery QueryList = new PostgresqlQuery();
+        String sql = QueryList.GetQuery(4);
+        ResultSet resultat = statement.executeQuery(sql);
+
+        while (resultat.next()) {
+            int nombreAbsences = Integer.valueOf(resultat.getString("nombre_absences"));
+            int pays = 2;
+
+            Query_4 p = new Query_4(nombreAbsences,pays);
+            liste.add(p);
+        }
+        return liste;
+    }
+
+    public static ArrayList<Query_5> Execute_query_5(ArrayList<Query_5> liste) throws SQLException {
+        Statement statement = (PostgresqlConnection.getConnection()).createStatement();
+        PostgresqlQuery QueryList = new PostgresqlQuery();
+        String sql = QueryList.GetQuery(5);
+        ResultSet resultat = statement.executeQuery(sql);
+
+        while (resultat.next()) {
+            String nom = resultat.getString("nom");
+            String poste = resultat.getString("poste");
+            String departement = resultat.getString("departement");
+            double moyennePerformance = Double.valueOf(resultat.getString("note_performance"));
+            int pays = 2;
+
+            Query_5 p = new Query_5(nom,poste,departement,moyennePerformance,pays);
+            liste.add(p);
+        }
+        return liste;
+    }
+    public static ArrayList<Query_6> Execute_query_6(ArrayList<Query_6> liste) throws SQLException {
+        Statement statement = (PostgresqlConnection.getConnection()).createStatement();
+        PostgresqlQuery QueryList = new PostgresqlQuery();
+        String sql = QueryList.GetQuery(6);
+        ResultSet resultat = statement.executeQuery(sql);
+
+        while (resultat.next()) {
+            String poste = resultat.getString("libelle");
+            double salaireBase = Double.valueOf(resultat.getString("salaire_base"));
+            int nombreHeuresParSemaines = Integer.valueOf(resultat.getString("nombre_heures_par_semaine"));
+            int pays = 2;
+
+            Query_6 p = new Query_6(poste,salaireBase,nombreHeuresParSemaines,pays);
+            liste.add(p);
+        }
+
+        Collections.sort(liste, (p1, p2) -> Double.compare(p1.getSalaireBase(), p2.getSalaireBase()));
+        return liste;
+    }
+
+    public static ArrayList<Query_7> Execute_query_7(ArrayList<Query_7> liste) throws SQLException {
+        Statement statement = (PostgresqlConnection.getConnection()).createStatement();
+        PostgresqlQuery QueryList = new PostgresqlQuery();
+        String sql = QueryList.GetQuery(7);
+        ResultSet resultat = statement.executeQuery(sql);
+
+        while (resultat.next()) {
+            String nom = resultat.getString("nom");
+            int noteAvant = Integer.valueOf(resultat.getString("note_avant"));
+            String dateNoteAvant = resultat.getString("date_note_avant");
+            int noteApres = Integer.valueOf(resultat.getString("note_apres"));
+            String dateNoteApres = resultat.getString("date_note_apres");
+            String typeFormation = resultat.getString("type_formation");
+            String dateDebutFormation = resultat.getString("date_formation");
+            int pays = 2;
+
+            Query_7 p = new Query_7(nom,noteAvant,dateNoteAvant,noteApres,dateNoteApres,typeFormation,dateDebutFormation,pays);
+            liste.add(p);
+        }
+        return liste;
+    }
+    public static ArrayList<Query_8> Execute_query_8(ArrayList<Query_8> liste) throws SQLException {
+        Statement statement = (PostgresqlConnection.getConnection()).createStatement();
+        PostgresqlQuery QueryList = new PostgresqlQuery();
+        String sql = QueryList.GetQuery(8);
+        ResultSet resultat = statement.executeQuery(sql);
+
+        while (resultat.next()) {
+            String nom = resultat.getString("nom");
+            int dernierPerformance = Integer.valueOf(resultat.getString("note_performance"));
+            String poste = resultat.getString("libelle");
+            double augmentation = Double.valueOf(resultat.getString("augmentation"));
+            int pays = 2;
+
+            Query_8 p = new Query_8(nom,dernierPerformance,poste,augmentation,pays);
+            liste.add(p);
+        }
+        return liste;
+    }
     /*public void Execute(){
         try{
             Statement statement = this.connection.createStatement();

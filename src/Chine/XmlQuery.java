@@ -36,7 +36,7 @@ public class XmlQuery {
     private String XQUERY5 = "for $emp in /chine/employes/employe\n" +
             "let $perf := /chine/performances/performance[@idEmploye = $emp/@idEmploye]/notePerformance\n" +
             "where avg($perf) <= 12\n" +
-            "return concat('nom= ', $emp/nom, ' poste= ', /chine/postes/poste[@idPoste = $emp/@idPoste]/libelle, ' departement= ', /chine/departements/departement[@idDepartement = $emp/@idDepartement]/nomDepartement, ' moyenne_performance= ', avg($perf))";
+            "return <resultat><nom> {$emp/nom} </nom> <poste> {/chine/postes/poste[@idPoste = $emp/@idPoste]/libelle} </poste> <departement> {/chine/departements/departement[@idDepartement = $emp/@idDepartement]/nomDepartement} </departement> <moyennePerformance> {avg($perf)} </moyennePerformance></resultat> ";
     private String XQUERY6 = "for $p in /chine/postes/poste[occupation = 'false']\n" +
             "order by $p/salaireBase ascending\n" +
             "return concat('libelle= ', $p/libelle, ' salaire de Base= ', $p/salaireBase, ' nombreHeuresParSemaine= ', $p/nombreHeuresParSemaine)";

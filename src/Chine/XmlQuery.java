@@ -18,14 +18,14 @@ public class XmlQuery {
             "let $c := /chine/contratsDureeIndeterminee/contrat[@idEmploye = $e/@idEmploye]\n" +
             "let $p := /chine/postes/poste[@idPoste = $e/@idPoste]\n" +
             "where $c/salaire > 3500\n" +
-            "return concat('Nom : ', $e/nom, '| Fonction : ', $p/libelle, '| Salaire : ', $c/salaire)";
+            "return <resultat> <nom> {$e/nom} </nom> <fonction> {$p/libelle}  </fonction> <salaire> {$c/salaire} </salaire> </resultat>";
     private String XQUERY3 = "for $departement in /chine/departements/departement\n" +
             "let $employe := /chine/employes/employe[@idDepartement = $departement/@idDepartement]\n" +
             "let $performances := /chine/performances/performance\n" +
             "let $maxNote := max($performances[@idEmploye = $employe/@idEmploye]/notePerformance)\n" +
             "for $employeP in $employe[@idEmploye = /chine/performances/performance[notePerformance = $maxNote]/@idEmploye]\n" +
             "let $poste := /chine/postes/poste[@idPoste = $employeP/@idPoste]\n" +
-            "return concat('Departement: ', $departement/nomDepartement, ' Employe: ', $employeP/nom, ' Poste: ', $poste/libelle, ' Note: ', $maxNote)ß";
+            "return <resultat> <departement>{$departement/nomDepartement} </departement><nom> {$employeP/nom} </nom> <poste> {$poste/libelle} </poste> <notePerformance> {$maxNote} </notePerformance> </resultat>";
     private String XQUERY4 = "let $nombre_absences :=\n" +
             "count(for $a in /chine/absences/absence\n" +
             "let $e := /chine/employes/employe[@idEmploye = $a/@idEmploye]\n" +

@@ -43,10 +43,11 @@ public class Mediator {
                 ArrayList<Query_2> liste2 = new ArrayList<Query_2>();
                 liste2 = MysqlQueryExecution.Execute_query_2(liste2);
                 liste2 = PostgresqlQueryExecution.Execute_query_2(liste2);
-                //liste2 = Dom.Execute_query_2(liste2);
+                liste2 = Dom.Execute_query_2(liste2);
                 for (Query_2 element : liste2) {
                     System.out.println(element.getNom()  + " " +element.getFonction()+ " "+ element.getSalaire() + " " + element.getPays());
                 }
+
             }
             case 3->{
                 ArrayList<Query_3> liste3 = new ArrayList<Query_3>();
@@ -61,7 +62,7 @@ public class Mediator {
 
                 liste3 = MysqlQueryExecution.Execute_query_3(liste3);
                 liste3 = PostgresqlQueryExecution.Execute_query_3(liste3);
-                //liste3 = Dom.Execute_query_0(liste3);
+                liste3 = Dom.Execute_query_3(liste3);
                 for (Query_3 element : liste3) {
                     System.out.println(element.getDepartement()  + " " +element.getPoste()+" "+element.getNom()+ " "+element.getNotePerformance()+" "+element.getPays());
                 }

@@ -39,7 +39,7 @@ public class XmlQuery {
             "return <resultat><nom> {$emp/nom} </nom> <poste> {/chine/postes/poste[@idPoste = $emp/@idPoste]/libelle} </poste> <departement> {/chine/departements/departement[@idDepartement = $emp/@idDepartement]/nomDepartement} </departement> <moyennePerformance> {avg($perf)} </moyennePerformance></resultat> ";
     private String XQUERY6 = "for $p in /chine/postes/poste[occupation = 'false']\n" +
             "order by $p/salaireBase ascending\n" +
-            "return concat('libelle= ', $p/libelle, ' salaire de Base= ', $p/salaireBase, ' nombreHeuresParSemaine= ', $p/nombreHeuresParSemaine)";
+            "return <resultat><poste> {$p/libelle}</poste> <salaire> {$p/salaireBase} </salaire><nombreHeures> {$p/nombreHeuresParSemaine} </nombreHeures></resultat>";
     private String XQUERY7 = "for $sf in /chine/seFormes/seForme\n" +
             "let $f := /chine/formations/formation[@idFormation = $sf/@idFormation]\n" +
             "let $e := /chine/employes/employe[@idEmploye = $sf/@idEmploye]\n" +

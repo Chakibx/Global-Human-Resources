@@ -6,6 +6,8 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.*;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
+
 import net.sf.saxon.s9api.XdmValue;
 
 import src.QueryClasses.*;
@@ -349,5 +351,58 @@ public class Dom {
         }
         return liste;
     }
+    public static ArrayList<Query_6> Execute_query_6(ArrayList<Query_6> liste) throws SaxonApiException {
+        // Chargement du fichier XML en entrée
+        File inputFile = new File("D:/intellij/PDI/data/chine/Chine.xml");
+        StreamSource input = new StreamSource(inputFile);
+
+        // Création du processeur Saxon
+        Processor processor = new Processor(false);
+
+        // Création du compilateur XQuery
+        XQueryCompiler compiler = processor.newXQueryCompiler();
+        XmlQuery queryGetter = new XmlQuery();
+        // Définition de la requête XQuery
+        String xqueryExpression = queryGetter.GetQuery(6);
+
+        //Instantiation du getter
+        XQueryExecutable xqueryExec = compiler.compile(xqueryExpression);
+
+        // Évaluation de la requête XQuery et affichage des résultats
+        XQueryEvaluator evaluator = xqueryExec.load();
+        evaluator.setSource(input);
+        XdmValue result = evaluator.evaluate();
+
+        if (result.size() > 0) {
+            XdmSequenceIterator iterator = result.iterator();
+            while (iterator.hasNext()) {
+                XdmNode node1 = (XdmNode) iterator.next();
+                XdmSequenceIterator j = node1.axisIterator(Axis.CHILD);
+                String posteValue = " ";
+                Double salaireValue = 0.0;
+                Integer nombreHeuresValue = 0;
+                Integer pays =3;
+                while (j.hasNext()) {
+                    XdmNode child = (XdmNode) j.next();
+                    if (child.getNodeName().toString().equals("poste")) {
+                        posteValue = child.getStringValue();
+                    }
+                    if (child.getNodeName().toString().equals("salaire")) {
+                        salaireValue = Double.valueOf(child.getStringValue());
+                    }
+                    if (child.getNodeName().toString().equals("nombreHeures")) {
+                        nombreHeuresValue = Integer.valueOf(child.getStringValue());
+                    }
+                }
+                Query_6 p = new Query_6(posteValue, salaireValue, nombreHeuresValue ,3);
+                liste.add(p);
+            }
+        } else {
+            System.out.println("Aucun résultat trouvé.");
+        }
+        Collections.sort(liste, (p1, p2) -> Double.compare(p1.getSalaireBase(), p2.getSalaireBase()));
+        return liste;
+    }
+
 }
 

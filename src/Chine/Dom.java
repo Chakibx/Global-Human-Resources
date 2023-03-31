@@ -403,6 +403,188 @@ public class Dom {
         Collections.sort(liste, (p1, p2) -> Double.compare(p1.getSalaireBase(), p2.getSalaireBase()));
         return liste;
     }
+    public static ArrayList<Query_7> Execute_query_7(ArrayList<Query_7> liste) throws SaxonApiException {
+        // Chargement du fichier XML en entrée
+        File inputFile = new File("D:/intellij/PDI/data/chine/Chine.xml");
+        StreamSource input = new StreamSource(inputFile);
+
+        // Création du processeur Saxon
+        Processor processor = new Processor(false);
+
+        // Création du compilateur XQuery
+        XQueryCompiler compiler = processor.newXQueryCompiler();
+        XmlQuery queryGetter = new XmlQuery();
+        // Définition de la requête XQuery
+        String xqueryExpression = queryGetter.GetQuery(7);
+
+        //Instantiation du getter
+        XQueryExecutable xqueryExec = compiler.compile(xqueryExpression);
+
+        // Évaluation de la requête XQuery et affichage des résultats
+        XQueryEvaluator evaluator = xqueryExec.load();
+        evaluator.setSource(input);
+        XdmValue result = evaluator.evaluate();
+
+        if (result.size() > 0) {
+            XdmSequenceIterator iterator = result.iterator();
+            while (iterator.hasNext()) {
+                XdmNode node1 = (XdmNode) iterator.next();
+                XdmSequenceIterator j = node1.axisIterator(Axis.CHILD);
+                String nomValue = " ";
+                Integer notePerformanceAvantValue = 0;
+                String datePerformanceAvantValue = " ";
+                Integer notePerformanceApresValue = 0;
+                String datePerformanceApresValue = " ";
+                String typeFormationValue = " ";
+                String dateFormationValue = " ";
+                Integer pays = 3;
+                while (j.hasNext()) {
+                    XdmNode child = (XdmNode) j.next();
+                    if (child.getNodeName().toString().equals("nom")) {
+                        nomValue = child.getStringValue();
+                    }
+                    if (child.getNodeName().toString().equals("datePerformanceAvant")) {
+                        datePerformanceAvantValue = child.getStringValue();
+                    }
+                    if (child.getNodeName().toString().equals("notePerformanceAvant")) {
+                        notePerformanceAvantValue = Integer.valueOf(child.getStringValue());
+                    }
+                    if (child.getNodeName().toString().equals("datePerformanceApres")) {
+                        datePerformanceApresValue = child.getStringValue();
+                    }
+                    if (child.getNodeName().toString().equals("notePerformanceApres")) {
+                        notePerformanceApresValue = Integer.valueOf(child.getStringValue());
+                    }
+                    if (child.getNodeName().toString().equals("typeFormation")) {
+                        typeFormationValue = child.getStringValue();
+                    }
+                    if (child.getNodeName().toString().equals("dateFormation")) {
+                        dateFormationValue = child.getStringValue();
+                    }
+                    Query_7 p = new Query_7(nomValue, notePerformanceAvantValue, datePerformanceAvantValue, notePerformanceApresValue, datePerformanceApresValue, typeFormationValue, dateFormationValue, pays);
+                    liste.add(p);
+                }
+            }
+        } else {
+            System.out.println("Aucun résultat trouvé.");
+        }
+        return liste;
+    }
+    public static ArrayList<Query_8> Execute_query_8(ArrayList<Query_8> liste) throws SaxonApiException {
+        // Chargement du fichier XML en entrée
+        File inputFile = new File("D:/intellij/PDI/data/chine/Chine.xml");
+        StreamSource input = new StreamSource(inputFile);
+
+        // Création du processeur Saxon
+        Processor processor = new Processor(false);
+
+        // Création du compilateur XQuery
+        XQueryCompiler compiler = processor.newXQueryCompiler();
+        XmlQuery queryGetter = new XmlQuery();
+        // Définition de la requête XQuery
+        String xqueryExpression = queryGetter.GetQuery(8);
+        //Instantiation du getter
+        XQueryExecutable xqueryExec = compiler.compile(xqueryExpression);
+        // Évaluation de la requête XQuery et affichage des résultats
+        XQueryEvaluator evaluator = xqueryExec.load();
+        evaluator.setSource(input);
+        XdmValue result = evaluator.evaluate();
+
+        if (result.size() > 0) {
+            XdmSequenceIterator iterator = result.iterator();
+            while (iterator.hasNext()) {
+                XdmNode node1 = (XdmNode) iterator.next();
+                XdmSequenceIterator j = node1.axisIterator(Axis.CHILD);
+                String nomValue = " ";
+                Integer notePerformanceValue = 0;
+                String posteValue = " ";
+                Double augmentationValue = 0.0;
+                Integer pays = 3;
+                while (j.hasNext()) {
+                    XdmNode child = (XdmNode) j.next();
+                    if (child.getNodeName().toString().equals("nom")) {
+                        nomValue = child.getStringValue();
+                    }
+                    if (child.getNodeName().toString().equals("notePerformance")) {
+                        notePerformanceValue = Integer.valueOf(child.getStringValue());
+                    }
+                    if (child.getNodeName().toString().equals("poste")) {
+                        posteValue = child.getStringValue();
+                    }
+
+                    if (child.getNodeName().toString().equals("augmentation")) {
+                        augmentationValue = Double.valueOf(child.getStringValue());
+                    }
+                }
+                    Query_8 p = new Query_8(nomValue, notePerformanceValue, posteValue, augmentationValue, pays);
+                    liste.add(p);
+        }
+    } else {
+        System.out.println("Aucun résultat trouvé.");
+    }
+        return liste;
+}
+    public static ArrayList<Query_9> Execute_query_9(ArrayList<Query_9> liste) throws SaxonApiException {
+        // Chargement du fichier XML en entrée
+        File inputFile = new File("D:/intellij/PDI/data/chine/Chine.xml");
+        StreamSource input = new StreamSource(inputFile);
+
+        // Création du processeur Saxon
+        Processor processor = new Processor(false);
+
+        // Création du compilateur XQuery
+        XQueryCompiler compiler = processor.newXQueryCompiler();
+        XmlQuery queryGetter = new XmlQuery();
+        // Définition de la requête XQuery
+        String xqueryExpression = queryGetter.GetQuery(9);
+        //Instantiation du getter
+        XQueryExecutable xqueryExec = compiler.compile(xqueryExpression);
+        // Évaluation de la requête XQuery et affichage des résultats
+        XQueryEvaluator evaluator = xqueryExec.load();
+        evaluator.setSource(input);
+        XdmValue result = evaluator.evaluate();
+
+        if (result.size() > 0) {
+            XdmSequenceIterator iterator = result.iterator();
+            while (iterator.hasNext()) {
+                XdmNode node1 = (XdmNode) iterator.next();
+                XdmSequenceIterator j = node1.axisIterator(Axis.CHILD);
+                String nomValue = " ";
+                String prenomValue = " ";
+                String posteValue = " ";
+                String departementValue= " ";
+                Double augmentationValue = 0.0;
+                Integer notePerformanceValue = 0;
+                Integer pays = 3;
+                while (j.hasNext()) {
+                    XdmNode child = (XdmNode) j.next();
+                    if (child.getNodeName().toString().equals("nom")) {
+                        nomValue = child.getStringValue();
+                    }
+                    if (child.getNodeName().toString().equals("prenom")) {
+                        prenomValue = child.getStringValue();
+                    }
+                    if (child.getNodeName().toString().equals("poste")) {
+                        posteValue = child.getStringValue();
+                    }
+                    if (child.getNodeName().toString().equals("departement")) {
+                        departementValue = child.getStringValue();
+                    }
+                    if (child.getNodeName().toString().equals("augmentation")) {
+                        augmentationValue = Double.valueOf(child.getStringValue());
+                    }
+                    if (child.getNodeName().toString().equals("notePerformance")) {
+                        notePerformanceValue = Integer.valueOf(child.getStringValue());
+                    }
+                }
+                Query_9 p = new Query_9(nomValue, prenomValue ,  posteValue, departementValue, augmentationValue, notePerformanceValue, pays);
+                liste.add(p);
+            }
+        } else {
+            System.out.println("Aucun résultat trouvé.");
+        }
+        return liste;
+    }
 
 }
 

@@ -47,20 +47,20 @@ public class XmlQuery {
             "let $pf2 := /chine/performances/performance[@idEmploye = $e/@idEmploye and contains(datePerformance, '2022-')]\n" +
             "where $pf2/notePerformance > $pf1/notePerformance\n" +
             "order by $e/nom\n" +
-            "return concat('Nom: ', $e/nom, '| Note avant: ', $pf1/notePerformance, '| Date note avant: ', $pf1/datePerformance, '| Note après: ', $pf2/notePerformance, '| Date note après: ', $pf2/datePerformance, '| Type formation: ', $f/typeFormation, '| Date formation: ', $sf/dateDebutFormation, '&#xa;')\n";
+            "return <resultat> <nom>{$e/nom}</nom><notePerformanceAvant> {$pf1/notePerformance}</notePerformanceAvant> <datePerformanceAvant>{$pf1/datePerformance}</datePerformanceAvant> <notePerformanceApres>{$pf2/notePerformance}</notePerformanceApres><datePerformanceApres> {$pf2/datePerformance}</datePerformanceApres><typeFormation> {$f/typeFormation}</typeFormation><dateDebutFormation> {$sf/dateDebutFormation}</dateDebutFormation></resultat> ";
     private String XQUERY8 = "for $e in /chine/employes/employe\n" +
             "let $p := /chine/postes/poste[@idPoste = $e/@idPoste]\n" +
             "let $c := /chine/contratsDureeIndeterminee/contrat[@idEmploye = $e/@idEmploye]\n" +
             "let $perf := /chine/performances/performance[@idEmploye = $e/@idEmploye][contains(datePerformance,'2022-')]\n" +
-            "let $augmentation := xs:integer($c/salaire) - xs:integer($p/salaireBase)\n" +
-            "return concat('Nom : ', $e/nom, '| Dernière performance : ', $perf/notePerformance, '| Poste : ', $p/libelle, '| Augmentation : ', $augmentation)\n";
+            "let $augmentation := (xs:integer($c/salaire) - xs:integer($p/salaireBase))\n" +
+            "return <resultat> <nom> {$e/nom} </nom> <notePerformance> {$perf/notePerformance} </notePerformance> <poste> {$p/libelle} </poste> <augmentation> {$augmentation} </augmentation> </resultat>";
     private String XQUERY9 = "for $e in /chine/employes/employe\n" +
             "let $p := /chine/postes/poste[@idPoste = $e/@idPoste]\n" +
             "let $c := /chine/contratsDureeIndeterminee/contrat[@idEmploye = $e/@idEmploye]\n" +
             "let $perf := /chine/performances/performance[@idEmploye = $e/@idEmploye][contains(datePerformance, '2022-')]\n" +
             "let $augmentation := xs:integer($c/salaire) - xs:integer($p/salaireBase)\n" +
             "where $augmentation <= 700 and $perf/notePerformance >= 15\n" +
-            "return concat('Nom : ', $e/nom, '| Dernière performance : ', $perf/notePerformance, '| Poste : ', $p/libelle, '| Augmentation : ', $augmentation)\n";
+            "return <resultat> <nom>{$e/nom} </nom> <prenom>{$e/prenom} </prenom> <poste>{$p/libelle} </poste> <departement> {/chine/department/departement[@idDepartement=$e/@idDepartement]/nomDepartement} </departement><augmentation> {$augmentation} </augmentation> <notePerformance> {$perf/notePerformance} </notePerformance>  </resultat>";
 
     private ArrayList<String> QueryList = new ArrayList<String>();
 

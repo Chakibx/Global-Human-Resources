@@ -72,4 +72,44 @@ public class Dom {
         }
         return liste;
     }
+    public static Double Execute_query_1(Double moyenne) throws SaxonApiException{
+        // Chargement du fichier XML en entrée
+        File inputFile =  new File("/home/chakib/IdeaProjects/PDI/data/chine/Chine.xml");
+        StreamSource input = new StreamSource(inputFile);
+
+        // Création du processeur Saxon
+        Processor processor = new Processor(false);
+
+        // Création du compilateur XQuery
+        XQueryCompiler compiler = processor.newXQueryCompiler();
+        XmlQuery queryGetter = new XmlQuery();
+        // Définition de la requête XQuery
+        String xqueryExpression = queryGetter.GetQuery(0);
+
+        //Instantiation du getter
+        XQueryExecutable xqueryExec = compiler.compile(xqueryExpression);
+
+        // Évaluation de la requête XQuery et affichage des résultats
+        XQueryEvaluator evaluator = xqueryExec.load();
+        evaluator.setSource(input);
+        XdmValue result = evaluator.evaluate();
+
+        if (result.size() > 0) {
+            XdmSequenceIterator iterator = result.iterator();
+            while(iterator.hasNext()){
+                XdmNode node1 = (XdmNode) iterator.next();
+                XdmSequenceIterator j = node1.axisIterator(Axis.CHILD);
+                while (j.hasNext()) {
+                    XdmNode child = (XdmNode) j.next();
+                    if(child.getNodeName().toString().equals("resultat")){
+                       moyenne = moyenne + Double.valueOf(child.getStringValue());
+                       System.out.println("valeur xquery");
+                    }
+                }
+            }
+        } else {
+            System.out.println("Aucun résultat trouvé.");
+        }
+        return moyenne;
+    }
 }

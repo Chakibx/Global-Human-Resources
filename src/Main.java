@@ -21,7 +21,7 @@ public class Main {
                 int QueryNumber = s.nextInt();*/
 
                 //XML Data Base
-                Mediator.mediate(1);
+                Mediator.mediate(3);
 
                 //Mysql Database
                 /*MysqlQuery Mquery = new MysqlQuery();

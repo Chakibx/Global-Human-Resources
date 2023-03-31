@@ -1,5 +1,7 @@
 package src.France;
 import src.QueryClasses.Query_0;
+import src.QueryClasses.Query_2;
+import src.QueryClasses.Query_3;
 import src.Usa.MysqlConnection;
 import src.Usa.MysqlQuery;
 
@@ -56,7 +58,73 @@ public class PostgresqlQueryExecution {
             System.out.println(moyenne);
         }
 
-        return moyenne;}
+        return moyenne;
+    }
+
+    public static ArrayList<Query_2> Execute_query_2(ArrayList<Query_2> liste) throws SQLException {
+        Statement statement = (PostgresqlConnection.getConnection()).createStatement();
+        PostgresqlQuery QueryList = new PostgresqlQuery();
+        String sql = QueryList.GetQuery(2);
+        ResultSet resultat = statement.executeQuery(sql);
+
+        while (resultat.next()) {
+            String nom = resultat.getString("nom");
+            String fonction = resultat.getString("libelle");
+            double salaire = Double.valueOf(resultat.getString("salaire"));
+            int pays = 2;
+
+            Query_2 p = new Query_2(nom,fonction,salaire,pays);
+            liste.add(p);
+        }
+        return liste;
+    }
+
+    public static ArrayList<Query_3> Execute_query_3(ArrayList<Query_3> liste) throws SQLException {
+        Statement statement = (PostgresqlConnection.getConnection()).createStatement();
+        PostgresqlQuery QueryList = new PostgresqlQuery();
+        String sql = QueryList.GetQuery(3);
+        ResultSet resultat = statement.executeQuery(sql);
+
+        while (resultat.next()) {
+            String departement = resultat.getString("nom_departement");
+            String poste = resultat.getString("libelle");
+            String nom = resultat.getString("nom");
+            int notePerformance = Integer.valueOf(resultat.getString("note_performance"));
+            int pays = 2;
+
+
+            if (departement.equals("Ventes et marketing")) {
+                Query_3 q = liste.get(0);
+                if(notePerformance > q.getNotePerformance()){
+                    Query_3 p = new Query_3(departement,poste,nom,notePerformance,pays);
+                    liste.set(0, p);
+                }
+            }
+            if (departement.equals( "Ressources humaines")) {
+                Query_3 q = liste.get(1);
+                if(notePerformance > q.getNotePerformance()){
+                    Query_3 p = new Query_3(departement,poste,nom,notePerformance,pays);
+                    liste.set(1, p);
+                }
+            }
+            if (departement.equals("IT")) {
+                Query_3 q = liste.get(2);
+                if(notePerformance > q.getNotePerformance()){
+                    Query_3 p = new Query_3(departement,poste,nom,notePerformance,pays);
+                    liste.set(2, p);
+                }
+            }
+            if (departement.equals("Finance")) {
+                Query_3 q = liste.get(3);
+                if(notePerformance > q.getNotePerformance()){
+                    Query_3 p = new Query_3(departement,poste,nom,notePerformance,pays);
+                    liste.set(3, p);
+                }
+            }
+
+        }
+        return liste;
+    }
 
     /*public void Execute(){
         try{

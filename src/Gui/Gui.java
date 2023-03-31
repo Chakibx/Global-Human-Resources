@@ -1,19 +1,17 @@
 package src.Gui;
-import java.io.IOException;
+import net.sf.saxon.s9api.SaxonApiException;
+import src.Mediator.Mediator;
+import src.QueryClasses.*;
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.awt.event.ItemListener;
-import net.sf.saxon.s9api.SaxonApiException;
-import src.Mediator.*;
-import src.QueryClasses.*;
 
 public class Gui implements ActionListener {
     private JFrame frame;
@@ -31,7 +29,8 @@ public class Gui implements ActionListener {
         // Set up the JFrame
         frame = new JFrame("Query Executor");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1300, 700);
+        frame.setSize(1500, 900);
+
 
         // Ajouter les boutons de sélection
         JCheckBox chinaButton = new JCheckBox("Chine");
@@ -42,6 +41,7 @@ public class Gui implements ActionListener {
         chinaButton.setFont(font);
         franceButton.setFont(font);
         usaButton.setFont(font);
+
 
         selectionPanel.add(chinaButton);
         selectionPanel.add(franceButton);
@@ -57,8 +57,17 @@ public class Gui implements ActionListener {
         JButton executeButton = new JButton("Execute");
         executeButton.addActionListener(this);
         executeButton.setFont(font);
-        outputArea = new JTextArea("Queries will be displayed here !");
-        outputArea.setEditable(false);
+
+
+        JLabel outputArea = new JLabel("Queries will be displayed here !");
+        outputArea.setAlignmentX(Component.CENTER_ALIGNMENT);
+        outputArea.setAlignmentY(Component.CENTER_ALIGNMENT);
+        outputArea.setHorizontalAlignment(JLabel.CENTER);
+
+
+        table.setPreferredScrollableViewportSize(new Dimension(1300, 500));
+        table.setRowHeight(50);
+
 
         // Add the components to the JFrame
         JPanel topPanel = new JPanel();
@@ -70,8 +79,12 @@ public class Gui implements ActionListener {
 
         JPanel centerPanel = new JPanel(new BorderLayout());
         centerPanel.add(new JScrollPane(outputArea), BorderLayout.CENTER);
+        Dimension d = new Dimension(20, 20);
+        outputArea.setPreferredSize(d);
         centerPanel.add(new JScrollPane(table), BorderLayout.SOUTH);
         frame.add(centerPanel, BorderLayout.CENTER);
+
+
 
         // Display the JFrame
         frame.setVisible(true);
@@ -98,12 +111,11 @@ public class Gui implements ActionListener {
                 executeQuery(queryNumber,model,outputArea);
             }
         });
-
-
     }
 
-    private void executeQuery(int queryNumber,DefaultTableModel model,JTextArea outputArea) {
-        Font font = new Font("Arial", Font.PLAIN, 16);
+    private void executeQuery(int queryNumber,DefaultTableModel model,JLabel outputArea) {
+        Font font = new Font("Liberation-Serif", Font.PLAIN, 25);
+        Font font_tab = new Font("Liberation-Serif", Font.PLAIN, 19);
         switch (queryNumber) {
             case 0:
                 try {
@@ -111,14 +123,16 @@ public class Gui implements ActionListener {
                     result = Mediator.mediate_query_0(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
                     outputArea.setText("le cout total des formations de l'annee derniere\n");
+                    outputArea.setFont(font);
                     model.addColumn("Departement");
                     model.addColumn("Cout total");
                     for (Query_0 obj : result) {
                         //outputArea.append(obj.toString() + "\n");
                         model.addRow(new Object[]{obj.getNom(), obj.getCoutTotal()});
                         table.setModel(model);
-                        table.setFont(font);
+                        table.setFont(font_tab);
                     }
+
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
                 } catch (SQLException ex) {
@@ -130,7 +144,8 @@ public class Gui implements ActionListener {
                     double result;
                     result = Mediator.mediate_query_1();
                     // Display the results in the output area
-                    outputArea.setText("Moyenne du salaire des employes ages entre 20 et 30 ans.\n");
+                    outputArea.setText("Moyenne du salaire des employes agés entre 20 et 30 ans.\n");
+                    outputArea.setFont(font);
                     model.addColumn("Moyenne");
                     model.addColumn("Fonction");
                     model.addColumn("Salaire");
@@ -139,8 +154,6 @@ public class Gui implements ActionListener {
                     model.addRow(new Object[]{result});
                     table.setModel(model);
                     table.setFont(font);
-
-
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
                 } catch (SQLException ex) {
@@ -153,7 +166,8 @@ public class Gui implements ActionListener {
                     ArrayList<Query_2> result;
                     result = Mediator.mediate_query_2(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
-                    outputArea.setText("La liste des noms,fonctions, salaires des employes qui ont un salaire plus que 3500\n\n");
+                    outputArea.setText("La liste des noms,fonctions, salaires des employes\n qui ont un salaire plus que 3500\n");
+                    outputArea.setFont(font);
                     model.addColumn("Nom");
                     model.addColumn("Fonction");
                     model.addColumn("Salaire");
@@ -162,7 +176,7 @@ public class Gui implements ActionListener {
                         //outputArea.append(obj.toString() + "\n");
                         model.addRow(new Object[]{obj.getNom(), obj.getFonction(),obj.getSalaire(),obj.getPays()});
                         table.setModel(model);
-                        table.setFont(font);
+                        table.setFont(font_tab);
                     }
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
@@ -175,7 +189,8 @@ public class Gui implements ActionListener {
                     ArrayList<Query_3> result;
                     result = Mediator.mediate_query_3(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
-                    outputArea.setText("Le poste le plus performant de chaque departement avec le nom de l'emplyé et sa note --\n\n");
+                    outputArea.setText("Le poste le plus performant de chaque departement\n avec le nom de l'emplyé et sa note\n");
+                    outputArea.setFont(font);
                     model.addColumn("Department");
                     model.addColumn("Poste");
                     model.addColumn("Nom");
@@ -185,7 +200,7 @@ public class Gui implements ActionListener {
                         //outputArea.append(obj.toString() + "\n");
                         model.addRow(new Object[]{obj.getDepartement(), obj.getPoste(),obj.getNom(),obj.getNotePerformance(),obj.getPays()});
                         table.setModel(model);
-                        table.setFont(font);
+                        table.setFont(font_tab);
                     }
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
@@ -198,14 +213,15 @@ public class Gui implements ActionListener {
                     ArrayList<Query_4> result;
                     result = Mediator.mediate_query_4(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
-                    outputArea.setText("Le nombre d'absences dans le departement de ventes et marketing avec motif \"Formation\"\n\n\n");
+                    outputArea.setText("Le nombre d'absences dans le departement de ventes et marketing\n avec motif 'Formation'\n");
+                    outputArea.setFont(font);
                     model.addColumn("Nombre Absences");
                     model.addColumn("Pays");
                     for (Query_4 obj : result) {
                         //outputArea.append(obj.toString() + "\n");
                         model.addRow(new Object[]{obj.getNombreAbsences(), obj.getPays()});
                         table.setModel(model);
-                        table.setFont(font);
+                        table.setFont(font_tab);
                     }
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
@@ -218,7 +234,8 @@ public class Gui implements ActionListener {
                     ArrayList<Query_5> result;
                     result = Mediator.mediate_query_5(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
-                    outputArea.setText("Les employés qui ont comme moyenne de performance une note <= 12,avec leut noms, leur note, leur departement, et leur poste\n");
+                    outputArea.setText("Les employés qui ont comme moyenne de performance une note <= 12,\n avec leurs noms, leur note, leur departement, et leur poste\n");
+                    outputArea.setFont(font);
                     model.addColumn("Nom");
                     model.addColumn("Poste");
                     model.addColumn("Departement");
@@ -228,7 +245,7 @@ public class Gui implements ActionListener {
                         //outputArea.append(obj.toString() + "\n");
                         model.addRow(new Object[]{obj.getNom(), obj.getPoste(),obj.getDepartement(),obj.getMoyennePerformance(),obj.getPays()});
                         table.setModel(model);
-                        table.setFont(font);
+                        table.setFont(font_tab);
                     }
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
@@ -241,7 +258,8 @@ public class Gui implements ActionListener {
                     ArrayList<Query_6> result;
                     result = Mediator.mediate_query_6(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
-                    outputArea.setText("la liste des postes libres classé par ordre croissant des salaires de bases\n");
+                    outputArea.setText("la liste des postes libres \n classé par ordre croissant des salaires de bases\n");
+                    outputArea.setFont(font);
                     model.addColumn("Poste");
                     model.addColumn("Salaire Base");
                     model.addColumn("NB Heures par Semaine");
@@ -250,7 +268,7 @@ public class Gui implements ActionListener {
                         //outputArea.append(obj.toString() + "\n");
                         model.addRow(new Object[]{obj.getPoste(),obj.getSalaireBase(),obj.getNombreHeuresParSemaine(),obj.getPays()});
                         table.setModel(model);
-                        table.setFont(font);
+                        table.setFont(font_tab);
                     }
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
@@ -264,6 +282,7 @@ public class Gui implements ActionListener {
                     result = Mediator.mediate_query_7(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
                     outputArea.setText("L'impact des formations sur les performances\n");
+                    outputArea.setFont(font);
                     model.addColumn("Nom");
                     model.addColumn("Note Avant");
                     model.addColumn("Date Note Avant");
@@ -276,7 +295,7 @@ public class Gui implements ActionListener {
                         //outputArea.append(obj.toString() + "\n");
                         model.addRow(new Object[]{obj.getNom(), obj.getNoteAvant(),obj.getDateNoteAvant(),obj.getNoteApres(),obj.getDateNoteApres(),obj.getTypeFormation(),obj.getDateDebutFormation(),obj.getPays()});
                         table.setModel(model);
-                        table.setFont(font);
+                        table.setFont(font_tab);
                     }
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
@@ -289,7 +308,8 @@ public class Gui implements ActionListener {
                     ArrayList<Query_8> result;
                     result = Mediator.mediate_query_8(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
-                    outputArea.setText("Le nom, la derniere performance, et le poste de tous les employé avec leur augmentation de salaire (différence entre salaire de base du poste et le salaire actuel de l'employé)--\n\n");
+                    outputArea.setText("Le nom, la derniere performance,\n et le poste de tous les employé avec leur augmentation de salaire \n (différence entre salaire de base du poste et le salaire actuel de l'employé)\n\n");
+                    outputArea.setFont(font);
                     model.addColumn("Nom");
                     model.addColumn("Derniere Performance");
                     model.addColumn("Poste");
@@ -299,7 +319,7 @@ public class Gui implements ActionListener {
                         //outputArea.append(obj.toString() + "\n");
                         model.addRow(new Object[]{obj.getNom(), obj.getDernierePerformance(),obj.getPoste(),obj.getAugmentation(),obj.getPays()});
                         table.setModel(model);
-                        table.setFont(font);
+                        table.setFont(font_tab);
                     }
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
@@ -312,7 +332,8 @@ public class Gui implements ActionListener {
                     ArrayList<Query_9> result;
                     result = Mediator.mediate_query_9(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
-                    outputArea.setText("Tous les employés qui on une augmentation de salaire <= 700, et qui on une performance >= 15\n");
+                    outputArea.setText("Tous les employés qui on une augmentation de salaire <= 700\n et qui on une performance >= 15\n");
+                    outputArea.setFont(font);
                     model.addColumn("Nom");
                     model.addColumn("Derniere Performance");
                     model.addColumn("Poste");
@@ -322,7 +343,7 @@ public class Gui implements ActionListener {
                         //outputArea.append(obj.toString() + "\n");
                         model.addRow(new Object[]{obj.getNom(), obj.getPerformance(),obj.getPoste(),obj.getAugmentation(),obj.getPays()});
                         table.setModel(model);
-                        table.setFont(font);
+                        table.setFont(font_tab);
                     }
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
@@ -333,7 +354,13 @@ public class Gui implements ActionListener {
 
             default:
                 outputArea.setText("Invalid query number: " + queryNumber);
+                outputArea.setFont(font);
                 return;
+        }
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+        for (int i = 0; i < table.getColumnCount(); i++) {
+            table.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
         }
     }
 

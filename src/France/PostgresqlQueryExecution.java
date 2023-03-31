@@ -218,6 +218,27 @@ public class PostgresqlQueryExecution {
         }
         return liste;
     }
+
+    public static ArrayList<Query_9> Execute_query_9(ArrayList<Query_9> liste) throws SQLException {
+        Statement statement = (PostgresqlConnection.getConnection()).createStatement();
+        PostgresqlQuery QueryList = new PostgresqlQuery();
+        String sql = QueryList.GetQuery(9);
+        ResultSet resultat = statement.executeQuery(sql);
+
+        while (resultat.next()) {
+            String nom = resultat.getString("nom");
+            String prenom = resultat.getString("prenom");
+            String poste = resultat.getString("poste");
+            String departement = resultat.getString("departement");
+            double augmentation = Double.valueOf(resultat.getString("augmentation"));
+            int performance = Integer.valueOf(resultat.getString("performance"));
+            int pays = 2;
+
+            Query_9 p = new Query_9(nom,prenom,poste,departement,augmentation,performance,pays);
+            liste.add(p);
+        }
+        return liste;
+    }
     /*public void Execute(){
         try{
             Statement statement = this.connection.createStatement();

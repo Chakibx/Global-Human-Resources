@@ -3,14 +3,7 @@ import net.sf.saxon.s9api.SaxonApiException;
 import src.Chine.Dom;
 import src.Chine.XmlQuery;
 import src.France.PostgresqlQueryExecution;
-import src.QueryClasses.Query_0;
-import src.QueryClasses.Query_2;
-import src.QueryClasses.Query_3;
-import src.QueryClasses.Query_4;
-import src.QueryClasses.Query_5;
-import src.QueryClasses.Query_6;
-import src.QueryClasses.Query_7;
-import src.QueryClasses.Query_8;
+import src.QueryClasses.*;
 import src.Usa.MysqlQuery;
 import src.Usa.MysqlQueryExecution;
 import java.sql.SQLException;
@@ -115,6 +108,15 @@ public class Mediator {
                 //liste8 = Dom.Execute_query_8(liste8);
                 for (Query_8 element : liste8) {
                     System.out.println(element.getNom()+ "|" +element.getDernierePerformance()+"|"+element.getPoste()+"|"+element.getAugmentation()+" "+element.getPays());
+                }
+            }
+            case 9->{
+                ArrayList<Query_9> liste9 = new ArrayList<Query_9>();
+                liste9 = MysqlQueryExecution.Execute_query_9(liste9);
+                liste9 = PostgresqlQueryExecution.Execute_query_9(liste9);
+                //liste9 = Dom.Execute_query_9(liste9);
+                for (Query_9 element : liste9) {
+                    System.out.println(element.getNom()+ "|" +element.getPrenom()+"|"+element.getPoste()+"|"+element.getDepartement()+" "+element.getAugmentation()+" "+element.getPerformance()+"|"+element.getPays());
                 }
             }
         }

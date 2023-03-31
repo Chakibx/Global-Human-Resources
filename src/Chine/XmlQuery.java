@@ -25,14 +25,14 @@ public class XmlQuery {
             "let $maxNote := max($performances[@idEmploye = $employe/@idEmploye]/notePerformance)\n" +
             "for $employeP in $employe[@idEmploye = /chine/performances/performance[notePerformance = $maxNote]/@idEmploye]\n" +
             "let $poste := /chine/postes/poste[@idPoste = $employeP/@idPoste]\n" +
-            "return <resultat> <departement>{$departement/nomDepartement} </departement><nom> {$employeP/nom} </nom> <poste> {$poste/libelle} </poste> <notePerformance> {$maxNote} </notePerformance> </resultat>";
+            "return <resultat> <departement>{$departement/nomDepartement/text()} </departement><nom> {$employeP/nom/text()} </nom> <poste> {$poste/libelle/text()} </poste> <notePerformance> {$maxNote} </notePerformance> </resultat>";
     private String XQUERY4 = "let $nombre_absences :=\n" +
             "count(for $a in /chine/absences/absence\n" +
             "let $e := /chine/employes/employe[@idEmploye = $a/@idEmploye]\n" +
             "let $d := /chine/departements/departement[@idDepartement = $e/@idDepartement]\n" +
             "where $d/nomDepartement = 'Ventes et marketing' and $a/motifAbsence = 'Formation'\n" +
             "return $a)\n" +
-            "return $nombre_absences";
+            "return <resultat><absences> {$nombre_absences} </absences></resultat>";
     private String XQUERY5 = "for $emp in /chine/employes/employe\n" +
             "let $perf := /chine/performances/performance[@idEmploye = $emp/@idEmploye]/notePerformance\n" +
             "where avg($perf) <= 12\n" +

@@ -11,9 +11,24 @@ public class XmlQuery {
             ")\n" +
             "return <resultat><departement>{$d/nomDepartement/text()}</departement><total>{$total}</total></resultat>";
 
-    private String XQUERY1 = "let $employes := /chine/employes/employe[contains(dateDeNaissance,'1993-') or contains(dateDeNaissance,'1994-') or contains(dateDeNaissance,'1995-') or contains(dateDeNaissance,'1996-') or contains(dateDeNaissance,'1997-') ]/@idEmploye " +
+    /*private String XQUERY1 = "let $employes := /chine/employes/employe[contains(dateDeNaissance,'1993-') or contains(dateDeNaissance,'1994-') or contains(dateDeNaissance,'1995-') or contains(dateDeNaissance,'1996-') or contains(dateDeNaissance,'1997-') ]/@idEmploye " +
                              "let $moyenneSalaires := avg(/chine/contratsDureeIndeterminee/contrat[@idEmploye=$employes]/salaire) " +
-                             "return <resultat><moyenne>{$moyenneSalaires}</moyenne></resultat>";
+                             "return <resultat><moyenne>{$moyenneSalaires}</moyenne></resultat>";*/
+
+    /*private String XQUERY1 = "for $employes in /chine/employes/employe " +
+                             "let $e := $employes[contains(dateDeNaissance,'1993-')]/@idEmploye " +
+                             "let $moy := avg(/chine/contratsDureeIndeterminee/contrat[@idEmploye=$e]/salaire)" +
+                             "return <resultat>{$moy}</resultat>";*/
+    /*private String XQUERY1 = "for $e in /chine/employes/employe " +
+                             "let $salaire := /chine/contratsDureeIndeterminee/contrat[@idEmploye=$e/@idEmploye]/xs:integer(salaire) " +
+                             "where $e[contains(dateDeNaissance,'1993-')]"+
+                             "return <resultat>{avg($salaire)}</resultat>";*/
+
+    private String XQUERY1 = "for $employes in /chine/employes/employe "+
+                             "let $e := $employes[contains(dateDeNaissance,'1993-')]/@idEmploye " +
+                             "let $salaire := /chine/contratsDureeIndeterminee/contrat[@idEmploye=$e/@idEmploye] "+
+                             "return <resultat> <employe> {$salaire/@idEmploye} </employe> <salaire> {$salaire/salaire} </salaire> </resultat>";
+
     private String XQUERY2 = "for $e in /chine/employes/employe\n" +
             "let $c := /chine/contratsDureeIndeterminee/contrat[@idEmploye = $e/@idEmploye]\n" +
             "let $p := /chine/postes/poste[@idPoste = $e/@idPoste]\n" +

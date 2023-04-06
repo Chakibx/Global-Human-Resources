@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="saxon-xpath">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Bureau/libraires/saxon-xpath.jar!/" />
-      <root url="jar://$USER_HOME$/Bureau/libraires/saxon9-s9api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../librairies/libraires/saxon-xpath.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../librairies/libraires/saxon9-s9api.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

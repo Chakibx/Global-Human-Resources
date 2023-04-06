@@ -154,6 +154,25 @@ public class Gui_2 implements ActionListener {
                         table.setModel(model);
                         table.setFont(font_tab);
                     }
+
+                    if (usaSelected ==1) {
+                        System.out.println("bonjour");
+                        ArrayList<Query_0> liste0 = new ArrayList<Query_0>();
+                        Query_0 q1 = new Query_0("Ventes et marketing",0);
+                        Query_0 q2 = new Query_0("Ressources humaines",0);
+                        Query_0 q3 = new Query_0("IT",0);
+                        Query_0 q4 = new Query_0("Finance",0);
+                        liste0.add(q1);
+                        liste0.add(q2);
+                        liste0.add(q3);
+                        liste0.add(q4);
+                        StringBuilder labelText = new StringBuilder();
+                        labelText.append("EXECUTION SUR LA BASE USA \n");
+                        for (Query_0 obj : liste0) {
+                            labelText.append(obj.toString()).append("<br>");
+                        }
+                        executionSetps.setText("<html>" + labelText.toString() + "</html>");
+                    }
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
                 } catch (SQLException ex) {

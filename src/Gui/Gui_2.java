@@ -98,19 +98,22 @@ public class Gui_2 implements ActionListener {
 
         centerPanel.add(new JScrollPane(table), BorderLayout.CENTER);
 
-        JLabel executionSetps = new JLabel();
-        executionSetps.setAlignmentX(Component.CENTER_ALIGNMENT);
-        executionSetps.setAlignmentY(Component.CENTER_ALIGNMENT);
-        executionSetps.setHorizontalAlignment(JLabel.CENTER);
-        executionSetps.setPreferredSize(new Dimension(20, 500));
-        centerPanel.add(new JScrollPane(executionSetps), BorderLayout.SOUTH);
+
+        JLabel executionSteps = new JLabel();
+        //executionSteps.setAlignmentX(Component.LEFT_ALIGNMENT);
+        //executionSteps.setAlignmentY(Component.TOP_ALIGNMENT);
+        //executionSteps.setHorizontalAlignment(JLabel.LEFT);
+        executionSteps.setAlignmentX(Component.CENTER_ALIGNMENT);
+        executionSteps.setAlignmentY(Component.CENTER_ALIGNMENT);
+        executionSteps.setPreferredSize(new Dimension(20, 500));
+        centerPanel.add(new JScrollPane(executionSteps), BorderLayout.SOUTH);
 
         frame.add(centerPanel, BorderLayout.CENTER);
 
-// Display the JFrame
+        // Display the JFrame
         frame.setVisible(true);
 
-// Ajouter un écouteur d'événements pour les boutons
+        // Ajouter un écouteur d'événements pour les boutons
         ItemListener selectionListener = new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
                 // Mettre à jour les variables de sélection
@@ -128,10 +131,9 @@ public class Gui_2 implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                 int queryNumber = (int)queryComboBox.getSelectedItem();
                 DefaultTableModel model = new DefaultTableModel();
-                executeQuery(queryNumber,model,outputArea,executionSetps);
+                executeQuery(queryNumber,model,outputArea,executionSteps);
             }
         });
-
     }
 
     private void executeQuery(int queryNumber,DefaultTableModel model,JLabel outputArea, JLabel executionSetps) {
@@ -156,7 +158,6 @@ public class Gui_2 implements ActionListener {
                     }
 
                     if (usaSelected ==1) {
-                        System.out.println("bonjour");
                         ArrayList<Query_0> liste0 = new ArrayList<Query_0>();
                         Query_0 q1 = new Query_0("Ventes et marketing",0);
                         Query_0 q2 = new Query_0("Ressources humaines",0);

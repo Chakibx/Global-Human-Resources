@@ -1,6 +1,7 @@
 package src.Gui;
 import src.*;
 import net.sf.saxon.s9api.SaxonApiException;
+import src.France.PostgresqlQueryExecution;
 import src.Mediator.Mediator;
 import src.QueryClasses.*;
 import src.Usa.MysqlQueryExecution;
@@ -156,6 +157,7 @@ public class Gui_2 implements ActionListener {
                         table.setModel(model);
                         table.setFont(font_tab);
                     }
+                    StringBuilder labelText = new StringBuilder();
 
                     if (usaSelected ==1) {
                         ArrayList<Query_0> liste0 = new ArrayList<Query_0>();
@@ -167,8 +169,25 @@ public class Gui_2 implements ActionListener {
                         liste0.add(q2);
                         liste0.add(q3);
                         liste0.add(q4);
-                        StringBuilder labelText = new StringBuilder();
-                        labelText.append("EXECUTION SUR LA BASE USA \n");
+                        liste0 = MysqlQueryExecution.Execute_query_0(liste0);
+                        labelText.append("<br><h1> EXECUTION SUR LA BASE USA </h1><br>");
+                        for (Query_0 obj : liste0) {
+                            labelText.append(obj.toString()).append("<br>");
+                        }
+                        executionSetps.setText("<html>" + labelText.toString() + "</html>");
+                    }
+                    if (franceSelected==1) {
+                        ArrayList<Query_0> liste0 = new ArrayList<Query_0>();
+                        Query_0 q1 = new Query_0("Ventes et marketing",0);
+                        Query_0 q2 = new Query_0("Ressources humaines",0);
+                        Query_0 q3 = new Query_0("IT",0);
+                        Query_0 q4 = new Query_0("Finance",0);
+                        liste0.add(q1);
+                        liste0.add(q2);
+                        liste0.add(q3);
+                        liste0.add(q4);
+                        liste0 = PostgresqlQueryExecution.Execute_query_0(liste0);
+                        labelText.append("<br><h1> EXECUTION SUR LA BASE France</h1><br>");
                         for (Query_0 obj : liste0) {
                             labelText.append(obj.toString()).append("<br>");
                         }
@@ -218,6 +237,25 @@ public class Gui_2 implements ActionListener {
                         model.addRow(new Object[]{obj.getNom(), obj.getFonction(),obj.getSalaire(),obj.getPays()});
                         table.setModel(model);
                         table.setFont(font_tab);
+                    }
+                    StringBuilder labelText = new StringBuilder();
+                    if (usaSelected ==1) {
+                        ArrayList<Query_2> liste2 = new ArrayList<Query_2>();
+                        liste2 = MysqlQueryExecution.Execute_query_2(liste2);
+                        labelText.append("<br><h1> EXECUTION SUR LA BASE USA</h1><br>");
+                        for (Query_2 obj : liste2) {
+                            labelText.append(obj.toString()).append("<br>");
+                        }
+                        executionSetps.setText("<html>" + labelText.toString() + "</html>");
+                    }
+                    if (franceSelected ==1) {
+                        ArrayList<Query_2> liste2 = new ArrayList<Query_2>();
+                        liste2 = PostgresqlQueryExecution.Execute_query_2(liste2);
+                        labelText.append("<br><h1> EXECUTION SUR LA BASE France</h1><br>");
+                        for (Query_2 obj : liste2) {
+                            labelText.append(obj.toString()).append("<br>");
+                        }
+                        executionSetps.setText("<html>" + labelText.toString() + "</html>");
                     }
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);

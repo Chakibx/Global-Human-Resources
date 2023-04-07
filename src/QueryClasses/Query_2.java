@@ -34,6 +34,6 @@ public class Query_2 {
         return "nom='" + nom + '\'' +
                 ", fonction='" + fonction + '\'' +
                 ", salaire=" + salaire +
-                ", pays=" + pays ;
+                ", pays=" + pays + "\n";
     }
 }

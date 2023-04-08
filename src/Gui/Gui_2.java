@@ -243,43 +243,43 @@ public class Gui_2 implements ActionListener {
                         table.setFont(font_tab);
                     }
                     // USA
-                    String usaContent = "EXECUTION SUR LA BASE DE DONNÉES DE USA\n";
-                    usaContent += "- Résultats :\n";
+                    String usaContent = "<html>EXECUTION SUR LA BASE DE DONNÉES DE USA<br>";
+                    usaContent += "- Résultats :<br>";
                     ArrayList<Query_2> liste2 = MysqlQueryExecution.Execute_query_2(new ArrayList<>());
                     for (Query_2 obj : liste2) {
-                        usaContent += "<html>" + obj.toString() + "<br>";
+                        usaContent += obj.toString() + "<br>";
                     }
-                    usaContent += "</html>";
+                    usaContent += "</html><br>";
 
-
-                    // FRANCE
+// FRANCE
                     String franceContent = "";
                     if (franceSelected == 1) {
-                        franceContent += "EXECUTION SUR LA BASE DE DONNÉES DE FRANCE\n";
-                        franceContent += "- Résultats";
+                        franceContent += "<html>EXECUTION SUR LA BASE DE DONNÉES DE FRANCE<br>";
+                        franceContent += "- Résultats<br>";
                         liste2 = PostgresqlQueryExecution.Execute_query_2(new ArrayList<>());
                         for (Query_2 obj : liste2) {
-                            franceContent += "<html>" + obj.toString() + "<br>";
+                            franceContent += obj.toString() + "<br>";
                         }
-                        franceContent += "</html>";
-
+                        franceContent += "</html><br>";
                     }
 
-                    // CHINE
+// CHINE
                     String chinaContent = "";
                     if (chinaSelected == 1) {
-                        chinaContent += "EXECUTION SUR LA BASE DE DONNÉES DE CHINE\n";
-                        chinaContent += "- Résultats";
+                        chinaContent += "<html>EXECUTION SUR LA BASE DE DONNÉES DE CHINE<br>";
+                        chinaContent += "- Résultats<br>";
                         liste2 = Dom.Execute_query_2(new ArrayList<>());
                         for (Query_2 obj : liste2) {
-                            chinaContent += "<html>" + obj.toString() + "<br>";
+                            chinaContent += obj.toString() + "<br>";
                         }
-                        chinaContent += "</html>";
+                        chinaContent += "</html><br>";
                     }
 
-                    // Affichage dans un JLabel
-                    String content = usaContent + franceContent + chinaContent;
+// Affichage dans un JLabel
+                    String content = usaContent + "<br>" + franceContent + "<br>" + chinaContent;
                     executionSetps.setText(content);
+
+
 
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);

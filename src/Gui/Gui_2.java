@@ -242,43 +242,51 @@ public class Gui_2 implements ActionListener {
                         table.setModel(model);
                         table.setFont(font_tab);
                     }
-                    // USA
-                    String usaContent = "<html>EXECUTION SUR LA BASE DE DONNÉES DE USA<br>";
-                    usaContent += "- Résultats :<br>";
-                    ArrayList<Query_2> liste2 = MysqlQueryExecution.Execute_query_2(new ArrayList<>());
-                    for (Query_2 obj : liste2) {
-                        usaContent += obj.toString() + "<br>";
-                    }
-                    usaContent += "</html><br>";
+                    // Création des chaînes de caractères pour chaque pays
+                    StringBuilder usaContent = new StringBuilder();
+                    StringBuilder franceContent = new StringBuilder();
+                    StringBuilder chinaContent = new StringBuilder();
 
-// FRANCE
-                    String franceContent = "";
+                    // Récupération des résultats pour chaque pays
+                    if (usaSelected == 1) {
+                        ArrayList<Query_2> liste2USA = MysqlQueryExecution.Execute_query_2(new ArrayList<Query_2>());
+                        usaContent.append("<html>EXECUTION SUR LA BASE DE DONNÉES DE USA<br>");
+                        usaContent.append("- Résultats :<br>");
+                        for (Query_2 obj : liste2USA) {
+                            usaContent.append(obj.toString()).append("<br>");
+                        }
+                        usaContent.append("</html><br>");
+                    }
+
                     if (franceSelected == 1) {
-                        franceContent += "<html>EXECUTION SUR LA BASE DE DONNÉES DE FRANCE<br>";
-                        franceContent += "- Résultats<br>";
-                        liste2 = PostgresqlQueryExecution.Execute_query_2(new ArrayList<>());
-                        for (Query_2 obj : liste2) {
-                            franceContent += obj.toString() + "<br>";
+                        ArrayList<Query_2> liste2France = PostgresqlQueryExecution.Execute_query_2(new ArrayList<Query_2>());
+                        franceContent.append("<html>EXECUTION SUR LA BASE DE DONNÉES DE FRANCE<br>");
+                        franceContent.append("- Résultats<br>");
+                        for (Query_2 obj : liste2France) {
+                            franceContent.append(obj.toString()).append("<br>");
                         }
-                        franceContent += "</html><br>";
+                        franceContent.append("</html><br>");
                     }
 
-// CHINE
-                    String chinaContent = "";
                     if (chinaSelected == 1) {
-                        chinaContent += "<html>EXECUTION SUR LA BASE DE DONNÉES DE CHINE<br>";
-                        chinaContent += "- Résultats<br>";
-                        liste2 = Dom.Execute_query_2(new ArrayList<>());
-                        for (Query_2 obj : liste2) {
-                            chinaContent += obj.toString() + "<br>";
+                        ArrayList<Query_2> liste2China = Dom.Execute_query_2(new ArrayList<Query_2>());
+                        chinaContent.append("<html>EXECUTION SUR LA BASE DE DONNÉES DE CHINE<br>");
+                        chinaContent.append("- Résultats<br>");
+                        for (Query_2 obj : liste2China) {
+                            chinaContent.append(obj.toString()).append("<br>");
                         }
-                        chinaContent += "</html><br>";
+                        chinaContent.append("</html><br>");
                     }
 
-// Affichage dans un JLabel
-                    String content = usaContent + "<br>" + franceContent + "<br>" + chinaContent;
-                    executionSetps.setText(content);
+                    // Concaténation des résultats de chaque pays dans une seule chaîne de caractères
+                    StringBuilder contentBuilder = new StringBuilder();
+                    contentBuilder.append(usaContent.toString());
+                    contentBuilder.append(franceContent.toString());
+                    contentBuilder.append(chinaContent.toString());
 
+                    // Affichage dans un JLabel
+                    String content = contentBuilder.toString();
+                    executionSetps.setText(content);
 
 
                 } catch (SaxonApiException ex) {

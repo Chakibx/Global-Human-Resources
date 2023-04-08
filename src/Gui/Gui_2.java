@@ -1,6 +1,7 @@
 package src.Gui;
 import src.*;
 import net.sf.saxon.s9api.SaxonApiException;
+import src.Chine.Dom;
 import src.France.PostgresqlQueryExecution;
 import src.Mediator.Mediator;
 import src.QueryClasses.*;
@@ -9,6 +10,10 @@ import src.Usa.MysqlQueryExecution;
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Style;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -89,25 +94,24 @@ public class Gui_2 implements ActionListener {
 
         table.setPreferredScrollableViewportSize(new Dimension(1300, 500));
         table.setRowHeight(50);
+        table.setPreferredScrollableViewportSize(new Dimension(1300, 500));
 
         // Add the components to the JFrame
         JPanel centerPanel = new JPanel(new BorderLayout());
-
+        //
         centerPanel.add(new JScrollPane(outputArea), BorderLayout.NORTH);
         Dimension d = new Dimension(50, 100);
         outputArea.setPreferredSize(d);
-
+        //
         centerPanel.add(new JScrollPane(table), BorderLayout.CENTER);
 
 
         JLabel executionSteps = new JLabel();
-        //executionSteps.setAlignmentX(Component.LEFT_ALIGNMENT);
-        //executionSteps.setAlignmentY(Component.TOP_ALIGNMENT);
-        //executionSteps.setHorizontalAlignment(JLabel.LEFT);
-        executionSteps.setAlignmentX(Component.CENTER_ALIGNMENT);
-        executionSteps.setAlignmentY(Component.CENTER_ALIGNMENT);
         executionSteps.setPreferredSize(new Dimension(20, 500));
-        centerPanel.add(new JScrollPane(executionSteps), BorderLayout.SOUTH);
+        JScrollPane scrollPane = new JScrollPane(executionSteps);
+        scrollPane.setPreferredSize(new Dimension(20, 500));
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        centerPanel.add(scrollPane, BorderLayout.SOUTH);
 
         frame.add(centerPanel, BorderLayout.CENTER);
 
@@ -238,30 +242,49 @@ public class Gui_2 implements ActionListener {
                         table.setModel(model);
                         table.setFont(font_tab);
                     }
-                    StringBuilder labelText = new StringBuilder();
-                    if (usaSelected ==1) {
-                        ArrayList<Query_2> liste2 = new ArrayList<Query_2>();
-                        liste2 = MysqlQueryExecution.Execute_query_2(liste2);
-                        labelText.append("<br><h1> EXECUTION SUR LA BASE USA</h1><br>");
-                        for (Query_2 obj : liste2) {
-                            labelText.append(obj.toString()).append("<br>");
-                        }
-                        executionSetps.setText("<html>" + labelText.toString() + "</html>");
+                    // USA
+                    String usaContent = "EXECUTION SUR LA BASE DE DONNÉES DE USA\n";
+                    usaContent += "- Résultats :\n";
+                    ArrayList<Query_2> liste2 = MysqlQueryExecution.Execute_query_2(new ArrayList<>());
+                    for (Query_2 obj : liste2) {
+                        usaContent += "<html>" + obj.toString() + "<br>";
                     }
-                    if (franceSelected ==1) {
-                        ArrayList<Query_2> liste2 = new ArrayList<Query_2>();
-                        liste2 = PostgresqlQueryExecution.Execute_query_2(liste2);
-                        labelText.append("<br><h1> EXECUTION SUR LA BASE France</h1><br>");
+                    usaContent += "</html>";
+
+
+                    // FRANCE
+                    String franceContent = "";
+                    if (franceSelected == 1) {
+                        franceContent += "EXECUTION SUR LA BASE DE DONNÉES DE FRANCE\n";
+                        franceContent += "- Résultats";
+                        liste2 = PostgresqlQueryExecution.Execute_query_2(new ArrayList<>());
                         for (Query_2 obj : liste2) {
-                            labelText.append(obj.toString()).append("<br>");
+                            franceContent += "<html>" + obj.toString() + "<br>";
                         }
-                        executionSetps.setText("<html>" + labelText.toString() + "</html>");
+                        franceContent += "</html>";
+
                     }
+
+                    // CHINE
+                    String chinaContent = "";
+                    if (chinaSelected == 1) {
+                        chinaContent += "EXECUTION SUR LA BASE DE DONNÉES DE CHINE\n";
+                        chinaContent += "- Résultats";
+                        liste2 = Dom.Execute_query_2(new ArrayList<>());
+                        for (Query_2 obj : liste2) {
+                            chinaContent += "<html>" + obj.toString() + "<br>";
+                        }
+                        chinaContent += "</html>";
+                    }
+
+                    // Affichage dans un JLabel
+                    String content = usaContent + franceContent + chinaContent;
+                    executionSetps.setText(content);
+
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
                 } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
-                }
+                    throw new RuntimeException(ex);}
                 break;
             case 3:
                 try {

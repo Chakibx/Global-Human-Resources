@@ -106,7 +106,7 @@ public class Gui_2 implements ActionListener {
         centerPanel.add(new JScrollPane(table), BorderLayout.CENTER);
 
 
-        JLabel executionSteps = new JLabel();
+        JTextPane executionSteps = new JTextPane();
         executionSteps.setPreferredSize(new Dimension(20, 500));
         JScrollPane scrollPane = new JScrollPane(executionSteps);
         scrollPane.setPreferredSize(new Dimension(20, 500));
@@ -141,7 +141,7 @@ public class Gui_2 implements ActionListener {
         });
     }
 
-    private void executeQuery(int queryNumber,DefaultTableModel model,JLabel outputArea, JLabel executionSetps) {
+    private void executeQuery(int queryNumber,DefaultTableModel model,JLabel outputArea, JTextPane executionSetps) {
         Font font = new Font("Liberation-Serif", Font.PLAIN, 25);
         Font font_tab = new Font("Liberation-Serif", Font.PLAIN, 19);
         switch (queryNumber) {
@@ -246,47 +246,51 @@ public class Gui_2 implements ActionListener {
                     StringBuilder usaContent = new StringBuilder();
                     StringBuilder franceContent = new StringBuilder();
                     StringBuilder chinaContent = new StringBuilder();
-
+                    int etapes = 0;
                     // Récupération des résultats pour chaque pays
                     if (usaSelected == 1) {
+                        etapes ++;
                         ArrayList<Query_2> liste2USA = MysqlQueryExecution.Execute_query_2(new ArrayList<Query_2>());
-                        usaContent.append("<html>EXECUTION SUR LA BASE DE DONNÉES DE USA<br>");
-                        usaContent.append("- Résultats :<br>");
+                        usaContent.append("<b> ETAPE N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE USA</b><br>");
+                        usaContent.append("&emsp;<b>- Résultats :</b><br>");
                         for (Query_2 obj : liste2USA) {
-                            usaContent.append(obj.toString()).append("<br>");
+                            usaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
                         }
-                        usaContent.append("</html><br>");
+                        usaContent.append("<br>");
                     }
 
                     if (franceSelected == 1) {
+                        etapes ++;
                         ArrayList<Query_2> liste2France = PostgresqlQueryExecution.Execute_query_2(new ArrayList<Query_2>());
-                        franceContent.append("<html>EXECUTION SUR LA BASE DE DONNÉES DE FRANCE<br>");
-                        franceContent.append("- Résultats<br>");
+                        franceContent.append("<b>ETAPE N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE FRANCE</b><br>");
+                        franceContent.append("&emsp;<b>- Résultats :</b><br>");
                         for (Query_2 obj : liste2France) {
-                            franceContent.append(obj.toString()).append("<br>");
+                            franceContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
                         }
-                        franceContent.append("</html><br>");
+                        franceContent.append("<br>");
                     }
 
                     if (chinaSelected == 1) {
+                        etapes ++;
                         ArrayList<Query_2> liste2China = Dom.Execute_query_2(new ArrayList<Query_2>());
-                        chinaContent.append("<html>EXECUTION SUR LA BASE DE DONNÉES DE CHINE<br>");
-                        chinaContent.append("- Résultats<br>");
+                        chinaContent.append("<b>ETAPE N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE CHINE</b><br>");
+                        chinaContent.append("&emsp;<b>- Résultats :</b><br>");
                         for (Query_2 obj : liste2China) {
-                            chinaContent.append(obj.toString()).append("<br>");
+                            chinaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
                         }
-                        chinaContent.append("</html><br>");
+                        chinaContent.append("<br>");
                     }
 
-                    // Concaténation des résultats de chaque pays dans une seule chaîne de caractères
+// Concaténation des résultats de chaque pays dans une seule chaîne de caractères
                     StringBuilder contentBuilder = new StringBuilder();
                     contentBuilder.append(usaContent.toString());
                     contentBuilder.append(franceContent.toString());
                     contentBuilder.append(chinaContent.toString());
 
-                    // Affichage dans un JLabel
+// Affichage dans un JTextPane
                     String content = contentBuilder.toString();
-                    executionSetps.setText(content);
+                    executionSetps.setContentType("text/html");
+                    executionSetps.setText("<html>" + "<b>ETAPES D'OBTENTION DES RÉSULTATS : </b><br>" + content + "</html>");
 
 
                 } catch (SaxonApiException ex) {

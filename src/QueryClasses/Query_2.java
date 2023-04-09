@@ -31,9 +31,6 @@ public class Query_2 {
 
     @Override
     public String toString() {
-        return "nom='" + nom + '\'' +
-                ", fonction='" + fonction + '\'' +
-                ", salaire=" + salaire +
-                ", pays=" + pays + "\n";
+        return nom +","+ fonction+"," + salaire;
     }
 }

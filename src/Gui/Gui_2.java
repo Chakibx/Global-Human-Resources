@@ -26,8 +26,12 @@ public class Gui_2 implements ActionListener {
     private static final Font FONT = new Font("Arial", Font.PLAIN, 20);
     private static final int FRAME_WIDTH = 1500;
     private static final int FRAME_HEIGHT = 900;
-    private static final int TABLE_WIDTH = 1300;
-    private static final int TABLE_HEIGHT = 500;
+    private static final int TABLE_WIDTH = 20;
+    private static final int TABLE_HEIGHT = 350;
+    private static final int QUERY_LABEL_WIDTH = 20;
+    private static final int QUERY_LABEL_HEIGHT = 100;
+    private static final int EXECUTION_STEPS_WIDTH = 20;
+    private static final int EXECUTION_STEPS_HEIGHT = 450;
     private JFrame frame;
     private JComboBox<Integer> queryComboBox;
     private JTextArea outputArea;
@@ -47,7 +51,7 @@ public class Gui_2 implements ActionListener {
         // Set up the JFrame
         frame = new JFrame("Query Executor");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1500, 900);
+        frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
 
 // Ajouter les boutons de sélection
         JCheckBox chinaButton = new JCheckBox("Chine");
@@ -87,29 +91,29 @@ public class Gui_2 implements ActionListener {
         selectionPanel.add(Box.createRigidArea(new Dimension(0, 1000)));
         frame.add(selectionPanel, BorderLayout.WEST);
 
-        JLabel outputArea = new JLabel("Queries will be displayed here !");
-        outputArea.setAlignmentX(Component.CENTER_ALIGNMENT);
-        outputArea.setAlignmentY(Component.CENTER_ALIGNMENT);
-        outputArea.setHorizontalAlignment(JLabel.CENTER);
+        JLabel query_label = new JLabel("Queries will be displayed here !");
+        query_label.setAlignmentX(Component.CENTER_ALIGNMENT);
+        query_label.setAlignmentY(Component.CENTER_ALIGNMENT);
+        query_label.setHorizontalAlignment(JLabel.CENTER);
 
-        table.setPreferredScrollableViewportSize(new Dimension(1300, 500));
+        table.setPreferredScrollableViewportSize(new Dimension(TABLE_WIDTH, TABLE_HEIGHT));
         table.setRowHeight(50);
-        table.setPreferredScrollableViewportSize(new Dimension(1300, 500));
 
         // Add the components to the JFrame
         JPanel centerPanel = new JPanel(new BorderLayout());
         //
-        centerPanel.add(new JScrollPane(outputArea), BorderLayout.NORTH);
-        Dimension d = new Dimension(50, 100);
-        outputArea.setPreferredSize(d);
+        centerPanel.add(new JScrollPane(query_label), BorderLayout.NORTH);
+        Dimension d = new Dimension(QUERY_LABEL_WIDTH, QUERY_LABEL_HEIGHT);
+        query_label.setPreferredSize(d);
         //
         centerPanel.add(new JScrollPane(table), BorderLayout.CENTER);
 
 
         JTextPane executionSteps = new JTextPane();
-        executionSteps.setPreferredSize(new Dimension(20, 500));
+        executionSteps.setEditable(false);
+        executionSteps.setPreferredSize(new Dimension(EXECUTION_STEPS_WIDTH, EXECUTION_STEPS_HEIGHT));
         JScrollPane scrollPane = new JScrollPane(executionSteps);
-        scrollPane.setPreferredSize(new Dimension(20, 500));
+        scrollPane.setPreferredSize(new Dimension(EXECUTION_STEPS_WIDTH, EXECUTION_STEPS_HEIGHT));
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         centerPanel.add(scrollPane, BorderLayout.SOUTH);
 
@@ -136,7 +140,7 @@ public class Gui_2 implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                 int queryNumber = (int)queryComboBox.getSelectedItem();
                 DefaultTableModel model = new DefaultTableModel();
-                executeQuery(queryNumber,model,outputArea,executionSteps);
+                executeQuery(queryNumber,model,query_label,executionSteps);
             }
         });
     }
@@ -251,7 +255,7 @@ public class Gui_2 implements ActionListener {
                     if (usaSelected == 1) {
                         etapes ++;
                         ArrayList<Query_2> liste2USA = MysqlQueryExecution.Execute_query_2(new ArrayList<Query_2>());
-                        usaContent.append("<b> ETAPE N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE USA</b><br>");
+                        usaContent.append("<b> MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE USA</b><br>");
                         usaContent.append("&emsp;<b>- Résultats :</b><br>");
                         for (Query_2 obj : liste2USA) {
                             usaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
@@ -262,7 +266,7 @@ public class Gui_2 implements ActionListener {
                     if (franceSelected == 1) {
                         etapes ++;
                         ArrayList<Query_2> liste2France = PostgresqlQueryExecution.Execute_query_2(new ArrayList<Query_2>());
-                        franceContent.append("<b>ETAPE N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE FRANCE</b><br>");
+                        franceContent.append("<b>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE FRANCE</b><br>");
                         franceContent.append("&emsp;<b>- Résultats :</b><br>");
                         for (Query_2 obj : liste2France) {
                             franceContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
@@ -273,7 +277,7 @@ public class Gui_2 implements ActionListener {
                     if (chinaSelected == 1) {
                         etapes ++;
                         ArrayList<Query_2> liste2China = Dom.Execute_query_2(new ArrayList<Query_2>());
-                        chinaContent.append("<b>ETAPE N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE CHINE</b><br>");
+                        chinaContent.append("<b>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE CHINE</b><br>");
                         chinaContent.append("&emsp;<b>- Résultats :</b><br>");
                         for (Query_2 obj : liste2China) {
                             chinaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
@@ -290,7 +294,7 @@ public class Gui_2 implements ActionListener {
 // Affichage dans un JTextPane
                     String content = contentBuilder.toString();
                     executionSetps.setContentType("text/html");
-                    executionSetps.setText("<html>" + "<b>ETAPES D'OBTENTION DES RÉSULTATS : </b><br>" + content + "</html>");
+                    executionSetps.setText("<html>" + "<h1>ETAPES D'OBTENTION DES RÉSULTATS : </h1><br> <h2>Cette méthode nous permet de récupérer les résultats des différentes bases de données et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de la requête. Cela offre une solution pratique et efficace pour traiter des données provenant de sources multiples.</h2>" + content + "</html>");
 
 
                 } catch (SaxonApiException ex) {

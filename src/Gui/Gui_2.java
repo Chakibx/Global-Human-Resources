@@ -26,103 +26,123 @@ public class Gui_2 implements ActionListener {
     private static final Font FONT = new Font("Arial", Font.PLAIN, 20);
     private static final int FRAME_WIDTH = 1500;
     private static final int FRAME_HEIGHT = 900;
+
     private static final int TABLE_WIDTH = 20;
     private static final int TABLE_HEIGHT = 350;
+
     private static final int QUERY_LABEL_WIDTH = 20;
     private static final int QUERY_LABEL_HEIGHT = 100;
+
     private static final int EXECUTION_STEPS_WIDTH = 20;
     private static final int EXECUTION_STEPS_HEIGHT = 450;
+
     private JFrame frame;
     private JComboBox<Integer> queryComboBox;
     private JTextArea outputArea;
+
     private int chinaSelected = 0;
     private int franceSelected = 0;
     private int usaSelected = 0;
+
     private JTable table;
-    Font font = new Font("Arial", Font.PLAIN, 20);
-    Font QueryLabel_font = new Font("Arial", Font.PLAIN, 16);
+    private DefaultTableModel model = new DefaultTableModel();
+
+    private Font font = new Font("Arial", Font.PLAIN, 20);
+    private Font QueryLabel_font = new Font("Arial", Font.PLAIN, 16);
+    private Font font_tab = new Font("Liberation-Serif", Font.PLAIN, 19);
 
     public Gui_2() {
 
-
-        table = new JTable();
-
-// Set up the JFrame
         // Set up the JFrame
         frame = new JFrame("Query Executor");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
 
-// Ajouter les boutons de sélection
+        // Ajouter les boutons de sélection
         JCheckBox chinaButton = new JCheckBox("Chine");
         JCheckBox franceButton = new JCheckBox("France");
         JCheckBox usaButton = new JCheckBox("USA");
+        chinaButton.setFont(font);
+        franceButton.setFont(font);
+        usaButton.setFont(font);
 
-        // Create the input and output components
+        // Creating the selection pannel items
+        //Label
         JLabel queryLabel = new JLabel("Choose the query!");
         queryLabel.setFont(font);
-
+        //Query combo Box
         queryComboBox = new JComboBox<Integer>(new Integer[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9});
         queryComboBox.setFont(font);
         queryComboBox.setPreferredSize(new Dimension(10, 10));
-
+        //Execution button
         JButton executeButton = new JButton("Execute");
         executeButton.addActionListener(this);
         executeButton.setFont(font);
 
+
+        //creating the selection pannel
         JPanel selectionPanel = new JPanel(new BorderLayout());
         selectionPanel.setLayout(new BoxLayout(selectionPanel, BoxLayout.Y_AXIS));
         selectionPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         selectionPanel.setPreferredSize(new Dimension(250, 300));
-        chinaButton.setFont(font);
-        franceButton.setFont(font);
-        usaButton.setFont(font);
+
+        //adding the pannel items to selectionPanel
+        //Query label
         selectionPanel.add(Box.createRigidArea(new Dimension(0, 20)));
         selectionPanel.add(queryLabel);
+        //ComboBox
         selectionPanel.add(Box.createRigidArea(new Dimension(0, 20)));
         selectionPanel.add(queryComboBox);
+        //Check box buttons
         selectionPanel.add(Box.createVerticalGlue());
         selectionPanel.add(Box.createRigidArea(new Dimension(0, 20)));
         selectionPanel.add(chinaButton);
         selectionPanel.add(franceButton);
         selectionPanel.add(usaButton);
+        //Execution button
         selectionPanel.add(Box.createRigidArea(new Dimension(0, 20)));
         selectionPanel.add(executeButton);
+        //Empty space at the bottom to equalise
         selectionPanel.add(Box.createRigidArea(new Dimension(0, 1000)));
-        frame.add(selectionPanel, BorderLayout.WEST);
 
+        //Creating central panel items
+        //query label
         JLabel query_label = new JLabel("Queries will be displayed here !");
         query_label.setAlignmentX(Component.CENTER_ALIGNMENT);
         query_label.setAlignmentY(Component.CENTER_ALIGNMENT);
         query_label.setHorizontalAlignment(JLabel.CENTER);
-
-        table.setPreferredScrollableViewportSize(new Dimension(TABLE_WIDTH, TABLE_HEIGHT));
-        table.setRowHeight(50);
-
-        // Add the components to the JFrame
-        JPanel centerPanel = new JPanel(new BorderLayout());
-        //
-        centerPanel.add(new JScrollPane(query_label), BorderLayout.NORTH);
         Dimension d = new Dimension(QUERY_LABEL_WIDTH, QUERY_LABEL_HEIGHT);
         query_label.setPreferredSize(d);
-        //
-        centerPanel.add(new JScrollPane(table), BorderLayout.CENTER);
 
+        //the table containing results
+        table = new JTable();
+        table.setPreferredScrollableViewportSize(new Dimension(TABLE_WIDTH, TABLE_HEIGHT));
+        table.setRowHeight(50);
+        DefaultTableModel model = new DefaultTableModel();
 
+        //Execution steps
         JTextPane executionSteps = new JTextPane();
         executionSteps.setEditable(false);
         executionSteps.setPreferredSize(new Dimension(EXECUTION_STEPS_WIDTH, EXECUTION_STEPS_HEIGHT));
         JScrollPane scrollPane = new JScrollPane(executionSteps);
         scrollPane.setPreferredSize(new Dimension(EXECUTION_STEPS_WIDTH, EXECUTION_STEPS_HEIGHT));
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+
+        // Add the components to the center Panel
+        JPanel centerPanel = new JPanel(new BorderLayout());
+        centerPanel.add(new JScrollPane(query_label), BorderLayout.NORTH);
+        centerPanel.add(new JScrollPane(table), BorderLayout.CENTER);
         centerPanel.add(scrollPane, BorderLayout.SOUTH);
 
+        // Add the centerPanel and selectionPanel to the whole JFrame
+        frame.add(selectionPanel, BorderLayout.WEST);
         frame.add(centerPanel, BorderLayout.CENTER);
 
         // Display the JFrame
         frame.setVisible(true);
 
-        // Ajouter un écouteur d'événements pour les boutons
+        // Adding events listeners to buttons
         ItemListener selectionListener = new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
                 // Mettre à jour les variables de sélection
@@ -135,32 +155,33 @@ public class Gui_2 implements ActionListener {
         franceButton.addItemListener(selectionListener);
         usaButton.addItemListener(selectionListener);
 
+        // Adding action listener to the execution button
         executeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                // Get query number from ComboBox choice
                 int queryNumber = (int)queryComboBox.getSelectedItem();
-                DefaultTableModel model = new DefaultTableModel();
-                executeQuery(queryNumber,model,query_label,executionSteps);
+
+                //executing the query and passing the model
+                executeQuery(queryNumber,query_label,executionSteps);
             }
         });
     }
 
-    private void executeQuery(int queryNumber,DefaultTableModel model,JLabel outputArea, JTextPane executionSetps) {
-        Font font = new Font("Liberation-Serif", Font.PLAIN, 25);
-        Font font_tab = new Font("Liberation-Serif", Font.PLAIN, 19);
+    private void executeQuery(int queryNumber, JLabel query_label, JTextPane executionSetps) {
+
         switch (queryNumber) {
             case 0:
                 try {
                     ArrayList<Query_0> result;
                     result = Mediator.mediate_query_0(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
-                    outputArea.setText("le cout total des formations de l'annee derniere\n");
-                    outputArea.setFont(QueryLabel_font);
+                    query_label.setText("le cout total des formations de l'annee derniere\n");
+                    query_label.setFont(QueryLabel_font);
 
                     model.addColumn("Departement");
                     model.addColumn("Cout total");
                     for (Query_0 obj : result) {
-                        //outputArea.append(obj.toString() + "\n");
                         model.addRow(new Object[]{obj.getNom(), obj.getCoutTotal()});
                         table.setModel(model);
                         table.setFont(font_tab);
@@ -212,8 +233,8 @@ public class Gui_2 implements ActionListener {
                     double result;
                     result = Mediator.mediate_query_1();
                     // Display the results in the output area
-                    outputArea.setText("Moyenne du salaire des employes agés entre 20 et 30 ans.\n");
-                    outputArea.setFont(QueryLabel_font);
+                    query_label.setText("Moyenne du salaire des employes agés entre 20 et 30 ans.\n");
+                    query_label.setFont(QueryLabel_font);
                     model.addColumn("Moyenne");
                     model.addColumn("Fonction");
                     model.addColumn("Salaire");
@@ -234,14 +255,13 @@ public class Gui_2 implements ActionListener {
                     ArrayList<Query_2> result;
                     result = Mediator.mediate_query_2(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
-                    outputArea.setText("La liste des noms,fonctions, salaires des employes\n qui ont un salaire plus que 3500\n");
-                    outputArea.setFont(QueryLabel_font);
+                    query_label.setText("La liste des noms,fonctions, salaires des employes\n qui ont un salaire plus que 3500\n");
+                    query_label.setFont(QueryLabel_font);
                     model.addColumn("Nom");
                     model.addColumn("Fonction");
                     model.addColumn("Salaire");
                     model.addColumn("Pays");
                     for (Query_2 obj : result) {
-                        //outputArea.append(obj.toString() + "\n");
                         model.addRow(new Object[]{obj.getNom(), obj.getFonction(),obj.getSalaire(),obj.getPays()});
                         table.setModel(model);
                         table.setFont(font_tab);
@@ -307,15 +327,15 @@ public class Gui_2 implements ActionListener {
                     ArrayList<Query_3> result;
                     result = Mediator.mediate_query_3(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
-                    outputArea.setText("Le poste le plus performant de chaque departement\n avec le nom de l'emplyé et sa note\n");
-                    outputArea.setFont(QueryLabel_font);
+                    query_label.setText("Le poste le plus performant de chaque departement\n avec le nom de l'emplyé et sa note\n");
+                    query_label.setFont(QueryLabel_font);
                     model.addColumn("Department");
                     model.addColumn("Poste");
                     model.addColumn("Nom");
                     model.addColumn("Performance");
                     model.addColumn("Pays");
                     for (Query_3 obj : result) {
-                        //outputArea.append(obj.toString() + "\n");
+                        //query_label.append(obj.toString() + "\n");
                         model.addRow(new Object[]{obj.getDepartement(), obj.getPoste(),obj.getNom(),obj.getNotePerformance(),obj.getPays()});
                         table.setModel(model);
                         table.setFont(font_tab);
@@ -331,12 +351,12 @@ public class Gui_2 implements ActionListener {
                     ArrayList<Query_4> result;
                     result = Mediator.mediate_query_4(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
-                    outputArea.setText("Le nombre d'absences dans le departement de ventes et marketing\n avec motif 'Formation'\n");
-                    outputArea.setFont(QueryLabel_font);
+                    query_label.setText("Le nombre d'absences dans le departement de ventes et marketing\n avec motif 'Formation'\n");
+                    query_label.setFont(QueryLabel_font);
                     model.addColumn("Nombre Absences");
                     model.addColumn("Pays");
                     for (Query_4 obj : result) {
-                        //outputArea.append(obj.toString() + "\n");
+                        //query_label.append(obj.toString() + "\n");
                         model.addRow(new Object[]{obj.getNombreAbsences(), obj.getPays()});
                         table.setModel(model);
                         table.setFont(font_tab);
@@ -352,15 +372,15 @@ public class Gui_2 implements ActionListener {
                     ArrayList<Query_5> result;
                     result = Mediator.mediate_query_5(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
-                    outputArea.setText("Les employés qui ont comme moyenne de performance une note <= 12,\n avec leurs noms, leur note, leur departement, et leur poste\n");
-                    outputArea.setFont(QueryLabel_font);
+                    query_label.setText("Les employés qui ont comme moyenne de performance une note <= 12,\n avec leurs noms, leur note, leur departement, et leur poste\n");
+                    query_label.setFont(QueryLabel_font);
                     model.addColumn("Nom");
                     model.addColumn("Poste");
                     model.addColumn("Departement");
                     model.addColumn("Moyenne Performance");
                     model.addColumn("Pays");
                     for (Query_5 obj : result) {
-                        //outputArea.append(obj.toString() + "\n");
+                        //query_label.append(obj.toString() + "\n");
                         model.addRow(new Object[]{obj.getNom(), obj.getPoste(),obj.getDepartement(),obj.getMoyennePerformance(),obj.getPays()});
                         table.setModel(model);
                         table.setFont(font_tab);
@@ -376,14 +396,14 @@ public class Gui_2 implements ActionListener {
                     ArrayList<Query_6> result;
                     result = Mediator.mediate_query_6(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
-                    outputArea.setText("la liste des postes libres \n classé par ordre croissant des salaires de bases\n");
-                    outputArea.setFont(QueryLabel_font);
+                    query_label.setText("la liste des postes libres \n classé par ordre croissant des salaires de bases\n");
+                    query_label.setFont(QueryLabel_font);
                     model.addColumn("Poste");
                     model.addColumn("Salaire Base");
                     model.addColumn("NB Heures par Semaine");
                     model.addColumn("Pays");
                     for (Query_6 obj : result) {
-                        //outputArea.append(obj.toString() + "\n");
+                        //query_label.append(obj.toString() + "\n");
                         model.addRow(new Object[]{obj.getPoste(),obj.getSalaireBase(),obj.getNombreHeuresParSemaine(),obj.getPays()});
                         table.setModel(model);
                         table.setFont(font_tab);
@@ -399,8 +419,8 @@ public class Gui_2 implements ActionListener {
                     ArrayList<Query_7> result;
                     result = Mediator.mediate_query_7(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
-                    outputArea.setText("L'impact des formations sur les performances\n");
-                    outputArea.setFont(QueryLabel_font);
+                    query_label.setText("L'impact des formations sur les performances\n");
+                    query_label.setFont(QueryLabel_font);
                     model.addColumn("Nom");
                     model.addColumn("Note Avant");
                     model.addColumn("Date Note Avant");
@@ -410,7 +430,7 @@ public class Gui_2 implements ActionListener {
                     model.addColumn("Date Debut Formation");
                     model.addColumn("Pays");
                     for (Query_7 obj : result) {
-                        //outputArea.append(obj.toString() + "\n");
+                        //query_label.append(obj.toString() + "\n");
                         model.addRow(new Object[]{obj.getNom(), obj.getNoteAvant(),obj.getDateNoteAvant(),obj.getNoteApres(),obj.getDateNoteApres(),obj.getTypeFormation(),obj.getDateDebutFormation(),obj.getPays()});
                         table.setModel(model);
                         table.setFont(font_tab);
@@ -426,15 +446,15 @@ public class Gui_2 implements ActionListener {
                     ArrayList<Query_8> result;
                     result = Mediator.mediate_query_8(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
-                    outputArea.setText("Le nom, la derniere performance,\n et le poste de tous les employé avec leur augmentation de salaire \n (différence entre salaire de base du poste et le salaire actuel de l'employé)\n\n");
-                    outputArea.setFont(QueryLabel_font);
+                    query_label.setText("Le nom, la derniere performance,\n et le poste de tous les employé avec leur augmentation de salaire \n (différence entre salaire de base du poste et le salaire actuel de l'employé)\n\n");
+                    query_label.setFont(QueryLabel_font);
                     model.addColumn("Nom");
                     model.addColumn("Derniere Performance");
                     model.addColumn("Poste");
                     model.addColumn("Augmentation");
                     model.addColumn("Pays");
                     for (Query_8 obj : result) {
-                        //outputArea.append(obj.toString() + "\n");
+                        //query_label.append(obj.toString() + "\n");
                         model.addRow(new Object[]{obj.getNom(), obj.getDernierePerformance(),obj.getPoste(),obj.getAugmentation(),obj.getPays()});
                         table.setModel(model);
                         table.setFont(font_tab);
@@ -450,15 +470,15 @@ public class Gui_2 implements ActionListener {
                     ArrayList<Query_9> result;
                     result = Mediator.mediate_query_9(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
-                    outputArea.setText("Tous les employés qui on une augmentation de salaire <= 700\n et qui on une performance >= 15\n");
-                    outputArea.setFont(QueryLabel_font);
+                    query_label.setText("Tous les employés qui on une augmentation de salaire <= 700\n et qui on une performance >= 15\n");
+                    query_label.setFont(QueryLabel_font);
                     model.addColumn("Nom");
                     model.addColumn("Derniere Performance");
                     model.addColumn("Poste");
                     model.addColumn("Augmentation");
                     model.addColumn("Pays");
                     for (Query_9 obj : result) {
-                        //outputArea.append(obj.toString() + "\n");
+                        //query_label.append(obj.toString() + "\n");
                         model.addRow(new Object[]{obj.getNom(), obj.getPerformance(),obj.getPoste(),obj.getAugmentation(),obj.getPays()});
                         table.setModel(model);
                         table.setFont(font_tab);
@@ -471,8 +491,8 @@ public class Gui_2 implements ActionListener {
                 break;
 
             default:
-                outputArea.setText("Invalid query number: " + queryNumber);
-                outputArea.setFont(font);
+                query_label.setText("Invalid query number: " + queryNumber);
+                query_label.setFont(font);
                 return;
         }
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();

@@ -486,7 +486,7 @@ public class Gui implements ActionListener {
                     // Affichage dans un JTextPane
                     String content = contentBuilder.toString();
                     executionSetps.setContentType("text/html");
-                    executionSetps.setText("<html>" + "<h2>ETAPES D'OBTENTION DES RÉSULTATS : </h2>" +
+                    executionSetps.setText("<html>" + "<h2>Etapes d'obtention des résultats : </h2>" +
                               "<h2>" +
                               "La première étape consiste à initialiser une ArrayList liste3 de Query_3 objets et à créer des objets Query_3 vides pour chaque\n" +
                               "départemets (Ventes et marketing, Ressources humaines,IT, Finance).<br>" +
@@ -522,8 +522,8 @@ public class Gui implements ActionListener {
                     if (usaSelected == 1) {
                         etapes ++;
                         ArrayList<Query_4> liste4USA = MysqlQueryExecution.Execute_query_4(new ArrayList<Query_4>());
-                        usaContent.append("<h2> MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE USA</h2><br>");
-                        usaContent.append("&emsp;<b>- Résultats :</b><br>");
+                        usaContent.append("<h2>Etape N°"+etapes+": Excution sur la base de données USA</h2>");
+                        usaContent.append("&emsp;<b>- Nombre d'absences :</b>");
                         for (Query_4 obj : liste4USA) {
                             usaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");}
                         usaContent.append("<br>");
@@ -532,8 +532,8 @@ public class Gui implements ActionListener {
                     if (franceSelected == 1) {
                         etapes ++;
                         ArrayList<Query_4> liste4France = PostgresqlQueryExecution.Execute_query_4(new ArrayList<Query_4>());
-                        franceContent.append("<h2>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE FRANCE</h2><br>");
-                        franceContent.append("&emsp;<b>- Résultats :</b><br>");
+                        franceContent.append("<h2>Etape N°"+etapes+": Excution sur la base de données  FRANCE</h2>");
+                        franceContent.append("&emsp;<b>- Nombre d'absences :</b>");
                         for (Query_4 obj : liste4France) {
                             franceContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
                         }
@@ -543,8 +543,8 @@ public class Gui implements ActionListener {
                     if (chinaSelected == 1) {
                         etapes ++;
                         ArrayList<Query_4> liste4China = XmlQueryExecution.Execute_query_4(new ArrayList<Query_4>());
-                        chinaContent.append("<h2>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE CHINE</h2><br>");
-                        chinaContent.append("&emsp;<b>- Résultats :</b><br>");
+                        chinaContent.append("<h2>Etape N°"+etapes+": Excution sur la base de données CHINE</h2>");
+                        chinaContent.append("&emsp;<b>- Nombre d'absences :</b>");
                         for (Query_4 obj : liste4China) {
                             chinaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
                         }
@@ -559,7 +559,12 @@ public class Gui implements ActionListener {
                     // Affichage dans un JTextPane
                     String content = contentBuilder.toString();
                     executionSetps.setContentType("text/html");
-                    executionSetps.setText("<html>" + "<h1>ETAPES D'OBTENTION DES RÉSULTATS : </h1><br> <h2>Cette méthode nous permet de récupérer les résultats des différentes bases de données et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de la requête. Cela offre une solution pratique et efficace pour traiter des données provenant de sources multiples.</h2>" + content + "</html>");
+                    executionSetps.setText("<html>" + "<h1>Etapes d'obtention des résultats: </h1>" +
+                            "<h2>" +
+                            "Cette méthode nous permet de récupérer pour chaque bases de données le nombre d'absences avec motif Formation +\n" +
+                            " et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de excuteQuery_4 +"+
+                            "Cela offre une solution pratique et efficace pour traiter des données provenant de sources multiples." +
+                            "</h2>" + content + "</html>");
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
                 } catch (SQLException ex) {

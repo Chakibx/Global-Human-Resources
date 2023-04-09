@@ -251,35 +251,36 @@ public class Gui_2 implements ActionListener {
                 break;
             case 2:
                 try {
-
-                    ArrayList<Query_2> result;
-                    result = Mediator.mediate_query_2(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
-                    query_label.setText("La liste des noms,fonctions, salaires des employes\n qui ont un salaire plus que 3500\n");
-                    query_label.setFont(QueryLabel_font);
+                    outputArea.setText("La liste des noms,fonctions, salaires des employes\n qui ont un salaire plus que 3500\n");
+                    outputArea.setFont(QueryLabel_font);
+                    //Creating the Table Header row
                     model.addColumn("Nom");
                     model.addColumn("Fonction");
                     model.addColumn("Salaire");
                     model.addColumn("Pays");
+                    //Filling the table with the reasult of the Mediator
+                    ArrayList<Query_2> result;
+                    result = Mediator.mediate_query_2(chinaSelected, franceSelected, usaSelected);
                     for (Query_2 obj : result) {
                         model.addRow(new Object[]{obj.getNom(), obj.getFonction(),obj.getSalaire(),obj.getPays()});
                         table.setModel(model);
                         table.setFont(font_tab);
                     }
-                    // Création des chaînes de caractères pour chaque pays
+                    //Steps Area display
+                    //Creating string variables for each country.
                     StringBuilder usaContent = new StringBuilder();
                     StringBuilder franceContent = new StringBuilder();
                     StringBuilder chinaContent = new StringBuilder();
+                    //Obtaining and dispalying results for each country.
                     int etapes = 0;
-                    // Récupération des résultats pour chaque pays
                     if (usaSelected == 1) {
                         etapes ++;
                         ArrayList<Query_2> liste2USA = MysqlQueryExecution.Execute_query_2(new ArrayList<Query_2>());
                         usaContent.append("<b> MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE USA</b><br>");
                         usaContent.append("&emsp;<b>- Résultats :</b><br>");
                         for (Query_2 obj : liste2USA) {
-                            usaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
-                        }
+                            usaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");}
                         usaContent.append("<br>");
                     }
 
@@ -304,18 +305,16 @@ public class Gui_2 implements ActionListener {
                         }
                         chinaContent.append("<br>");
                     }
-
-// Concaténation des résultats de chaque pays dans une seule chaîne de caractères
+                    // Concatenating the results of each country into a single stringBuilder variable.
                     StringBuilder contentBuilder = new StringBuilder();
                     contentBuilder.append(usaContent.toString());
                     contentBuilder.append(franceContent.toString());
                     contentBuilder.append(chinaContent.toString());
 
-// Affichage dans un JTextPane
+                    // Affichage dans un JTextPane
                     String content = contentBuilder.toString();
                     executionSetps.setContentType("text/html");
                     executionSetps.setText("<html>" + "<h1>ETAPES D'OBTENTION DES RÉSULTATS : </h1><br> <h2>Cette méthode nous permet de récupérer les résultats des différentes bases de données et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de la requête. Cela offre une solution pratique et efficace pour traiter des données provenant de sources multiples.</h2>" + content + "</html>");
-
 
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);

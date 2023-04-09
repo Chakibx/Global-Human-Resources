@@ -19,8 +19,6 @@ public class Query_1 {
 
     @Override
     public String toString() {
-        return "moyenne=" + moyenne +
-                ", pays=" + pays +
-                '}';
+        return  moyenne +","+  pays ;
     }
 }

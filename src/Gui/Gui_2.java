@@ -229,21 +229,68 @@ public class Gui_2 implements ActionListener {
             case 1:
                 try {
                     double result;
-                    result = Mediator.mediate_query_1();
+                    result = Mediator.mediate_query_1(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
                     query_label.setText("Moyenne du salaire des employes agés entre 20 et 30 ans.\n");
                     query_label.setFont(QueryLabel_font);
                     model.addColumn("Moyenne");
-                    model.addColumn("Fonction");
-                    model.addColumn("Salaire");
-                    model.addColumn("Pays");
-
                     model.addRow(new Object[]{result});
                     table.setModel(model);
                     table.setFont(font);
+
+                    //Steps Area display
+                    //Creating string variables for each country.
+                    StringBuilder usaContent = new StringBuilder();
+                    StringBuilder franceContent = new StringBuilder();
+                    StringBuilder chinaContent = new StringBuilder();
+                    //Obtaining and dispalying results for each country.
+                    int etapes = 0;
+                    if (usaSelected == 1) {
+                        etapes++;
+                        Double moyenne1Usa = 0.0;
+                        moyenne1Usa = MysqlQueryExecution.Execute_query_1(moyenne1Usa);
+                        usaContent.append("<b> MISE À JOUR N°" + etapes + ": EXECUTION SUR LA BASE DE DONNÉES DE USA</b><br>");
+                        usaContent.append("&emsp;<b>- Résultats :</b><br>");
+                        usaContent.append("&emsp;&emsp;").append(moyenne1Usa.toString()).append("<br>");
+                    }
+
+                    if (franceSelected == 1) {
+                        etapes ++;
+                        Double moyenne1France =0.0;
+                        moyenne1France = PostgresqlQueryExecution.Execute_query_1(moyenne1France);
+                        franceContent.append("<b>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE FRANCE</b><br>");
+                        franceContent.append("&emsp;<b>- Résultats :</b><br>");
+                        franceContent.append("&emsp;&emsp;").append(moyenne1France.toString()).append("<br>");
+                        franceContent.append("<br>");
+                    }
+
+                    if (chinaSelected == 1) {
+                        etapes ++;
+                        Double moyenne1China =0.0;
+                        moyenne1China = Dom.Execute_query_1(moyenne1China);
+                        chinaContent.append("<b>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE CHINE</b><br>");
+                        chinaContent.append("&emsp;<b>- Résultats :</b><br>");
+                        chinaContent.append("&emsp;&emsp;").append(moyenne1China.toString()).append("<br>");
+                        chinaContent.append("<br>");
+                    }
+                    chinaContent.append("<b> enfin on somme les "+ etapes +" moyennes et on divise sur "+etapes +"qui nous donne le resultat dans le tableau ci  dessous </b><br>" );
+
+
+                    // Concatenating the results of each country into a single stringBuilder variable.
+                    StringBuilder contentBuilder = new StringBuilder();
+                    contentBuilder.append(usaContent.toString());
+                    contentBuilder.append(franceContent.toString());
+                    contentBuilder.append(chinaContent.toString());
+
+                    // Affichage dans un JTextPane
+                    String content = contentBuilder.toString();
+                    executionSetps.setContentType("text/html");
+                    executionSetps.setText("<html>" + "<h2>ETAPES D'OBTENTION DES RÉSULTATS : </h2><br> <h2>Cette méthode Consiste à récupérer les résultats des différentes bases de données et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de la requête. Cela offre une solution pratique et efficace pour traiter des données provenant de sources multiples.</h2>" + content + "</html>");
+
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
-                } catch (SQLException ex) {
+                }
+                catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
                 break;
@@ -312,7 +359,7 @@ public class Gui_2 implements ActionListener {
                     // Affichage dans un JTextPane
                     String content = contentBuilder.toString();
                     executionSetps.setContentType("text/html");
-                    executionSetps.setText("<html>" + "<h1>ETAPES D'OBTENTION DES RÉSULTATS : </h1><br> <h2>Cette méthode nous permet de récupérer les résultats des différentes bases de données et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de la requête. Cela offre une solution pratique et efficace pour traiter des données provenant de sources multiples.</h2>" + content + "</html>");
+                    executionSetps.setText("<html>" + "<h2>ETAPES D'OBTENTION DES RÉSULTATS : </h2><br> <h2>Cette méthode Consiste à récupérer les résultats des différentes bases de données et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de la requête. Cela offre une solution pratique et efficace pour traiter des données provenant de sources multiples.</h2>" + content + "</html>");
 
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);

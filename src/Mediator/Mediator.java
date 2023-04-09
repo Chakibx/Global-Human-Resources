@@ -27,12 +27,13 @@ public class Mediator {
 
         return liste0;
     }
-    public static double mediate_query_1() throws SaxonApiException, SQLException {
+    public static double mediate_query_1(Integer Chine, Integer France, Integer USA) throws SaxonApiException, SQLException {
         Double moyenne = 0.0;
-        moyenne = MysqlQueryExecution.Execute_query_1(moyenne);
-        moyenne = PostgresqlQueryExecution.Execute_query_1(moyenne);
-        moyenne = Dom.Execute_query_1(moyenne);
-        return moyenne/3;
+        int nbrCountrySelected=0;
+        if (USA == 1) { moyenne = MysqlQueryExecution.Execute_query_1(moyenne); nbrCountrySelected++;}
+        if (France == 1) {moyenne = PostgresqlQueryExecution.Execute_query_1(moyenne); nbrCountrySelected++;}
+        if (Chine == 1) {moyenne = Dom.Execute_query_1(moyenne); nbrCountrySelected++;}
+        return moyenne/nbrCountrySelected;
     }
     public static ArrayList<Query_2> mediate_query_2(Integer Chine, Integer France, Integer USA) throws SaxonApiException, SQLException {
         ArrayList<Query_2> liste2 = new ArrayList<Query_2>();
@@ -83,7 +84,7 @@ public class Mediator {
         ArrayList<Query_7> liste7 = new ArrayList<Query_7>();
         if (USA==1)liste7 = MysqlQueryExecution.Execute_query_7(liste7);
         if(France==1)liste7 = PostgresqlQueryExecution.Execute_query_7(liste7);
-        //if(Chine==1)liste7 = Dom.Execute_query_7(liste7);
+        if(Chine==1)liste7 = Dom.Execute_query_7(liste7);
 
         return liste7;
     }
@@ -91,14 +92,14 @@ public class Mediator {
         ArrayList<Query_8> liste8 = new ArrayList<Query_8>();
         if(USA==1)liste8 = MysqlQueryExecution.Execute_query_8(liste8);
         if(France==1)liste8 = PostgresqlQueryExecution.Execute_query_8(liste8);
-        //if(Chine==1)liste8 = Dom.Execute_query_8(liste8);
+        if(Chine==1)liste8 = Dom.Execute_query_8(liste8);
         return liste8;
     }
     public static ArrayList<Query_9> mediate_query_9(Integer Chine, Integer France, Integer USA) throws SaxonApiException, SQLException {
         ArrayList<Query_9> liste9 = new ArrayList<Query_9>();
         if(USA==1)liste9 = MysqlQueryExecution.Execute_query_9(liste9);
         if(France==1)liste9 = PostgresqlQueryExecution.Execute_query_9(liste9);
-        //if(Chine==1)liste9 = Dom.Execute_query_9(liste9);
+        if(Chine==1)liste9 = Dom.Execute_query_9(liste9);
 
         return liste9;
     }

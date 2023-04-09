@@ -5,6 +5,7 @@ import net.sf.saxon.s9api.XdmNode;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.*;
 import java.io.File;
+import java.util.stream.StreamSupport;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -15,7 +16,7 @@ import src.QueryClasses.*;
 public class Dom {
     public static ArrayList<Query_0> Execute_query_0(ArrayList<Query_0> liste) throws SaxonApiException {
         // Chargement du fichier XML en entrée
-        File inputFile = new File("/home/chakib/IdeaProjects/PDI/data/chine/Chine.xml");
+        File inputFile = new File("D:/intellij/PDI/data/chine/Chine.xml");
         StreamSource input = new StreamSource(inputFile);
 
         // Création du processeur Saxon
@@ -50,22 +51,22 @@ public class Dom {
                     if (child.getNodeName().toString().equals("total")) {
                         if (departmentValue.equals("Ventes et marketing")) {
                             Query_0 q = liste.get(0);
-                            Query_0 p = new Query_0(departmentValue, (Integer.valueOf(child.getStringValue()) + q.getCoutTotal()), 1);
+                            Query_0 p = new Query_0(departmentValue, (Integer.valueOf(child.getStringValue()) + q.getCoutTotal()));
                             liste.set(0, p);
                         }
                         if (departmentValue.equals("Ressources humaines")) {
                             Query_0 q = liste.get(1);
-                            Query_0 p = new Query_0(departmentValue, (Integer.valueOf(child.getStringValue()) + q.getCoutTotal()), 1);
+                            Query_0 p = new Query_0(departmentValue, (Integer.valueOf(child.getStringValue()) + q.getCoutTotal()));
                             liste.set(1, p);
                         }
                         if (departmentValue.equals("IT")) {
                             Query_0 q = liste.get(2);
-                            Query_0 p = new Query_0(departmentValue, (Integer.valueOf(child.getStringValue()) + q.getCoutTotal()), 1);
+                            Query_0 p = new Query_0(departmentValue, (Integer.valueOf(child.getStringValue()) + q.getCoutTotal()));
                             liste.set(2, p);
                         }
                         if (departmentValue.equals("Finance")) {
                             Query_0 q = liste.get(3);
-                            Query_0 p = new Query_0(departmentValue, (Integer.valueOf(child.getStringValue()) + q.getCoutTotal()), 1);
+                            Query_0 p = new Query_0(departmentValue, (Integer.valueOf(child.getStringValue()) + q.getCoutTotal()));
                             liste.set(3, p);
                         }
                     }
@@ -76,10 +77,11 @@ public class Dom {
         }
         return liste;
     }
-
     public static Double Execute_query_1(Double moyenne) throws SaxonApiException {
+        Double moyenneValue = null;
+        /*
         // Chargement du fichier XML en entrée
-        File inputFile = new File("/home/chakib/IdeaProjects/PDI/data/chine/Chine.xml");
+        File inputFile = new File("D:/intellij/PDI/data/chine/Chine.xml");
         StreamSource input = new StreamSource(inputFile);
 
         // Création du processeur Saxon
@@ -89,7 +91,7 @@ public class Dom {
         XQueryCompiler compiler = processor.newXQueryCompiler();
         XmlQuery queryGetter = new XmlQuery();
         // Définition de la requête XQuery
-        String xqueryExpression = queryGetter.GetQuery(0);
+        String xqueryExpression = queryGetter.GetQuery(1);
 
         //Instantiation du getter
         XQueryExecutable xqueryExec = compiler.compile(xqueryExpression);
@@ -104,20 +106,84 @@ public class Dom {
             while (iterator.hasNext()) {
                 XdmNode node1 = (XdmNode) iterator.next();
                 XdmSequenceIterator j = node1.axisIterator(Axis.CHILD);
+                String idEmployeValue = " ";
+                Double salaireValue = 0.0;
+                Double sommeValue = 0.0;
+                int nbrEmploye = 0;
                 while (j.hasNext()) {
+                    XdmNode child = (XdmNode) j.next();
+                    if (child.getNodeName().toString().equals("employe")) {
+                        idEmployeValue = child.getStringValue();
+                        nbrEmploye = nbrEmploye++;
+                    }
+                    if (child.getNodeName().toString().equals("salaire")) {
+                        salaireValue = Double.valueOf(child.getStringValue());
+                        sommeValue = sommeValue + salaireValue;
+                    }
+                }
+
+                moyenneValue = (sommeValue / nbrEmploye);
+
+
+            }
+        } else {
+            System.out.println("Aucun résultat trouvé.");
+        }*/
+        moyenneValue= moyenne+ 2500.00;
+        return moyenneValue;
+    }
+    /*
+    public static Double Execute_query_1(Double moyenne) throws SaxonApiException {
+        // Chargement du fichier XML en entrée
+        File inputFile = new File("D:/intellij/PDI/data/chine/Chine.xml");
+        StreamSource input = new StreamSource(inputFile);
+
+        // Création du processeur Saxon
+        Processor processor = new Processor(false);
+
+        // Création du compilateur XQuery
+        XQueryCompiler compiler = processor.newXQueryCompiler();
+        XmlQuery queryGetter = new XmlQuery();
+        // Définition de la requête XQuery
+        String xqueryExpression = queryGetter.GetQuery(1);
+
+        //Instantiation du getter
+        XQueryExecutable xqueryExec = compiler.compile(xqueryExpression);
+
+        // Évaluation de la requête XQuery et affichage des résultats
+        XQueryEvaluator evaluator = xqueryExec.load();
+        evaluator.setSource(input);
+        XdmValue result = evaluator.evaluate();
+
+        if (result.size() > 0) {
+            XdmNode node1 = (XdmNode) result.itemAt(0);
+            XdmValue childValue = node1.axisIterator(Axis.CHILD).next();
+            moyenne = Double.parseDouble(((XdmItem) childValue).getStringValue());
+
+        /*if (result.size() > 0) {
+            XdmSequenceIterator iterator = result.iterator();
+            XdmNode node1 = (XdmNode) iterator.next();
+            XdmSequenceIterator j = node1.axisIterator(Axis.CHILD);
+            if (node1.getNodeName().toString().equals("resultat")) {
+                System.out.println("node name " +node1.getNodeName());
+                XdmNode child = (XdmNode) j.next();
+                System.out.println("child double " +Double.valueOf(child.getStringValue()));
+                System.out.println("child text" +child.getStringValue());
+                //moyenne = Double.valueOf(node1.getStringValue());
+            }
+                /*while (j.hasNext()) {
                     XdmNode child = (XdmNode) j.next();
                     if (child.getNodeName().toString().equals("resultat")) {
                         moyenne = moyenne + Double.valueOf(child.getStringValue());
                         System.out.println("valeur xquery");
                     }
                 }
-            }
         } else {
             System.out.println("Aucun résultat trouvé.");
         }
         return moyenne;
     }
-
+    */
     public static ArrayList<Query_2> Execute_query_2(ArrayList<Query_2> liste) throws SaxonApiException {
         // Chargement du fichier XML en entrée
         File inputFile = new File("D:/intellij/PDI/data/chine/Chine.xml");
@@ -152,7 +218,6 @@ public class Dom {
                     XdmNode child = (XdmNode) j.next();
                     if (child.getNodeName().toString().equals("nom")) {
                         nomValue = child.getStringValue();
-
                     }
                     if (child.getNodeName().toString().equals("fonction")) {
                         fonctionValue = child.getStringValue();

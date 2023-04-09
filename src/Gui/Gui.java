@@ -42,7 +42,7 @@ public class Gui implements ActionListener {
 
     private Font font = new Font("Arial", Font.PLAIN, 20);
     private Font QueryLabel_font = new Font("Arial", Font.PLAIN, 16);
-    private Font font_tab = new Font("Liberation-Serif", Font.PLAIN, 19);
+    private Font font_tab = new Font("Arial", Font.PLAIN, 19);
 
     public Gui() {
 
@@ -630,7 +630,19 @@ public class Gui implements ActionListener {
                     // Affichage dans un JTextPane
                     String content = contentBuilder.toString();
                     executionSetps.setContentType("text/html");
-                    executionSetps.setText("<html>" + "<h2>Etapes d'obtention des résultats : </h2><h2>Cette méthode nous permet de récupérer les résultats des différentes bases de données et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de la requête. Cela offre une solution pratique et efficace pour traiter des données provenant de sources multiples.</h2>" + content + "</html>");
+                    executionSetps.setText("<html>" + "<h2>Etapes d'obtention des résultats : </h2>" +
+                            "<h2>" +
+                            "Cette méthode nous permet de récupérer les résultats des différentes bases de données " +
+                            "et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de la" +
+                            " requête. Cela offre une solution pratique et efficace pour traiter des données provenant " +
+                            "de sources multiples.<br>" +
+                            "<br>CHANIDROUUU BEL 9RRYAAAAAA<br>"+
+                            "Elle commence par créer une nouvelle ArrayList de Query_5. Ensuite, en fonction des valeurs de Chine" +
+                            ", France et USA, elle appelle les méthodes" +
+                            "Execute_query_5 correspondantes de chaque base de données pour récupérer les résultats et " +
+                            "les ajouter à la liste initiale." +
+                            "Enfin, elle retourne la liste complète."+
+                            "</h2>" + content + "</html>");
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
                 } catch (SQLException ex) {

@@ -5,11 +5,8 @@ import javax.xml.transform.stream.StreamSource;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
-
 import net.sf.saxon.s9api.XdmValue;
-
 import src.QueryClasses.*;
-
 
 public class XmlQueryExecution {
     private static File inputFile = new File("/home/chakib/IdeaProjects/PDI/data/chine/Chine.xml");
@@ -378,6 +375,7 @@ public class XmlQueryExecution {
         XQueryEvaluator evaluator = xqueryExec.load();
         evaluator.setSource(input);
         XdmValue result = evaluator.evaluate();
+
         //getting the results
         if (result.size() > 0) {
             XdmSequenceIterator iterator = result.iterator();
@@ -412,12 +410,12 @@ public class XmlQueryExecution {
                     if (child.getNodeName().toString().equals("typeFormation")) {
                         typeFormationValue = child.getStringValue();
                     }
-                    if (child.getNodeName().toString().equals("dateFormation")) {
+                    if (child.getNodeName().toString().equals("dateDebutFormation")) {
                         dateFormationValue = child.getStringValue();
                     }
-                    Query_7 p = new Query_7(nomValue, notePerformanceAvantValue, datePerformanceAvantValue, notePerformanceApresValue, datePerformanceApresValue, typeFormationValue, dateFormationValue, pays);
-                    liste.add(p);
                 }
+                Query_7 p = new Query_7(nomValue, notePerformanceAvantValue, datePerformanceAvantValue, notePerformanceApresValue, datePerformanceApresValue, typeFormationValue, dateFormationValue, pays);
+                liste.add(p);
             }
         } else {
             System.out.println("Aucun résultat trouvé.");

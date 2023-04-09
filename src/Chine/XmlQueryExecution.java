@@ -1,11 +1,8 @@
 package src.Chine;
 import net.sf.saxon.s9api.*;
-import net.sf.saxon.s9api.XdmAtomicValue;
 import net.sf.saxon.s9api.XdmNode;
 import javax.xml.transform.stream.StreamSource;
-import javax.xml.*;
 import java.io.File;
-import java.util.stream.StreamSupport;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -13,29 +10,30 @@ import net.sf.saxon.s9api.XdmValue;
 
 import src.QueryClasses.*;
 
-public class Dom {
+
+public class XmlQueryExecution {
+    private static File inputFile = new File("/home/chakib/IdeaProjects/PDI/data/chine/Chine.xml");
+    private static StreamSource input = new StreamSource(inputFile);
+
+    // Creating the saxon proceDefinition of the Xqueryssus
+    private static Processor processor = new Processor(false);
+
+    //Creating the xquery compiler
+    private static XQueryCompiler compiler = processor.newXQueryCompiler();
+    private static XmlQuery queryGetter = new XmlQuery();
+
     public static ArrayList<Query_0> Execute_query_0(ArrayList<Query_0> liste) throws SaxonApiException {
-        // Chargement du fichier XML en entrée
-        File inputFile = new File("D:/intellij/PDI/data/chine/Chine.xml");
-        StreamSource input = new StreamSource(inputFile);
-
-        // Création du processeur Saxon
-        Processor processor = new Processor(false);
-
-        // Création du compilateur XQuery
-        XQueryCompiler compiler = processor.newXQueryCompiler();
-        XmlQuery queryGetter = new XmlQuery();
-        // Définition de la requête XQuery
+        //Getting the query
         String xqueryExpression = queryGetter.GetQuery(0);
 
-        //Instantiation du getter
+        //Compiling the Xquery expression
         XQueryExecutable xqueryExec = compiler.compile(xqueryExpression);
 
-        // Évaluation de la requête XQuery et affichage des résultats
         XQueryEvaluator evaluator = xqueryExec.load();
         evaluator.setSource(input);
+        //Getting results
         XdmValue result = evaluator.evaluate();
-
+        //iterating through results
         if (result.size() > 0) {
             XdmSequenceIterator iterator = result.iterator();
             while (iterator.hasNext()) {
@@ -46,7 +44,6 @@ public class Dom {
                     XdmNode child = (XdmNode) j.next();
                     if (child.getNodeName().toString().equals("departement")) {
                         departmentValue = child.getStringValue();
-                        //System.out.println("fils departement: "+ child.getStringValue());
                     }
                     if (child.getNodeName().toString().equals("total")) {
                         if (departmentValue.equals("Ventes et marketing")) {
@@ -132,80 +129,19 @@ public class Dom {
         moyenneValue= moyenne+ 2500.00;
         return moyenneValue;
     }
-    /*
-    public static Double Execute_query_1(Double moyenne) throws SaxonApiException {
-        // Chargement du fichier XML en entrée
-        File inputFile = new File("D:/intellij/PDI/data/chine/Chine.xml");
-        StreamSource input = new StreamSource(inputFile);
 
-        // Création du processeur Saxon
-        Processor processor = new Processor(false);
-
-        // Création du compilateur XQuery
-        XQueryCompiler compiler = processor.newXQueryCompiler();
-        XmlQuery queryGetter = new XmlQuery();
-        // Définition de la requête XQuery
-        String xqueryExpression = queryGetter.GetQuery(1);
-
-        //Instantiation du getter
-        XQueryExecutable xqueryExec = compiler.compile(xqueryExpression);
-
-        // Évaluation de la requête XQuery et affichage des résultats
-        XQueryEvaluator evaluator = xqueryExec.load();
-        evaluator.setSource(input);
-        XdmValue result = evaluator.evaluate();
-
-        if (result.size() > 0) {
-            XdmNode node1 = (XdmNode) result.itemAt(0);
-            XdmValue childValue = node1.axisIterator(Axis.CHILD).next();
-            moyenne = Double.parseDouble(((XdmItem) childValue).getStringValue());
-
-        /*if (result.size() > 0) {
-            XdmSequenceIterator iterator = result.iterator();
-            XdmNode node1 = (XdmNode) iterator.next();
-            XdmSequenceIterator j = node1.axisIterator(Axis.CHILD);
-            if (node1.getNodeName().toString().equals("resultat")) {
-                System.out.println("node name " +node1.getNodeName());
-                XdmNode child = (XdmNode) j.next();
-                System.out.println("child double " +Double.valueOf(child.getStringValue()));
-                System.out.println("child text" +child.getStringValue());
-                //moyenne = Double.valueOf(node1.getStringValue());
-            }
-                /*while (j.hasNext()) {
-                    XdmNode child = (XdmNode) j.next();
-                    if (child.getNodeName().toString().equals("resultat")) {
-                        moyenne = moyenne + Double.valueOf(child.getStringValue());
-                        System.out.println("valeur xquery");
-                    }
-                }
-        } else {
-            System.out.println("Aucun résultat trouvé.");
-        }
-        return moyenne;
-    }
-    */
     public static ArrayList<Query_2> Execute_query_2(ArrayList<Query_2> liste) throws SaxonApiException {
-        // Chargement du fichier XML en entrée
-        File inputFile = new File("D:/intellij/PDI/data/chine/Chine.xml");
-        StreamSource input = new StreamSource(inputFile);
-
-        // Création du processeur Saxon
-        Processor processor = new Processor(false);
-
-        // Création du compilateur XQuery
-        XQueryCompiler compiler = processor.newXQueryCompiler();
-        XmlQuery queryGetter = new XmlQuery();
-        // Définition de la requête XQuery
+        //Getting the query
         String xqueryExpression = queryGetter.GetQuery(2);
 
-        //Instantiation du getter
+        //Compiling the Xquery expression
         XQueryExecutable xqueryExec = compiler.compile(xqueryExpression);
 
-        // Évaluation de la requête XQuery et affichage des résultats
         XQueryEvaluator evaluator = xqueryExec.load();
         evaluator.setSource(input);
+        //Getting results
         XdmValue result = evaluator.evaluate();
-
+        //iterating through results
         if (result.size() > 0) {
             XdmSequenceIterator iterator = result.iterator();
             while (iterator.hasNext()) {
@@ -236,27 +172,17 @@ public class Dom {
     }
 
     public static ArrayList<Query_3> Execute_query_3(ArrayList<Query_3> liste) throws SaxonApiException {
-        // Chargement du fichier XML en entrée
-        File inputFile = new File("D:/intellij/PDI/data/chine/Chine.xml");
-        StreamSource input = new StreamSource(inputFile);
-
-        // Création du processeur Saxon
-        Processor processor = new Processor(false);
-
-        // Création du compilateur XQuery
-        XQueryCompiler compiler = processor.newXQueryCompiler();
-        XmlQuery queryGetter = new XmlQuery();
-        // Définition de la requête XQuery
+        //Getting the query
         String xqueryExpression = queryGetter.GetQuery(3);
-
-        //Instantiation du getter
+        //Compiling the Xquery expression
         XQueryExecutable xqueryExec = compiler.compile(xqueryExpression);
 
-        // Évaluation de la requête XQuery et affichage des résultats
         XQueryEvaluator evaluator = xqueryExec.load();
-        evaluator.setSource(input);
-        XdmValue result = evaluator.evaluate();
 
+        evaluator.setSource(input);
+        //Getting results
+        XdmValue result = evaluator.evaluate();
+        //iterating through results
         if (result.size() > 0) {
             XdmSequenceIterator iterator = result.iterator();
             while (iterator.hasNext()) {
@@ -319,26 +245,18 @@ public class Dom {
         return liste;
     }
     public static ArrayList<Query_4> Execute_query_4(ArrayList<Query_4> liste) throws SaxonApiException {
-        // Chargement du fichier XML en entrée
-        File inputFile = new File("D:/intellij/PDI/data/chine/Chine.xml");
-        StreamSource input = new StreamSource(inputFile);
 
-        // Création du processeur Saxon
-        Processor processor = new Processor(false);
-
-        // Création du compilateur XQuery
-        XQueryCompiler compiler = processor.newXQueryCompiler();
-        XmlQuery queryGetter = new XmlQuery();
-        // Définition de la requête XQuery
+        //Getting the xquery expression
         String xqueryExpression = queryGetter.GetQuery(4);
 
-        //Instantiation du getter
+        //Compiling
         XQueryExecutable xqueryExec = compiler.compile(xqueryExpression);
 
-        // Évaluation de la requête XQuery et affichage des résultats
+        //getting the results
         XQueryEvaluator evaluator = xqueryExec.load();
         evaluator.setSource(input);
         XdmValue result = evaluator.evaluate();
+        //getting the results
         if (result.size() > 0) {
             XdmSequenceIterator iterator = result.iterator();
             while (iterator.hasNext()) {
@@ -350,7 +268,6 @@ public class Dom {
                     if (child.getNodeName().toString().equals("absences")) {
                         absencesValue = Integer.valueOf(child.getStringValue());
                     }
-
                 }
                 Query_4 p = new Query_4(absencesValue, 3);
                 liste.add(p);
@@ -362,27 +279,17 @@ public class Dom {
         return liste;
     }
     public static ArrayList<Query_5> Execute_query_5(ArrayList<Query_5> liste) throws SaxonApiException {
-        // Chargement du fichier XML en entrée
-        File inputFile = new File("D:/intellij/PDI/data/chine/Chine.xml");
-        StreamSource input = new StreamSource(inputFile);
-
-        // Création du processeur Saxon
-        Processor processor = new Processor(false);
-
-        // Création du compilateur XQuery
-        XQueryCompiler compiler = processor.newXQueryCompiler();
-        XmlQuery queryGetter = new XmlQuery();
-        // Définition de la requête XQuery
+        //Getting the xquery expression
         String xqueryExpression = queryGetter.GetQuery(5);
 
-        //Instantiation du getter
+        //Compiling
         XQueryExecutable xqueryExec = compiler.compile(xqueryExpression);
 
-        // Évaluation de la requête XQuery et affichage des résultats
+        //getting the results
         XQueryEvaluator evaluator = xqueryExec.load();
         evaluator.setSource(input);
         XdmValue result = evaluator.evaluate();
-
+        //getting the results
         if (result.size() > 0) {
             XdmSequenceIterator iterator = result.iterator();
             while (iterator.hasNext()) {
@@ -417,27 +324,18 @@ public class Dom {
         return liste;
     }
     public static ArrayList<Query_6> Execute_query_6(ArrayList<Query_6> liste) throws SaxonApiException {
-        // Chargement du fichier XML en entrée
-        File inputFile = new File("D:/intellij/PDI/data/chine/Chine.xml");
-        StreamSource input = new StreamSource(inputFile);
 
-        // Création du processeur Saxon
-        Processor processor = new Processor(false);
-
-        // Création du compilateur XQuery
-        XQueryCompiler compiler = processor.newXQueryCompiler();
-        XmlQuery queryGetter = new XmlQuery();
-        // Définition de la requête XQuery
+        //Getting the xquery expression
         String xqueryExpression = queryGetter.GetQuery(6);
 
-        //Instantiation du getter
+        //Compiling
         XQueryExecutable xqueryExec = compiler.compile(xqueryExpression);
 
-        // Évaluation de la requête XQuery et affichage des résultats
+        //getting the results
         XQueryEvaluator evaluator = xqueryExec.load();
         evaluator.setSource(input);
         XdmValue result = evaluator.evaluate();
-
+        //getting the results
         if (result.size() > 0) {
             XdmSequenceIterator iterator = result.iterator();
             while (iterator.hasNext()) {
@@ -469,27 +367,18 @@ public class Dom {
         return liste;
     }
     public static ArrayList<Query_7> Execute_query_7(ArrayList<Query_7> liste) throws SaxonApiException {
-        // Chargement du fichier XML en entrée
-        File inputFile = new File("D:/intellij/PDI/data/chine/Chine.xml");
-        StreamSource input = new StreamSource(inputFile);
 
-        // Création du processeur Saxon
-        Processor processor = new Processor(false);
-
-        // Création du compilateur XQuery
-        XQueryCompiler compiler = processor.newXQueryCompiler();
-        XmlQuery queryGetter = new XmlQuery();
-        // Définition de la requête XQuery
+        //Getting the xquery expression
         String xqueryExpression = queryGetter.GetQuery(7);
 
-        //Instantiation du getter
+        //Compiling
         XQueryExecutable xqueryExec = compiler.compile(xqueryExpression);
 
-        // Évaluation de la requête XQuery et affichage des résultats
+        //getting the results
         XQueryEvaluator evaluator = xqueryExec.load();
         evaluator.setSource(input);
         XdmValue result = evaluator.evaluate();
-
+        //getting the results
         if (result.size() > 0) {
             XdmSequenceIterator iterator = result.iterator();
             while (iterator.hasNext()) {
@@ -536,25 +425,16 @@ public class Dom {
         return liste;
     }
     public static ArrayList<Query_8> Execute_query_8(ArrayList<Query_8> liste) throws SaxonApiException {
-        // Chargement du fichier XML en entrée
-        File inputFile = new File("D:/intellij/PDI/data/chine/Chine.xml");
-        StreamSource input = new StreamSource(inputFile);
 
-        // Création du processeur Saxon
-        Processor processor = new Processor(false);
-
-        // Création du compilateur XQuery
-        XQueryCompiler compiler = processor.newXQueryCompiler();
-        XmlQuery queryGetter = new XmlQuery();
-        // Définition de la requête XQuery
+        //Getting the xquery expression
         String xqueryExpression = queryGetter.GetQuery(8);
-        //Instantiation du getter
+        //Compiling
         XQueryExecutable xqueryExec = compiler.compile(xqueryExpression);
-        // Évaluation de la requête XQuery et affichage des résultats
+        //getting the results
         XQueryEvaluator evaluator = xqueryExec.load();
         evaluator.setSource(input);
         XdmValue result = evaluator.evaluate();
-
+        //iterating through results
         if (result.size() > 0) {
             XdmSequenceIterator iterator = result.iterator();
             while (iterator.hasNext()) {
@@ -590,25 +470,16 @@ public class Dom {
         return liste;
 }
     public static ArrayList<Query_9> Execute_query_9(ArrayList<Query_9> liste) throws SaxonApiException {
-        // Chargement du fichier XML en entrée
-        File inputFile = new File("D:/intellij/PDI/data/chine/Chine.xml");
-        StreamSource input = new StreamSource(inputFile);
 
-        // Création du processeur Saxon
-        Processor processor = new Processor(false);
-
-        // Création du compilateur XQuery
-        XQueryCompiler compiler = processor.newXQueryCompiler();
-        XmlQuery queryGetter = new XmlQuery();
-        // Définition de la requête XQuery
+        //Getting the xquery expression
         String xqueryExpression = queryGetter.GetQuery(9);
-        //Instantiation du getter
+        //Compiling
         XQueryExecutable xqueryExec = compiler.compile(xqueryExpression);
-        // Évaluation de la requête XQuery et affichage des résultats
+        //getting the results
         XQueryEvaluator evaluator = xqueryExec.load();
         evaluator.setSource(input);
         XdmValue result = evaluator.evaluate();
-
+        //iterating through results
         if (result.size() > 0) {
             XdmSequenceIterator iterator = result.iterator();
             while (iterator.hasNext()) {
@@ -650,6 +521,5 @@ public class Dom {
         }
         return liste;
     }
-
 }
 

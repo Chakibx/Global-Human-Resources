@@ -22,13 +22,7 @@ public class Query_9 {
     @Override
     public String toString() {
         return
-                "nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", poste='" + poste + '\'' +
-                ", departement='" + departement + '\'' +
-                ", augmentation=" + augmentation +
-                ", performance=" + performance +
-                ", pays=" + pays ;
+                nom +","+ prenom +","+ poste  +","+ departement +","+ augmentation + ","+ performance;
     }
 
     public String getNom() {

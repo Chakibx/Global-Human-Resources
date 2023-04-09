@@ -29,12 +29,7 @@ public class Query_5 {
 
     @Override
     public String toString() {
-        return
-                "nom='" + nom + '\'' +
-                ", poste='" + poste + '\'' +
-                ", Departement='" + Departement + '\'' +
-                ", moyennePerformance=" + moyennePerformance +
-                ", pays=" + pays ;
+        return nom +","+ poste +"," + Departement +","+ moyennePerformance;
     }
 
     public double getMoyennePerformance() {

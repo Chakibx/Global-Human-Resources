@@ -19,7 +19,7 @@ public class Query_4 {
 
     @Override
     public String toString() {
-        return "NombreAbsences=" + NombreAbsences +
-                ", pays=" + pays ;
+        return NombreAbsences + "";
+
     }
 }

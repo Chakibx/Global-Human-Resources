@@ -275,7 +275,7 @@ public class Gui_2 implements ActionListener {
                     if (usaSelected == 1) {
                         etapes ++;
                         ArrayList<Query_2> liste2USA = MysqlQueryExecution.Execute_query_2(new ArrayList<Query_2>());
-                        usaContent.append("<b> MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE USA</b><br>");
+                        usaContent.append("<h2> MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE USA</h2><br>");
                         usaContent.append("&emsp;<b>- Résultats :</b><br>");
                         for (Query_2 obj : liste2USA) {
                             usaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");}
@@ -285,7 +285,7 @@ public class Gui_2 implements ActionListener {
                     if (franceSelected == 1) {
                         etapes ++;
                         ArrayList<Query_2> liste2France = PostgresqlQueryExecution.Execute_query_2(new ArrayList<Query_2>());
-                        franceContent.append("<b>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE FRANCE</b><br>");
+                        franceContent.append("<h2>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE FRANCE</h2><br>");
                         franceContent.append("&emsp;<b>- Résultats :</b><br>");
                         for (Query_2 obj : liste2France) {
                             franceContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
@@ -296,7 +296,7 @@ public class Gui_2 implements ActionListener {
                     if (chinaSelected == 1) {
                         etapes ++;
                         ArrayList<Query_2> liste2China = Dom.Execute_query_2(new ArrayList<Query_2>());
-                        chinaContent.append("<b>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE CHINE</b><br>");
+                        chinaContent.append("<h2>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE CHINE</h2><br>");
                         chinaContent.append("&emsp;<b>- Résultats :</b><br>");
                         for (Query_2 obj : liste2China) {
                             chinaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
@@ -324,7 +324,7 @@ public class Gui_2 implements ActionListener {
                     ArrayList<Query_3> result;
                     result = Mediator.mediate_query_3(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
-                    query_label.setText("Le poste le plus performant de chaque departement\n avec le nom de l'emplyé et sa note\n");
+                    query_label.setText("Le poste le plus performant de chaque departement\n avec le nom de l'employé et sa note\n");
                     query_label.setFont(QueryLabel_font);
                     model.addColumn("Department");
                     model.addColumn("Poste");
@@ -332,11 +332,11 @@ public class Gui_2 implements ActionListener {
                     model.addColumn("Performance");
                     model.addColumn("Pays");
                     for (Query_3 obj : result) {
-                        //query_label.append(obj.toString() + "\n");
                         model.addRow(new Object[]{obj.getDepartement(), obj.getPoste(),obj.getNom(),obj.getNotePerformance(),obj.getPays()});
                         table.setModel(model);
                         table.setFont(font_tab);
                     }
+
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
                 } catch (SQLException ex) {
@@ -358,6 +358,54 @@ public class Gui_2 implements ActionListener {
                         table.setModel(model);
                         table.setFont(font_tab);
                     }
+                    //Steps Area display
+                    //Creating string variables for each country.
+                    StringBuilder usaContent = new StringBuilder();
+                    StringBuilder franceContent = new StringBuilder();
+                    StringBuilder chinaContent = new StringBuilder();
+                    //Obtaining and dispalying results for each country.
+                    int etapes = 0;
+                    if (usaSelected == 1) {
+                        etapes ++;
+                        ArrayList<Query_4> liste4USA = MysqlQueryExecution.Execute_query_4(new ArrayList<Query_4>());
+                        usaContent.append("<h2> MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE USA</h2><br>");
+                        usaContent.append("&emsp;<b>- Résultats :</b><br>");
+                        for (Query_4 obj : liste4USA) {
+                            usaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");}
+                        usaContent.append("<br>");
+                    }
+
+                    if (franceSelected == 1) {
+                        etapes ++;
+                        ArrayList<Query_4> liste4France = PostgresqlQueryExecution.Execute_query_4(new ArrayList<Query_4>());
+                        franceContent.append("<h2>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE FRANCE</h2><br>");
+                        franceContent.append("&emsp;<b>- Résultats :</b><br>");
+                        for (Query_4 obj : liste4France) {
+                            franceContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
+                        }
+                        franceContent.append("<br>");
+                    }
+
+                    if (chinaSelected == 1) {
+                        etapes ++;
+                        ArrayList<Query_4> liste4China = Dom.Execute_query_4(new ArrayList<Query_4>());
+                        chinaContent.append("<h2>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE CHINE</h2><br>");
+                        chinaContent.append("&emsp;<b>- Résultats :</b><br>");
+                        for (Query_4 obj : liste4China) {
+                            chinaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
+                        }
+                        chinaContent.append("<br>");
+                    }
+                    // Concatenating the results of each country into a single stringBuilder variable.
+                    StringBuilder contentBuilder = new StringBuilder();
+                    contentBuilder.append(usaContent.toString());
+                    contentBuilder.append(franceContent.toString());
+                    contentBuilder.append(chinaContent.toString());
+
+                    // Affichage dans un JTextPane
+                    String content = contentBuilder.toString();
+                    executionSetps.setContentType("text/html");
+                    executionSetps.setText("<html>" + "<h1>ETAPES D'OBTENTION DES RÉSULTATS : </h1><br> <h2>Cette méthode nous permet de récupérer les résultats des différentes bases de données et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de la requête. Cela offre une solution pratique et efficace pour traiter des données provenant de sources multiples.</h2>" + content + "</html>");
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
                 } catch (SQLException ex) {
@@ -382,6 +430,54 @@ public class Gui_2 implements ActionListener {
                         table.setModel(model);
                         table.setFont(font_tab);
                     }
+                    //Steps Area display
+                    //Creating string variables for each country.
+                    StringBuilder usaContent = new StringBuilder();
+                    StringBuilder franceContent = new StringBuilder();
+                    StringBuilder chinaContent = new StringBuilder();
+                    //Obtaining and dispalying results for each country.
+                    int etapes = 0;
+                    if (usaSelected == 1) {
+                        etapes ++;
+                        ArrayList<Query_5> liste5USA = MysqlQueryExecution.Execute_query_5(new ArrayList<Query_5>());
+                        usaContent.append("<h2> MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE USA</h2><br>");
+                        usaContent.append("&emsp;<b>- Résultats :</b><br>");
+                        for (Query_5 obj : liste5USA) {
+                            usaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");}
+                        usaContent.append("<br>");
+                    }
+
+                    if (franceSelected == 1) {
+                        etapes ++;
+                        ArrayList<Query_5> liste5France = PostgresqlQueryExecution.Execute_query_5(new ArrayList<Query_5>());
+                        franceContent.append("<h2>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE FRANCE</h2><br>");
+                        franceContent.append("&emsp;<b>- Résultats :</b><br>");
+                        for (Query_5 obj : liste5France) {
+                            franceContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
+                        }
+                        franceContent.append("<br>");
+                    }
+
+                    if (chinaSelected == 1) {
+                        etapes ++;
+                        ArrayList<Query_5> liste5China = Dom.Execute_query_5(new ArrayList<Query_5>());
+                        chinaContent.append("<h2>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE CHINE</h2><br>");
+                        chinaContent.append("&emsp;<b>- Résultats :</b><br>");
+                        for (Query_5 obj : liste5China) {
+                            chinaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
+                        }
+                        chinaContent.append("<br>");
+                    }
+                    // Concatenating the results of each country into a single stringBuilder variable.
+                    StringBuilder contentBuilder = new StringBuilder();
+                    contentBuilder.append(usaContent.toString());
+                    contentBuilder.append(franceContent.toString());
+                    contentBuilder.append(chinaContent.toString());
+
+                    // Affichage dans un JTextPane
+                    String content = contentBuilder.toString();
+                    executionSetps.setContentType("text/html");
+                    executionSetps.setText("<html>" + "<h1>ETAPES D'OBTENTION DES RÉSULTATS : </h1><br> <h2>Cette méthode nous permet de récupérer les résultats des différentes bases de données et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de la requête. Cela offre une solution pratique et efficace pour traiter des données provenant de sources multiples.</h2>" + content + "</html>");
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
                 } catch (SQLException ex) {
@@ -405,6 +501,54 @@ public class Gui_2 implements ActionListener {
                         table.setModel(model);
                         table.setFont(font_tab);
                     }
+                    //Steps Area display
+                    //Creating string variables for each country.
+                    StringBuilder usaContent = new StringBuilder();
+                    StringBuilder franceContent = new StringBuilder();
+                    StringBuilder chinaContent = new StringBuilder();
+                    //Obtaining and dispalying results for each country.
+                    int etapes = 0;
+                    if (usaSelected == 1) {
+                        etapes ++;
+                        ArrayList<Query_6> liste6USA = MysqlQueryExecution.Execute_query_6(new ArrayList<Query_6>());
+                        usaContent.append("<h2> MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE USA</h2><br>");
+                        usaContent.append("&emsp;<b>- Résultats :</b><br>");
+                        for (Query_6 obj : liste6USA) {
+                            usaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");}
+                        usaContent.append("<br>");
+                    }
+
+                    if (franceSelected == 1) {
+                        etapes ++;
+                        ArrayList<Query_6> liste6France = PostgresqlQueryExecution.Execute_query_6(new ArrayList<Query_6>());
+                        franceContent.append("<h2>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE FRANCE</h2><br>");
+                        franceContent.append("&emsp;<b>- Résultats :</b><br>");
+                        for (Query_6 obj : liste6France) {
+                            franceContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
+                        }
+                        franceContent.append("<br>");
+                    }
+
+                    if (chinaSelected == 1) {
+                        etapes ++;
+                        ArrayList<Query_6> liste5China = Dom.Execute_query_6(new ArrayList<Query_6>());
+                        chinaContent.append("<h2>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE CHINE</h2><br>");
+                        chinaContent.append("&emsp;<b>- Résultats :</b><br>");
+                        for (Query_6 obj : liste5China) {
+                            chinaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
+                        }
+                        chinaContent.append("<br>");
+                    }
+                    // Concatenating the results of each country into a single stringBuilder variable.
+                    StringBuilder contentBuilder = new StringBuilder();
+                    contentBuilder.append(usaContent.toString());
+                    contentBuilder.append(franceContent.toString());
+                    contentBuilder.append(chinaContent.toString());
+
+                    // Affichage dans un JTextPane
+                    String content = contentBuilder.toString();
+                    executionSetps.setContentType("text/html");
+                    executionSetps.setText("<html>" + "<h1>ETAPES D'OBTENTION DES RÉSULTATS : </h1><br> <h2>Cette méthode nous permet de récupérer les résultats des différentes bases de données et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de la requête. Cela offre une solution pratique et efficace pour traiter des données provenant de sources multiples.</h2>" + content + "</html>");
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
                 } catch (SQLException ex) {
@@ -432,6 +576,54 @@ public class Gui_2 implements ActionListener {
                         table.setModel(model);
                         table.setFont(font_tab);
                     }
+                    //Steps Area display
+                    //Creating string variables for each country.
+                    StringBuilder usaContent = new StringBuilder();
+                    StringBuilder franceContent = new StringBuilder();
+                    StringBuilder chinaContent = new StringBuilder();
+                    //Obtaining and dispalying results for each country.
+                    int etapes = 0;
+                    if (usaSelected == 1) {
+                        etapes ++;
+                        ArrayList<Query_7> liste7USA = MysqlQueryExecution.Execute_query_7(new ArrayList<Query_7>());
+                        usaContent.append("<h2> MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE USA</h2><br>");
+                        usaContent.append("&emsp;<b>- Résultats :</b><br>");
+                        for (Query_7 obj : liste7USA) {
+                            usaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");}
+                        usaContent.append("<br>");
+                    }
+
+                    if (franceSelected == 1) {
+                        etapes ++;
+                        ArrayList<Query_7> liste7France = PostgresqlQueryExecution.Execute_query_7(new ArrayList<Query_7>());
+                        franceContent.append("<h2>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE FRANCE</h2><br>");
+                        franceContent.append("&emsp;<b>- Résultats :</b><br>");
+                        for (Query_7 obj : liste7France) {
+                            franceContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
+                        }
+                        franceContent.append("<br>");
+                    }
+
+                    if (chinaSelected == 1) {
+                        etapes ++;
+                        ArrayList<Query_7> liste7China = Dom.Execute_query_7(new ArrayList<Query_7>());
+                        chinaContent.append("<h2>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE CHINE</h2><br>");
+                        chinaContent.append("&emsp;<b>- Résultats :</b><br>");
+                        for (Query_7 obj : liste7China) {
+                            chinaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
+                        }
+                        chinaContent.append("<br>");
+                    }
+                    // Concatenating the results of each country into a single stringBuilder variable.
+                    StringBuilder contentBuilder = new StringBuilder();
+                    contentBuilder.append(usaContent.toString());
+                    contentBuilder.append(franceContent.toString());
+                    contentBuilder.append(chinaContent.toString());
+
+                    // Affichage dans un JTextPane
+                    String content = contentBuilder.toString();
+                    executionSetps.setContentType("text/html");
+                    executionSetps.setText("<html>" + "<h1>ETAPES D'OBTENTION DES RÉSULTATS : </h1><br> <h2>Cette méthode nous permet de récupérer les résultats des différentes bases de données et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de la requête. Cela offre une solution pratique et efficace pour traiter des données provenant de sources multiples.</h2>" + content + "</html>");
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
                 } catch (SQLException ex) {
@@ -456,6 +648,54 @@ public class Gui_2 implements ActionListener {
                         table.setModel(model);
                         table.setFont(font_tab);
                     }
+                    //Steps Area display
+                    //Creating string variables for each country.
+                    StringBuilder usaContent = new StringBuilder();
+                    StringBuilder franceContent = new StringBuilder();
+                    StringBuilder chinaContent = new StringBuilder();
+                    //Obtaining and dispalying results for each country.
+                    int etapes = 0;
+                    if (usaSelected == 1) {
+                        etapes ++;
+                        ArrayList<Query_8> liste8USA = MysqlQueryExecution.Execute_query_8(new ArrayList<Query_8>());
+                        usaContent.append("<h2> MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE USA</h2><br>");
+                        usaContent.append("&emsp;<b>- Résultats :</b><br>");
+                        for (Query_8 obj : liste8USA) {
+                            usaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");}
+                        usaContent.append("<br>");
+                    }
+
+                    if (franceSelected == 1) {
+                        etapes ++;
+                        ArrayList<Query_8> liste8France = PostgresqlQueryExecution.Execute_query_8(new ArrayList<Query_8>());
+                        franceContent.append("<h2>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE FRANCE</h2><br>");
+                        franceContent.append("&emsp;<b>- Résultats :</b><br>");
+                        for (Query_8 obj : liste8France) {
+                            franceContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
+                        }
+                        franceContent.append("<br>");
+                    }
+
+                    if (chinaSelected == 1) {
+                        etapes ++;
+                        ArrayList<Query_8> liste8China = Dom.Execute_query_8(new ArrayList<Query_8>());
+                        chinaContent.append("<h2>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE CHINE</h2><br>");
+                        chinaContent.append("&emsp;<b>- Résultats :</b><br>");
+                        for (Query_8 obj : liste8China) {
+                            chinaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
+                        }
+                        chinaContent.append("<br>");
+                    }
+                    // Concatenating the results of each country into a single stringBuilder variable.
+                    StringBuilder contentBuilder = new StringBuilder();
+                    contentBuilder.append(usaContent.toString());
+                    contentBuilder.append(franceContent.toString());
+                    contentBuilder.append(chinaContent.toString());
+
+                    // Affichage dans un JTextPane
+                    String content = contentBuilder.toString();
+                    executionSetps.setContentType("text/html");
+                    executionSetps.setText("<html>" + "<h1>ETAPES D'OBTENTION DES RÉSULTATS : </h1><br> <h2>Cette méthode nous permet de récupérer les résultats des différentes bases de données et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de la requête. Cela offre une solution pratique et efficace pour traiter des données provenant de sources multiples.</h2>" + content + "</html>");
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
                 } catch (SQLException ex) {
@@ -480,6 +720,55 @@ public class Gui_2 implements ActionListener {
                         table.setModel(model);
                         table.setFont(font_tab);
                     }
+
+                    //Steps Area display
+                    //Creating string variables for each country.
+                    StringBuilder usaContent = new StringBuilder();
+                    StringBuilder franceContent = new StringBuilder();
+                    StringBuilder chinaContent = new StringBuilder();
+                    //Obtaining and dispalying results for each country.
+                    int etapes = 0;
+                    if (usaSelected == 1) {
+                        etapes ++;
+                        ArrayList<Query_9> liste9USA = MysqlQueryExecution.Execute_query_9(new ArrayList<Query_9>());
+                        usaContent.append("<h2> MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE USA</h2><br>");
+                        usaContent.append("&emsp;<b>- Résultats :</b><br>");
+                        for (Query_9 obj : liste9USA) {
+                            usaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");}
+                        usaContent.append("<br>");
+                    }
+
+                    if (franceSelected == 1) {
+                        etapes ++;
+                        ArrayList<Query_9> liste9France = PostgresqlQueryExecution.Execute_query_9(new ArrayList<Query_9>());
+                        franceContent.append("<h2>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE FRANCE</h2><br>");
+                        franceContent.append("&emsp;<b>- Résultats :</b><br>");
+                        for (Query_9 obj : liste9France) {
+                            franceContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
+                        }
+                        franceContent.append("<br>");
+                    }
+
+                    if (chinaSelected == 1) {
+                        etapes ++;
+                        ArrayList<Query_9> liste9China = Dom.Execute_query_9(new ArrayList<Query_9>());
+                        chinaContent.append("<h2>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE CHINE</h2><br>");
+                        chinaContent.append("&emsp;<b>- Résultats :</b><br>");
+                        for (Query_9 obj : liste9China) {
+                            chinaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
+                        }
+                        chinaContent.append("<br>");
+                    }
+                    // Concatenating the results of each country into a single stringBuilder variable.
+                    StringBuilder contentBuilder = new StringBuilder();
+                    contentBuilder.append(usaContent.toString());
+                    contentBuilder.append(franceContent.toString());
+                    contentBuilder.append(chinaContent.toString());
+
+                    // Affichage dans un JTextPane
+                    String content = contentBuilder.toString();
+                    executionSetps.setContentType("text/html");
+                    executionSetps.setText("<html>" + "<h1>ETAPES D'OBTENTION DES RÉSULTATS : </h1><br> <h2>Cette méthode nous permet de récupérer les résultats des différentes bases de données et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de la requête. Cela offre une solution pratique et efficace pour traiter des données provenant de sources multiples.</h2>" + content + "</html>");
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
                 } catch (SQLException ex) {

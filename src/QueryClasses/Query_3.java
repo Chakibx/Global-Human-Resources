@@ -33,12 +33,7 @@ public class Query_3 {
 
     @Override
     public String toString() {
-        return
-                "departement='" + departement + '\'' +
-                ", poste='" + poste + '\'' +
-                ", nom='" + nom + '\'' +
-                ", notePerformance=" + notePerformance +
-                ", pays=" + pays ;
+        return departement +","+ poste +","+ nom +","+ notePerformance;
     }
 
     public int getPays() {

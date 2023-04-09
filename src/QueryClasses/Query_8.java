@@ -4,11 +4,7 @@ public class Query_8 {
     @Override
     public String toString() {
         return
-                "nom='" + nom + '\'' +
-                ", dernierePerformance=" + dernierePerformance +
-                ", poste='" + poste + '\'' +
-                ", augmentation=" + augmentation +
-                ", pays=" + pays ;
+                nom + "," + dernierePerformance + "," + poste + "," +  augmentation;
     }
 
     private String nom;

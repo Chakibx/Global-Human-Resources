@@ -8,11 +8,7 @@ public class Query_6 {
 
     @Override
     public String toString() {
-        return
-                "poste='" + poste + '\'' +
-                ", salaireBase=" + salaireBase +
-                ", nombreHeuresParSemaine=" + nombreHeuresParSemaine +
-                ", pays=" + pays ;
+        return poste +","+ salaireBase +","+ nombreHeuresParSemaine;
     }
 
     public Query_6(String poste, Double salaireBase, Integer nombreHeuresParSemaine, Integer pays) {

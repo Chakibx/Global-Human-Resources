@@ -433,7 +433,17 @@ public class Gui_2 implements ActionListener {
                     int etapes = 0;
                     if (usaSelected == 1) {
                         etapes ++;
-                        ArrayList<Query_3> liste3USA = MysqlQueryExecution.Execute_query_3(new ArrayList<Query_3>());
+                        ArrayList<Query_3> liste3USA = new ArrayList<Query_3>();
+                        Query_3 q1 = new Query_3("Ventes et marketing","","",0,0);
+                        Query_3 q2 = new Query_3("Ressources humaines","","",0,0);
+                        Query_3 q3 = new Query_3("IT","","",0,0);
+                        Query_3 q4 = new Query_3("Finance","","",0,0);
+                        liste3USA.add(q1);
+                        liste3USA.add(q2);
+                        liste3USA.add(q3);
+                        liste3USA.add(q4);
+
+                        liste3USA = MysqlQueryExecution.Execute_query_3(liste3USA);
                         usaContent.append("<h2> MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE USA</h2><br>");
                         usaContent.append("&emsp;<b>- Résultats :</b><br>");
                         for (Query_3 obj : liste3USA) {
@@ -443,23 +453,41 @@ public class Gui_2 implements ActionListener {
 
                     if (franceSelected == 1) {
                         etapes ++;
-                        ArrayList<Query_3> liste3France = PostgresqlQueryExecution.Execute_query_3(new ArrayList<Query_3>());
-                        franceContent.append("<h2>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE FRANCE</h2><br>");
+                        ArrayList<Query_3> liste3France = new ArrayList<Query_3>();
+                        Query_3 q1 = new Query_3("Ventes et marketing","","",0,0);
+                        Query_3 q2 = new Query_3("Ressources humaines","","",0,0);
+                        Query_3 q3 = new Query_3("IT","","",0,0);
+                        Query_3 q4 = new Query_3("Finance","","",0,0);
+                        liste3France.add(q1);
+                        liste3France.add(q2);
+                        liste3France.add(q3);
+                        liste3France.add(q4);
+                              
+                        liste3France = MysqlQueryExecution.Execute_query_3(liste3France);
+                        franceContent.append("<h2> MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE FRANCE</h2><br>");
                         franceContent.append("&emsp;<b>- Résultats :</b><br>");
                         for (Query_3 obj : liste3France) {
-                            franceContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
-                        }
+                            franceContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");}
                         franceContent.append("<br>");
                     }
 
                     if (chinaSelected == 1) {
                         etapes ++;
-                        ArrayList<Query_3> liste3China = Dom.Execute_query_3(new ArrayList<Query_3>());
-                        chinaContent.append("<h2>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE CHINE</h2><br>");
+                        ArrayList<Query_3> liste3China = new ArrayList<Query_3>();
+                        Query_3 q1 = new Query_3("Ventes et marketing","","",0,0);
+                        Query_3 q2 = new Query_3("Ressources humaines","","",0,0);
+                        Query_3 q3 = new Query_3("IT","","",0,0);
+                        Query_3 q4 = new Query_3("Finance","","",0,0);
+                        liste3China.add(q1);
+                        liste3China.add(q2);
+                        liste3China.add(q3);
+                        liste3China.add(q4);
+
+                        liste3China = MysqlQueryExecution.Execute_query_3(liste3China);
+                        chinaContent.append("<h2> MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE CHINE</h2><br>");
                         chinaContent.append("&emsp;<b>- Résultats :</b><br>");
                         for (Query_3 obj : liste3China) {
-                            chinaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
-                        }
+                            chinaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");}
                         chinaContent.append("<br>");
                     }
                     // Concatenating the results of each country into a single stringBuilder variable.
@@ -471,8 +499,7 @@ public class Gui_2 implements ActionListener {
                     // Affichage dans un JTextPane
                     String content = contentBuilder.toString();
                     executionSetps.setContentType("text/html");
-                    executionSetps.setText("<html>" + "<h1>ETAPES D'OBTENTION DES RÉSULTATS : </h1><br> <h2>Cette méthode nous permet de récupérer les résultats des différentes bases de données et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de la requête. Cela offre une solution pratique et efficace pour traiter des données provenant de sources multiples.</h2>" + content + "</html>");
-
+                    executionSetps.setText("<html>" + "<h2>ETAPES D'OBTENTION DES RÉSULTATS : </h2><br> <h2>Cette méthode Consiste à récupérer les résultats des différentes bases de données et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de la requête. Cela offre une solution pratique et efficace pour traiter des données provenant de sources multiples.</h2>" + content + "</html>");
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
                 } catch (SQLException ex) {
@@ -927,5 +954,3 @@ public class Gui_2 implements ActionListener {
     public void actionPerformed(ActionEvent e) {
     }
 }
-
-

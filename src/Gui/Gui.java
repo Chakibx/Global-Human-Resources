@@ -22,13 +22,13 @@ public class Gui implements ActionListener {
     private static final int FRAME_HEIGHT = 900;
 
     private static final int TABLE_WIDTH = 20;
-    private static final int TABLE_HEIGHT = 350;
+    private static final int TABLE_HEIGHT = 400;
 
     private static final int QUERY_LABEL_WIDTH = 20;
     private static final int QUERY_LABEL_HEIGHT = 100;
 
     private static final int EXECUTION_STEPS_WIDTH = 20;
-    private static final int EXECUTION_STEPS_HEIGHT = 450;
+    private static final int EXECUTION_STEPS_HEIGHT = 350;
 
     private JFrame frame;
     private JComboBox<Integer> queryComboBox;
@@ -112,7 +112,9 @@ public class Gui implements ActionListener {
         table.setPreferredScrollableViewportSize(new Dimension(TABLE_WIDTH, TABLE_HEIGHT));
         table.setRowHeight(50);
         DefaultTableModel model = new DefaultTableModel();
-
+        table.setModel(model);
+        table.setEnabled(false);
+        table.setCellSelectionEnabled(false);
         //Execution steps
         JTextPane executionSteps = new JTextPane();
         executionSteps.setEditable(false);
@@ -175,7 +177,7 @@ public class Gui implements ActionListener {
                     ArrayList<Query_0> result;
                     result = Mediator.mediate_query_0(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
-                    query_label.setText("le cout total des formations de l'annee derniere\n");
+                    query_label.setText("Le cout total des formations de l'année derniere\n");
                     query_label.setFont(QueryLabel_font);
                     model.addColumn("Departement");
                     model.addColumn("Cout total");
@@ -272,7 +274,7 @@ public class Gui implements ActionListener {
                     double result;
                     result = Mediator.mediate_query_1(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
-                    query_label.setText("Moyenne du salaire des employes agés entre 20 et 30 ans.\n");
+                    query_label.setText("Moyenne du salaire des employés agés entre 20 et 30 ans.\n");
                     query_label.setFont(QueryLabel_font);
                     model.addColumn("Moyenne");
                     model.addRow(new Object[]{result});
@@ -335,7 +337,7 @@ public class Gui implements ActionListener {
             case 2:
                 try {
                     // Display the results in the output area
-                    query_label.setText("La liste des noms,fonctions, salaires des employes\n qui ont un salaire plus que 3500\n");
+                    query_label.setText("La liste des noms,fonctions, salaires des employés qui ont un salaire plus que 3500");
                     query_label.setFont(QueryLabel_font);
                     //Creating the Table Header row
                     model.addColumn("Nom");
@@ -354,7 +356,7 @@ public class Gui implements ActionListener {
                     if (usaSelected == 1) {
                         etapes ++;
                         ArrayList<Query_2> liste2USA = MysqlQueryExecution.Execute_query_2(new ArrayList<Query_2>());
-                        usaContent.append("<h2> MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE USA</h2><br>");
+                        usaContent.append("<h2> Etape N°"+etapes+": execution sur la base de données USA</h2><br>");
                         usaContent.append("&emsp;<b>- Résultats :</b><br>");
                         for (Query_2 obj : liste2USA) {
                             usaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");}
@@ -364,7 +366,7 @@ public class Gui implements ActionListener {
                     if (franceSelected == 1) {
                         etapes ++;
                         ArrayList<Query_2> liste2France = PostgresqlQueryExecution.Execute_query_2(new ArrayList<Query_2>());
-                        franceContent.append("<h2>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE FRANCE</h2><br>");
+                        franceContent.append("<h2> Etape N°"+etapes+": execution sur la base de données FRANCE</h2><br>");
                         franceContent.append("&emsp;<b>- Résultats :</b><br>");
                         for (Query_2 obj : liste2France) {
                             franceContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
@@ -375,7 +377,7 @@ public class Gui implements ActionListener {
                     if (chinaSelected == 1) {
                         etapes ++;
                         ArrayList<Query_2> liste2China = XmlQueryExecution.Execute_query_2(new ArrayList<Query_2>());
-                        chinaContent.append("<h2>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE CHINE</h2><br>");
+                        chinaContent.append("<h2> Etape N°"+etapes+": execution sur la base de données CHINE</h2><br>");
                         chinaContent.append("&emsp;<b>- Résultats :</b><br>");
                         for (Query_2 obj : liste2China) {
                             chinaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
@@ -391,7 +393,7 @@ public class Gui implements ActionListener {
                     // Affichage dans un JTextPane
                     String content = contentBuilder.toString();
                     executionSetps.setContentType("text/html");
-                    executionSetps.setText("<html>" + "<h2>ETAPES D'OBTENTION DES RÉSULTATS : </h2><br> <h2>Cette méthode Consiste à récupérer les résultats des différentes bases de données et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de la requête. Cela offre une solution pratique et efficace pour traiter des données provenant de sources multiples.</h2>" + content + "</html>");
+                    executionSetps.setText("<html>" + "<h2>Etapes d'obtention des résultats : </h2> <h2>Cette méthode Consiste à récupérer les résultats des différentes bases de données et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de la requête. Cela offre une solution pratique et efficace pour traiter des données provenant de sources multiples.</h2>" + content + "</html>");
 
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
@@ -403,7 +405,7 @@ public class Gui implements ActionListener {
                     ArrayList<Query_3> result;
                     result = Mediator.mediate_query_3(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
-                    query_label.setText("Le poste le plus performant de chaque departement\n avec le nom de l'employé et sa note\n");
+                    query_label.setText("Le poste le plus performant de chaque département avec le nom de l'employé et sa note");
                     query_label.setFont(QueryLabel_font);
                     model.addColumn("Department");
                     model.addColumn("Poste");
@@ -429,7 +431,7 @@ public class Gui implements ActionListener {
                         liste3USA.add(q4);
 
                         liste3USA = MysqlQueryExecution.Execute_query_3(liste3USA);
-                        usaContent.append("<h2> MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE USA</h2><br>");
+                        usaContent.append("<h2> Etape N°"+etapes+": execution sur la base de données USA</h2><br>");
                         usaContent.append("&emsp;<b>- Résultats :</b><br>");
                         for (Query_3 obj : liste3USA) {
                             usaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");}
@@ -449,7 +451,7 @@ public class Gui implements ActionListener {
                         liste3France.add(q4);
                               
                         liste3France = MysqlQueryExecution.Execute_query_3(liste3France);
-                        franceContent.append("<h2> MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE FRANCE</h2><br>");
+                        franceContent.append("<h2> Etape N° "+etapes+ ": execution sur la base de données FRANCE</h2><br>");
                         franceContent.append("&emsp;<b>- Résultats :</b><br>");
                         for (Query_3 obj : liste3France) {
                             franceContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");}
@@ -469,7 +471,7 @@ public class Gui implements ActionListener {
                         liste3China.add(q4);
 
                         liste3China = MysqlQueryExecution.Execute_query_3(liste3China);
-                        chinaContent.append("<h2> MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE CHINE</h2><br>");
+                        chinaContent.append("<h2> Etape N°"+etapes+": execution sur la base de données CHINE</h2><br>");
                         chinaContent.append("&emsp;<b>- Résultats :</b><br>");
                         for (Query_3 obj : liste3China) {
                             chinaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");}
@@ -484,7 +486,17 @@ public class Gui implements ActionListener {
                     // Affichage dans un JTextPane
                     String content = contentBuilder.toString();
                     executionSetps.setContentType("text/html");
-                    executionSetps.setText("<html>" + "<h2>ETAPES D'OBTENTION DES RÉSULTATS : </h2><br> <h2>Cette méthode Consiste à récupérer les résultats des différentes bases de données et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de la requête. Cela offre une solution pratique et efficace pour traiter des données provenant de sources multiples.</h2>" + content + "</html>");
+                    executionSetps.setText("<html>" + "<h2>ETAPES D'OBTENTION DES RÉSULTATS : </h2>" +
+                              "<h2>" +
+                              "La première étape consiste à initialiser une ArrayList liste3 de Query_3 objets et à créer des objets Query_3 vides pour chaque\n" +
+                              "départemets (Ventes et marketing, Ressources humaines,IT, Finance).<br>" +
+                              "Ensuite, la fonction vérifie les paramètres d'entrée Chine, France et USA pour déterminer quelle base de données exécutera la requête.<br> \n" +
+                              "Si le paramètre est égal à 1, la fonction appelle la méthode d'exécution correspondante pour cette base de données, \n" +
+                              "en passant la liste d'objets Query_3 en paramètre. <br>" +
+                              "Chaque méthode d'exécution extrait le nom du département, le titre du poste, le nom de l'employé, la note de performance et l'ID du pays. Elle utilise ensuite\n" +
+                              "ces informations pour mettre à jour les objets Query_3 de l'ArrayList en vérifiant si la note de performance est supérieure à la note de performance\n" +
+                              "actuelle pour le département en question. <br>"+
+                              "</h2>" + content + "</html>");
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
                 } catch (SQLException ex) {

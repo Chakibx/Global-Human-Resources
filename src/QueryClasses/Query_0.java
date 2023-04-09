@@ -29,8 +29,7 @@ public class Query_0 {
 
     @Override
     public String toString() {
-        return  "departement='" + nom + '\'' +
-                ", coutTotal=" + coutTotal ;
+        return nom + "," +coutTotal ;
 
     }
 }

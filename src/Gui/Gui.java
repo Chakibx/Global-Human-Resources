@@ -788,7 +788,7 @@ public class Gui implements ActionListener {
                     ArrayList<Query_8> result;
                     result = Mediator.mediate_query_8(chinaSelected, franceSelected, usaSelected);
                     // Display the results in the output area
-                    query_label.setText("Le nom, la derniere performance,\n et le poste de tous les employé avec leur augmentation de salaire \n (différence entre salaire de base du poste et le salaire actuel de l'employé)\n\n");
+                    query_label.setText("Le nom, la derniere performance, et le poste de tous les employé avec leur augmentation de salaire  ");
                     query_label.setFont(QueryLabel_font);
                     model.addColumn("Nom");
                     model.addColumn("Derniere Performance");

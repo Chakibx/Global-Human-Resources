@@ -198,7 +198,7 @@ public class Gui implements ActionListener {
                         liste0USA.add(q4);
 
                         liste0USA = MysqlQueryExecution.Execute_query_0(liste0USA);
-                        usaContent.append("<h2> MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE USA</h2><br>");
+                        usaContent.append("<h2> ETAPE N°"+etapes+": execution sur la base de données de USA </h2><br>");
                         usaContent.append("&emsp;<b>- Résultats :</b><br>");
                         for (Query_0 obj : liste0USA) {
                             usaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");}
@@ -217,7 +217,7 @@ public class Gui implements ActionListener {
                         liste0France.add(q4);
                         liste0France = PostgresqlQueryExecution.Execute_query_0(liste0France);
                         etapes ++;
-                        franceContent.append("<h2>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE FRANCE</h2><br>");
+                        franceContent.append("<h2>ETAPE N°"+etapes+": excution sur la base de données de France</h2><br>");
                         franceContent.append("&emsp;<b>- Résultats :</b><br>");
                         for (Query_0 obj : liste0France) {
                             franceContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
@@ -238,7 +238,7 @@ public class Gui implements ActionListener {
                         liste0China = XmlQueryExecution.Execute_query_0(liste0China);
                         etapes ++;
 
-                        chinaContent.append("<h2>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE CHINE</h2><br>");
+                        chinaContent.append("<h2>ETAPE N°"+etapes+": excution sur la base de données de Chine</h2><br>");
                         chinaContent.append("&emsp;<b>- Résultats :</b><br>");
                         for (Query_0 obj : liste0China) {
                             chinaContent.append("&emsp;&emsp;").append(obj.toString()).append("<br>");
@@ -254,7 +254,13 @@ public class Gui implements ActionListener {
                     // Affichage dans un JTextPane
                     String content = contentBuilder.toString();
                     executionSetps.setContentType("text/html");
-                    executionSetps.setText("<html>" + "<h2>ETAPES D'OBTENTION DES RÉSULTATS : </h2><br> <h2>Cette méthode Consiste à récupérer les résultats des différentes bases de données et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de la requête. Cela offre une solution pratique et efficace pour traiter des données provenant de sources multiples.</h2>" + content + "</html>");
+                    executionSetps.setText("<html>" + "<h2> Etapes d'obtention des résultats :</h2>" +
+                            "<h2>La fonction mediate_query_0 utilise une approche de programmation modulaire pour exécuter une requête en fonction des paramètres \n" +
+                            "d'entrée fournis (Chine, France et USA) et renvoyer une liste de résultats sous forme d'objet Query_0.<br>" +
+                            "D'abord on commence par initialiser une liste d'objets Query_0 contenant les différentes départemetns: " +
+                            "Ventes et marketing, Ressources humaines, IT et Finance, chacune avec une valeur initiale de 0.<br> " +
+                            "Aprés sur chaque source de données on met à jour la valeur des objets Query_0 dans la liste initiale " +
+                            "en fonction des résultats de la requête exécutée.</h2>" + content + "</html>");
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
                 } catch (SQLException ex) {
@@ -277,7 +283,7 @@ public class Gui implements ActionListener {
                         etapes++;
                         Double moyenne1Usa = 0.0;
                         moyenne1Usa = MysqlQueryExecution.Execute_query_1(moyenne1Usa);
-                        usaContent.append("<b> MISE À JOUR N°" + etapes + ": EXECUTION SUR LA BASE DE DONNÉES DE USA</b><br>");
+                        usaContent.append("<b> Etape N°" + etapes + ": Execution sur la base de données de USA</b><br>");
                         usaContent.append("&emsp;<b>- Résultats :</b><br>");
                         usaContent.append("&emsp;&emsp;").append(moyenne1Usa.toString()).append("<br>");
                     }
@@ -286,7 +292,7 @@ public class Gui implements ActionListener {
                         etapes ++;
                         Double moyenne1France =0.0;
                         moyenne1France = PostgresqlQueryExecution.Execute_query_1(moyenne1France);
-                        franceContent.append("<b>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE FRANCE</b><br>");
+                        franceContent.append("<b>Etape N°"+etapes+": Execution sur la base de données de France/b><br>");
                         franceContent.append("&emsp;<b>- Résultats :</b><br>");
                         franceContent.append("&emsp;&emsp;").append(moyenne1France.toString()).append("<br>");
                         franceContent.append("<br>");
@@ -296,12 +302,12 @@ public class Gui implements ActionListener {
                         etapes ++;
                         Double moyenne1China =0.0;
                         moyenne1China = XmlQueryExecution.Execute_query_1(moyenne1China);
-                        chinaContent.append("<b>MISE À JOUR N°"+etapes+": EXECUTION SUR LA BASE DE DONNÉES DE CHINE</b><br>");
+                        chinaContent.append("<b>Etape N°"+etapes+": Execution sur la base de données de Chine</b><br>");
                         chinaContent.append("&emsp;<b>- Résultats :</b><br>");
                         chinaContent.append("&emsp;&emsp;").append(moyenne1China.toString()).append("<br>");
                         chinaContent.append("<br>");
                     }
-                    chinaContent.append("<b> enfin on somme les "+ etapes +" moyennes et on divise sur "+etapes +"qui nous donne le resultat dans le tableau ci  dessous </b><br>" );
+                    chinaContent.append("<b>Enfin, la fonction calcule la moyenne des résultats en divisant la variable moyenne par nbrCountrySelected " +etapes +"</b><br>");
 
 
                     // Concatenating the results of each country into a single stringBuilder variable.
@@ -313,8 +319,12 @@ public class Gui implements ActionListener {
                     // Affichage dans un JTextPane
                     String content = contentBuilder.toString();
                     executionSetps.setContentType("text/html");
-                    executionSetps.setText("<html>" + "<h2>ETAPES D'OBTENTION DES RÉSULTATS : </h2><br> <h2>Cette méthode Consiste à récupérer les résultats des différentes bases de données et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de la requête. Cela offre une solution pratique et efficace pour traiter des données provenant de sources multiples.</h2>" + content + "</html>");
-
+                    executionSetps.setText("<html>" + "<h2> Etapes d'obtention des résultats :</h2> "
+                            + "<h2>La première étape consiste à initialiser une variable double moyenne à 0,0 et un compteur nbrCountrySelected à 0.<br>" +
+                            "Ensuite, la fonction vérifie les paramètres d'entrée Chine, France et USA pour déterminer quelle base de données exécutera la requête. <br>" +
+                            " Si le paramètre est égal à 1, la fonction appelle la méthode d'exécution correspondante pour cette base de données " +
+                            "en passant la variable moyenne en paramètre.<br>" +
+                            "Chaque méthode d'exécution ajoute le résultat de la requête à la variable moyenne et incrémente le compteur nbrCountrySelected.<br></h2>" + content + "</html>");
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
                 }

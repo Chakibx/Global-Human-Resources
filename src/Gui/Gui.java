@@ -632,13 +632,8 @@ public class Gui implements ActionListener {
                     executionSetps.setContentType("text/html");
                     executionSetps.setText("<html>" + "<h2>Etapes d'obtention des résultats : </h2>" +
                             "<h2>" +
-                            "Cette méthode nous permet de récupérer les résultats des différentes bases de données " +
-                            "et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de la" +
-                            " requête. Cela offre une solution pratique et efficace pour traiter des données provenant " +
-                            "de sources multiples.<br>" +
-                            "<br>CHANIDROUUU BEL 9RRYAAAAAA<br>"+
-                            "Elle commence par créer une nouvelle ArrayList de Query_5. Ensuite, en fonction des valeurs de Chine" +
-                            ", France et USA, elle appelle les méthodes" +
+                            "On commence par créer une nouvelle ArrayList de Query_5. Ensuite, en fonction des valeurs de Chine" +
+                            ", France et USA, on appelle les méthodes" +
                             "Execute_query_5 correspondantes de chaque base de données pour récupérer les résultats et " +
                             "les ajouter à la liste initiale." +
                             "Enfin, elle retourne la liste complète."+
@@ -707,7 +702,12 @@ public class Gui implements ActionListener {
                     // Affichage dans un JTextPane
                     String content = contentBuilder.toString();
                     executionSetps.setContentType("text/html");
-                    executionSetps.setText("<html>" + "<h2>Etapes d'obtention des résultats : </h2> <h2>Cette méthode nous permet de récupérer les résultats des différentes bases de données et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de la requête. Cela offre une solution pratique et efficace pour traiter des données provenant de sources multiples.</h2>" + content + "</html>");
+                    executionSetps.setText("<html>" + "<h2>Etapes d'obtention des résultats : </h2> " +
+                    "<h2>Cette méthode nous permet de récupérer les postes libres des différentes postes dans les differentes  bases de données " +
+                    "et de les afficher dans une seule et même liste, qui se met à jour à chaque exécution de la requête en ajoutant les postes libres en orrdonant la liste  ." +
+                    " Cela offre une solution pratique et efficace pour traiter des données provenant de sources" +
+                     " multiples." +
+                    "</h2>" + content + "</html>");
                 } catch (SaxonApiException ex) {
                     throw new RuntimeException(ex);
                 } catch (SQLException ex) {

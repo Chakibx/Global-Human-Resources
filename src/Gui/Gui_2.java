@@ -45,7 +45,6 @@ public class Gui_2 implements ActionListener {
     private int usaSelected = 0;
 
     private JTable table;
-    private DefaultTableModel model = new DefaultTableModel();
 
     private Font font = new Font("Arial", Font.PLAIN, 20);
     private Font QueryLabel_font = new Font("Arial", Font.PLAIN, 16);
@@ -145,7 +144,7 @@ public class Gui_2 implements ActionListener {
         // Adding events listeners to buttons
         ItemListener selectionListener = new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
-                // Mettre à jour les variables de sélection
+                // Updating the selection variables.
                 chinaSelected = chinaButton.isSelected() ? 1 : 0;
                 franceSelected = franceButton.isSelected() ? 1 : 0;
                 usaSelected = usaButton.isSelected() ? 1 : 0;
@@ -161,14 +160,14 @@ public class Gui_2 implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                 // Get query number from ComboBox choice
                 int queryNumber = (int)queryComboBox.getSelectedItem();
-
+                DefaultTableModel model = new DefaultTableModel();
                 //executing the query and passing the model
-                executeQuery(queryNumber,query_label,executionSteps);
+                executeQuery(queryNumber,model,query_label,executionSteps);
             }
         });
     }
 
-    private void executeQuery(int queryNumber, JLabel query_label, JTextPane executionSetps) {
+    private void executeQuery(int queryNumber , DefaultTableModel model, JLabel query_label, JTextPane executionSetps) {
 
         switch (queryNumber) {
             case 0:
@@ -178,7 +177,6 @@ public class Gui_2 implements ActionListener {
                     // Display the results in the output area
                     query_label.setText("le cout total des formations de l'annee derniere\n");
                     query_label.setFont(QueryLabel_font);
-
                     model.addColumn("Departement");
                     model.addColumn("Cout total");
                     for (Query_0 obj : result) {
@@ -252,8 +250,8 @@ public class Gui_2 implements ActionListener {
             case 2:
                 try {
                     // Display the results in the output area
-                    outputArea.setText("La liste des noms,fonctions, salaires des employes\n qui ont un salaire plus que 3500\n");
-                    outputArea.setFont(QueryLabel_font);
+                    query_label.setText("La liste des noms,fonctions, salaires des employes\n qui ont un salaire plus que 3500\n");
+                    query_label.setFont(QueryLabel_font);
                     //Creating the Table Header row
                     model.addColumn("Nom");
                     model.addColumn("Fonction");
